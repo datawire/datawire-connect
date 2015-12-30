@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ thingInfo['title'] }}{% endblock %}
+
+{% block body %}
+<h1>{{ thingInfo['title'] }}</h1>
+<h2>{{ thingInfo['blurb'] }}</h2>
+
+<hr>
+<p>
+{{ thingInfo['desc'] }}
+</p>
+<hr>
+<p>Price: ${{ thingInfo['price'] }}</p>
+<p>Rating: {{ thingInfo['rating'] }}</p>
+<p>Warnings:</p>
+<ul>
+{% for warning in thingInfo['warnings'] %}
+  <li>{{ warning }}</li>
+{% endfor %}
+</ul>
+{% endblock %}
