@@ -4,17 +4,17 @@ The Market is written for Python 2.7. We strongly recommend using virtualenv!
 
 1. To get started, you'll need Flask, Requests, and Nose:
 
-        `pip install flask requests nose`
+        pip install flask requests nose
 
 2. Run the completely monolithic Market, sans edits.
 
-        ```cd datawire-examples/market
-        python market.py```
+        cd datawire-examples/market
+        python market.py
         
     This will start the Market running, using ratings contained in the monolithic database embodied by things.json.
  
 3. With the Market running, fire up the tests.
 
-        `nosetests`
+        nosetests
 
     All tests should pass.
