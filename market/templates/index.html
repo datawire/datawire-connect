@@ -5,7 +5,10 @@
 
   <ul>
   {% for thingID in allThingIDs %}
-    <li><a href="{{ url_for('thing', thingID=thingID) }}">{{ Things[thingID]['title'] }}: {{ Things[thingID]['blurb'] }}</a>
+  	<a href="{{ url_for('thing', thingID=thingID) }}" class="item-button">
+  		<img src="{{ url_for('static', filename="%s.png" % thingID) }}" class = "item-image">
+    	<!--<a >{{ Things[thingID]['title'] }}: {{ Things[thingID]['blurb'] }}</a>-->
+    </a>
   {% endfor %}
   </ul>  
 

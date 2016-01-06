@@ -1,0 +1,11 @@
+body            { font-family: sans-serif; background: #eee; }
+a, h1, h2       { color: #377BA8; }
+h1, h2          { font-family: 'Georgia', serif; margin: 0; }
+h1              { border-bottom: 2px solid #eee; }
+h2              { font-size: 1.2em; }
+
+.item-button		{padding: 0px; border: 0px; background: rgba(0,0,0,0.0); transition: all 0.5s ease-in-out;}
+/*.item-button:hover 	{ padding: 0px; border: 0px; background: rgba(0,0,0,0.0); transform: scale(1.1); }*/
+.item-button:focus 	{outline: none;}
+
+.item-image		{width: 381px; height: 300px;}
