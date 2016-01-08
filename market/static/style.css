@@ -4,8 +4,24 @@ h1, h2          { font-family: 'Georgia', serif; margin: 0; }
 h1              { border-bottom: 2px solid #eee; }
 h2              { font-size: 1.2em; }
 
-.item-button		{padding: 0px; border: 0px; background: rgba(0,0,0,0.0); transition: all 0.5s ease-in-out;}
-/*.item-button:hover 	{ padding: 0px; border: 0px; background: rgba(0,0,0,0.0); transform: scale(1.1); }*/
-.item-button:focus 	{outline: none;}
 
-.item-image		{width: 381px; height: 300px;}
+
+.item-button		{background-color: #6699ff;text-align: center; position:relative; border:solid 1px #dedede; float:left; width:381px; margin-right:9px; height:400px; overflow:hidden;}
+/*.item-button img:hover 	{opacity: 0;}*/
+.item-button img 	{width: 381px; height: 300px; display: block; margin: 0 auto;}
+.item-button p 		{font-size:16px; line-height:18px; font-weight: bold; color:#000; padding:5px 0 7px 0;}
+.item-desc {padding:10px; width:133px;}
+
+
+.products {opacity: 1;}
+.products ul{ list-style-type: none;}
+.products ul li{ position:relative; padding:1px; border:solid 1px #dedede; float:left; width:381px; margin-right:9px; height:390px; overflow: hidden;}
+.products ul li.last{ margin-right:0; }
+.products ul li img{float: left; width:381px; height:320px;}
+.products ul li img:hover{opacity: 0.6;}
+
+.product-info{ position:absolute; width:153px; top:249px; left:0;}
+.product-info h3{ background:#8b0000; color:#fff; padding:6px 10px; }
+.product-info h4{ font-weight: normal;}
+.product-info p{ font-size:16px; line-height:10px; text-transform: uppercase; font-weight: bold; color:#000; padding:5px 0 7px 0;}
+.product-info .product-desc{ padding:10px; background-color: rgba(255,0,0,0.1); width:363px; }

@@ -1,15 +1,25 @@
 {% extends "layout.html" %}
 {% block title %}Welcome to the Market -- we have things!!{% endblock %}
 {% block body %}
-  <h1>Welcome to the Market -- we have Things!</h1>
+<h1>Welcome to the Market -- we have Things!</h1>
 
-  <ul>
-  {% for thingID in allThingIDs %}
-  	<a href="{{ url_for('thing', thingID=thingID) }}" class="item-button">
-  		<img src="{{ url_for('static', filename="%s.png" % thingID) }}" class = "item-image">
-    	<!--<a >{{ Things[thingID]['title'] }}: {{ Things[thingID]['blurb'] }}</a>-->
-    </a>
-  {% endfor %}
-  </ul>  
+
+
+<div class="products">
+    <div class="cl">&nbsp;</div>
+    <ul>
+    {% for thingID in allThingIDs %}
+      <li> <a href="{{ url_for('thing', thingID=thingID) }}"><img src="{{ url_for('static', filename="%s.png" % thingID) }}" alt="" /></a>
+        <div class="product-info">
+          <h3>{{ Things[thingID]['title'] }}</h3>
+          <div class="product-desc">
+            <p>{{ Things[thingID]['blurb'] }}</p>
+          </div>
+        </div>
+      </li>
+  	{% endfor %}
+    </ul>
+    <div class="cl">&nbsp;</div>
+</div>
 
 {% endblock %}
