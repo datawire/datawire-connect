@@ -18,4 +18,8 @@
   <li>{{ warning }}</li>
 {% endfor %}
 </ul>
+
+<a href="{{ url_for('index') }}"> Return to Index </a>
+<br>
+<a href="{{ url_for('cart', thingID=thingID) }}"> Add to Cart </a>
 {% endblock %}
