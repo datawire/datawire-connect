@@ -49,7 +49,7 @@ def thing(thingID=None):
     pass
 
 
-@app.route('/cart')
+@app.route('/cart/')
 def cart():
   global totalCost
   return render_template('cart.html', cartItems=cartItems, cartMessage="", Things=Things, totalCost=totalCost)
