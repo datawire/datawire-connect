@@ -14,7 +14,11 @@
           <div class="product-desc">
           <form action="", method="POST">
           <input type="hidden" name={{thingID}} value={{thingID}}/>
+          {% if thingID not in cartItems %}
           <input class="add-to-cart" type="submit" name="addCart" value="Add to Cart" />
+          {% else %}
+          <input class="add-to-cart" type="submit" name="removeCart" value="Remove from Cart" />
+          {% endif %}
           </form>
             <div class="product-price">
               <p> ${{ Things[thingID]['price']}} </p>

@@ -40,14 +40,20 @@ def index():
   elif request.method == 'POST':
     if 'checkout' in request.form:
       return checkout()
-    for thingID in Things:
-      if thingID in request.form:
-        cartMessage = "Item could not be added."
-        if (cartItems.count(thingID) == 0):
-          cartItems.append(thingID)
-          cartMessage = "Item added successfully!"
-        return renderIndex(cartMessage)
-
+    elif 'addCart' in request.form:
+      for thingID in Things:
+        if thingID in request.form:
+          cartMessage = "Item could not be added."
+          if (cartItems.count(thingID) == 0):
+            cartItems.append(thingID)
+            cartMessage = "Item added successfully!"
+          return renderIndex(cartMessage)
+    elif 'removeCart' in request.form:
+      for thingID in cartItems:
+        if thingID in request.form:
+          cartItems.remove(thingID)
+          return renderIndex("Item removed successfully!")
+          
 #@app.route('/thing/<thingID>', methods = ['GET','POST'])
 #def thing(thingID=None):
 #  if (request.method == 'GET'):
