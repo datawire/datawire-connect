@@ -27,7 +27,7 @@ def renderIndex(cartMessage):
                              allThingIDs=sorted(Things.keys()),
                              Things=Things, cartItems=sorted(cartItems), cartMessage=cartMessage, totalCost=cartCost(), numItems=len(cartItems))
 
-@app.route('/')
+@app.route('/', methods = ['GET', 'POST'])
 def index():
   global cartItems
   if request.method == 'GET':
@@ -36,34 +36,41 @@ def index():
     if sendJSON:
       return jsonify({ "thingIDs": sorted(Things.keys()) })
     else:
-      return renderIndex("")
-  elif request.method == 'POST' and 'checkout' in request.form:
-    return checkout()
+      return renderIndex("") 
+  elif request.method == 'POST':
+    if 'checkout' in request.form:
+      return checkout()
+    for thingID in Things:
+      if thingID in request.form:
+        cartMessage = "Item could not be added."
+        if (cartItems.count(thingID) == 0):
+          cartItems.append(thingID)
+          cartMessage = "Item added successfully!"
+        return renderIndex(cartMessage)
 
-@app.route('/thing/<thingID>', methods = ['GET','POST'])
-def thing(thingID=None):
-  if (request.method == 'GET'):
-    sendJSON = request.args.get('json', False)
-
-    if (thingID is None) or (not thingID in Things):
-      if sendJSON:
-        return ('no such Thing: %s' % thingID, 404)
-      else:
-        return(render_template('noSuchThing.html', thingID=thingID), 404)
-  
-    if sendJSON:
-      return jsonify(Things[thingID])
-    else:
-      return render_template('thing.html', thingID=thingID, thingInfo=Things[thingID])
-  elif (request.method == 'POST' and 'addcart' in request.form):
-    cartMessage = "Item could not be added."
-    global totalCost
-    if (cartItems.count(thingID) == 0 and (thingID in Things)):
-      cartItems.append(thingID)
-      cartMessage = "Item added successfully!"
-    return renderIndex(cartMessage)
-  elif request.method == 'POST' and 'checkout' in request.form:
-    return checkout()
+#@app.route('/thing/<thingID>', methods = ['GET','POST'])
+#def thing(thingID=None):
+#  if (request.method == 'GET'):
+#    sendJSON = request.args.get('json', False)
+#
+#    if (thingID is None) or (not thingID in Things):
+#      if sendJSON:
+#        return ('no such Thing: %s' % thingID, 404)
+#      else:
+#        return(render_template('noSuchThing.html', thingID=thingID), 404)
+#  
+#    if sendJSON:
+#      return jsonify(Things[thingID])
+#    else:
+#      return render_template('thing.html', thingID=thingID, thingInfo=Things[thingID])
+#  elif (request.method == 'POST' and 'addcart' in request.form):
+#    cartMessage = "Item could not be added."
+#    if (cartItems.count(thingID) == 0 and (thingID in Things)):
+#      cartItems.append(thingID)
+#      cartMessage = "Item added successfully!"
+#    return renderIndex(cartMessage)
+#  elif request.method == 'POST' and 'checkout' in request.form:
+#    return checkout()
 
 @app.errorhandler(404)
 def page_not_found(e):

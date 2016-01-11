@@ -7,11 +7,21 @@
     <div class="cl">&nbsp;</div>
     <ul>
     {% for thingID in allThingIDs %}
-      <li> <a href="{{ url_for('thing', thingID=thingID) }}"><img src="{{ url_for('static', filename="%s.png" % thingID) }}" alt="" /></a>
+      <li> 
+      <img src="{{ url_for('static', filename="%s.png" % thingID) }}" alt="" /><!-- </a> -->
         <div class="product-info">
           <h3>{{ Things[thingID]['title'] }}</h3>
           <div class="product-desc">
-          <p> ${{ Things[thingID]['price']}} <span style="float:right;"> Rating: {{Things[thingID]['rating']}}/5 </span> </p>
+          <form action="", method="POST">
+          <input type="hidden" name={{thingID}} value={{thingID}}/>
+          <input class="add-to-cart" type="submit" name="addCart" value="Add to Cart" />
+          </form>
+            <div class="product-price">
+              <p> ${{ Things[thingID]['price']}} </p>
+            </div>
+            <div class="product-rating">
+            <p> <span style="float:right;"> {{Things[thingID]['rating']}}/5 </span></p>
+            </div>
           </div>
         </div>
       </li>
@@ -28,7 +38,7 @@
     {% if numItems > 0 %}
     <ul id="cartList">
     {% for thingID in cartItems %}
-      <li> <a href="{{ url_for('thing', thingID=thingID) }}"><img src="{{ url_for('static', filename="%s.png" % thingID) }}" alt="" /></a>
+      <li> <img src="{{ url_for('static', filename="%s.png" % thingID) }}" alt="" /><!-- </a> -->
         <!-- <div class="product-info">
           <h3>{{ Things[thingID]['title'] }}</h3>
           <div class="product-desc">
@@ -46,10 +56,11 @@
 
   
   <div class="cl">&nbsp;</div>
-
+  {% if numItems > 0 %}
   <form action="", method="POST">
-    <input type="submit" name="checkout" value="Checkout" />
+    <input class="checkout-button" type="submit" name="checkout" value="Checkout"/>
   </form>
+  {% endif %}
 </div>
 
 {% endblock %}
