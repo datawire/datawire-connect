@@ -3,6 +3,7 @@ a, h1, h2       { color: #377BA8; }
 h1, h2          { font-family: 'Georgia', serif; margin: 0; }
 h1              { border-bottom: 2px solid #eee; }
 h2              { font-size: 1.2em; }
+h4				{font-size: 1.2em; text-align: center;}
 
 
 
@@ -14,7 +15,11 @@ h2              { font-size: 1.2em; }
 .item-desc {padding:10px; width:133px;}
 */
 
-.products {opacity: 1;}
+html, body {
+    height: 100%;
+}
+
+.products {opacity: 1; width:70%; float: left; height:100%; /*border:solid 1px #dedede;*/}
 .products ul{ list-style-type: none;}
 .products ul li{ position:relative; padding:1px; border:solid 1px #dedede; float:left; width:381px; margin-right:9px; height:390px; overflow: hidden;}
 .products ul li.last{ margin-right:0; }
@@ -27,16 +32,11 @@ h2              { font-size: 1.2em; }
 .products .product-info p{ font-size:16px; line-height:10px; text-transform: uppercase; font-weight: bold; color:#000; padding:5px 0 7px 0;}
 .products .product-info .product-desc{ padding:10px; background-color: rgba(255,0,0,0.1); width:363px; }
 
+.cart-items		{/*position: fixed;*/ margin-left: 70%; /*border-left: thin solid black;*/ height:100%; /*border: solid 1px #dedede;*/}
+.cart-items p {margin: auto; text-align: center;}
 .cart-items ul {list-style-type: none;}
-.cart-items ul li img{float: left; width:381px; height:320px;}
-.cart-items ul li{ position:relative; padding:1px; border:solid 1px #dedede; float:left; width:381px; margin-right:9px; height:390px; overflow: hidden;}
-.cart-items ul li.last{ margin-right:0; }
-.cart-items ul li img:hover{opacity: 0.6;}
+.cart-items ul li img{width:190px; height:160px;}
+.cart-items ul li{margin: auto; padding:1px; border:solid 1px #dedede; width:190px; height:160px; overflow: hidden;}
+.cart-items  form input{font-size: 2em;}
 
-.cart-items .product-info{ position:absolute; width:153px; top:249px; left:0;}
-.cart-items .product-info h3{ background:#8b0000; color:#fff; padding:6px 10px; }
-.cart-items .product-info h4{ font-weight: normal;}
-.cart-items .product-info p{ font-size:16px; line-height:10px; text-transform: uppercase; font-weight: bold; color:#000; padding:5px 0 7px 0;}
-.cart-items .product-info .product-desc{ padding:10px; background-color: rgba(255,0,0,0.1); width:363px; }
-
-.return {position: relative;}
+#cartList {padding:0}

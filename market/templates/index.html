@@ -2,8 +2,6 @@
 {% block title %}Welcome to the Market -- we have things!!{% endblock %}
 {% block body %}
 <h1>Welcome to the Market -- we have Things!</h1>
-<a href="{{ url_for('cart') }}"> View your Cart </a>
-
 
 <div class="products">
     <div class="cl">&nbsp;</div>
@@ -13,13 +11,45 @@
         <div class="product-info">
           <h3>{{ Things[thingID]['title'] }}</h3>
           <div class="product-desc">
-            <p>{{ Things[thingID]['blurb'] }}</p>
+          <p> ${{ Things[thingID]['price']}} <span style="float:right;"> Rating: {{Things[thingID]['rating']}}/5 </span> </p>
           </div>
         </div>
       </li>
   	{% endfor %}
     </ul>
     <div class="cl">&nbsp;</div>
+</div>
+
+<div class="cart-items" style="text-align:center;">
+  <p style="font-size:300%; color: blue"> Your Cart </p>
+  <br>
+  <p>  {{cartMessage}} </p>
+  <div class="cl">&nbsp;</div>
+    {% if numItems > 0 %}
+    <ul id="cartList">
+    {% for thingID in cartItems %}
+      <li> <a href="{{ url_for('thing', thingID=thingID) }}"><img src="{{ url_for('static', filename="%s.png" % thingID) }}" alt="" /></a>
+        <!-- <div class="product-info">
+          <h3>{{ Things[thingID]['title'] }}</h3>
+          <div class="product-desc">
+            <p>{{ Things[thingID]['blurb'] }}</p>
+          </div>
+        </div> -->
+      </li>
+    {% endfor %}
+    </ul>
+    <p> Total: {{totalCost}} </p>
+    {% else %}
+    <p style="margin: auto;"> Add some items to your cart! </p>
+    {% endif %}
+    
+
+  
+  <div class="cl">&nbsp;</div>
+
+  <form action="", method="POST">
+    <input type="submit" name="checkout" value="Checkout" />
+  </form>
 </div>
 
 {% endblock %}
