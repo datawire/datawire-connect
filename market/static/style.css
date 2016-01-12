@@ -1,9 +1,6 @@
-body            { font-family: sans-serif; background: #eee; }
-a, h1, h2       { color: #377BA8; }
-h1, h2          { font-family: 'Georgia', serif; margin: 0; }
-h1              { border-bottom: 2px solid #eee; }
-h2              { font-size: 1.2em; }
-h4				{font-size: 1.2em; text-align: center;}
+body            {font-family: sans-serif; background: #eee; }
+h1, h3      		{font-family: 'Lucida Console', serif; margin: 0; text-align: center; }
+h3				{font-size: 2em; text-align: center;}
 
 
 
@@ -21,19 +18,19 @@ html, body {
 
 .products {opacity: 1; width:70%; float: left; height:100%; /*border:solid 1px #dedede;*/}
 .products ul{ list-style-type: none;}
-.products ul li{ position:relative; padding:1px; border:solid 1px #dedede; float:left; width:381px; margin-right:9px; height:390px; overflow: hidden;}
+.products ul li{ position:relative; padding:1px; border:solid 1px #dedede; float:left; width:381px; margin-right:9px; height:400px; overflow: hidden;}
 .products ul li.last{ margin-right:0; }
 .products ul li img{float: left; width:381px; height:320px;}
 /*.products ul li img:hover{opacity: 0.6;}*/
 
+
 .products .product-info{ position:absolute; width:153px; top:249px; left:0;}
-.products .product-info h3{ background:#8b0000; color:#fff; padding:6px 10px; }
-.products .product-info h4{ font-weight: normal;}
+.products .product-info h2{ background:#8b0000; color:#fff; padding:6px 10px; font-size: 1.13em; }
 .products .product-info p{ font-size:16px; line-height:10px; text-transform: uppercase; font-weight: bold; color:#000; padding:5px 0 7px 0;}
 .products .product-info .product-desc{ padding:10px; /*background-color: rgba(255,0,0,0.1)*/; width:364px; }
 .products .product-info .product-desc .product-price{width: 80px; float: left;}
 .products .product-info .product-desc .product-rating{margin-left: 80px; float: right;}
-
+.products .product-info .product-desc  form input {box-shadow: rgb(255, 255, 255) 0px 1px 0px 0px inset; border-radius: 6px; border: 1px solid rgb(220, 220, 220); display: inline-block; cursor: pointer; color: rgb(119, 119, 119); font-family: Arial; font-size: 15px; font-weight: bold; padding: 6px 24px; text-decoration: none; text-shadow: rgb(255, 255, 255) 0px 1px 0px; background: linear-gradient(rgb(237, 237, 237) 5%, rgb(223, 223, 223) 100%) rgb(237, 237, 237);}
 
 .cart-items		{/*position: fixed;*/ margin-left: 70%; /*border-left: thin solid black;*/ height:100%; /*border: solid 1px #dedede;*/}
 .cart-items p {margin: auto; text-align: center;}

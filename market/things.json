@@ -1,6 +1,6 @@
 {
-	"thing1": {
-		"title": "Thing One",
+	"basketball": {
+		"title": "The Basketball",
 		"blurb": "Lots of fun on a rainy day!",
 		"desc": "This Thing will not bite you. It wants to have fun! Would you like to shake hands with your new friend Thing One?",
 		"price": 19.99,
@@ -10,8 +10,8 @@
 			"Not tame."
 		]
 	},
-	"thing2": {
-		"title": "Thing Two",
+	"football": {
+		"title": "The Football",
 		"blurb": "Lots of fun on a rainy day!",
 		"desc": "Having fun is what this Thing is wanting to do! Come say hello to your new friend Thing Two!",
 		"price": 19.99,
@@ -22,7 +22,7 @@
 		]
 	},
 	"winslow": {
-		"title": "The Winslow",
+		"title": "The Camera",
 		"blurb": "Hi!",
 		"desc": "Indestructible, presumably immortal, and figures prominently in fully three quarters of the galaxy's religions. Some fear it, some worship, nearly everyone wants it!",
 		"price": 99.99,
