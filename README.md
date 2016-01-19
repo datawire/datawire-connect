@@ -1,6 +1,6 @@
-# Datawire Connect
-
 ![Datawire](static-files/dw-logo.png)
+
+# Datawire Connect
 
 **Datawire Connect** helps you build and run resilient microservices. It allows you to
 express the interfaces between your services, define how they should behave when
@@ -51,17 +51,19 @@ You should see the following:
 Hello Python from Datawire Connect!
 ```
 
-Follow the instructions in the HelloRPC README to take the next steps by
-learning how to run your own server and change the client to call that instead.
+Follow the instructions in the HelloRPC `README` to take the next steps by
+learning how to run your own local server, how to call your new local server
+instead, and change the client to be more resilient.
 
-## Features
+## Features of Datawire Connect
 
 * Native support for building resilient microservices in Python, JavaScript,
 and Java (Ruby and Go support coming soon)
 * Automatic microservice registration with the Datawire Hub discovery service
 * Custom serialization support
-* Support for HTTP/S, JSON, XML, Web Sockets...you name it.
-* Turing Complete language (Quark) that combines the worlds of IDL and DSL
+* Support for HTTP/S, JSON, XML, Web Sockets...you name it
+* Turing Complete language (Quark) that combines an IDL with a DSL, making it
+very powerful for defining resilient service behaviors
 
 ## Roadmap
 
@@ -72,6 +74,8 @@ including:
 * Cloud-based version of Datawire Hub
 * Per-request timeouts and per-service timeouts (aka, circuit breaking)
 * Intelligent Load balancing
+
+For more information, read our detailed Roadmap.
 
 # Getting Involved
 
