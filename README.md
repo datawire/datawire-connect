@@ -1,6 +1,6 @@
 # Datawire Connect
 
-![](static_files/dw-logo.png "Datawire")
+![Datawire](static_files/dw-logo.png)
 
 **Datawire Connect** helps you build and run resilient microservices. It allows you to
 express the interfaces between your services, define how they should behave when
@@ -24,7 +24,7 @@ other services can find them.
 
 ### Illustration ###
 
-![](static_files/dw-connect.png "Datawire Connect")
+![Datawire Connect](static_files/dw-connect.png)
 
 ## Getting Started in 5 Minutes
 
