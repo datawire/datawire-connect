@@ -2,9 +2,13 @@
 
 # Datawire Connect
 
-**Datawire Connect** helps you build and run resilient microservices. It allows you to
-express the interfaces between your services, define how they should behave when
-they interact, and helps them reliably discover and reach other services at runtime.
+**Datawire Connect** helps you build and run resilient microservices.
+
+It allows you to express the interfaces between your services, defines how they
+should behave when they interact, and helps them reliably discover and reach
+other services at runtime.
+
+# Overview
 
 A core part of Datawire Connect is **Quark**, a language that is used to define the
 interfaces to your microservices and, more importantly, influence their runtime
@@ -26,9 +30,22 @@ other services can find them.
 
 ![Datawire Connect](static-files/dw-connect.png)
 
+## Why Resilience Matters
+
+Resilience is crucial to the survival and growth of any microservice system.
+Since microservices by their very nature are small, they are typically deployed
+at increased speeds to handle more traffic as they become more popular within
+an organization.
+
+However, without building in behavioral protections to your clients and services,
+even a innocuous failure anywhere in your distributed system could prove
+devastating to your entire system. It's extremely important to design a
+microservice-based system capable of handling failures, slowness, and offer
+discovery, routing, serialization, asynchronicity, and more.
+
 ## Getting Started in 5 Minutes
 
-Datawire Connect is super easy to install and use.
+Datawire Connect is super easy to install and use!
 
 #### Installation
 ```
@@ -55,6 +72,13 @@ Follow the instructions in the HelloRPC `README` to take the next steps by
 learning how to run your own local server, how to call your new local server
 instead, and change the client to be more resilient.
 
+## Learning more
+
+There are lots more samples for you to try out in the `quark/examples` folder.
+The Quick Start guide will help you get more acquianted with the Datawire
+Connect tools. There's also a detailed [language reference](http://datawire.github.io/quark/0.2/quick-start/index.html) for Quark
+that covers it in detail.
+
 ## Features of Datawire Connect
 
 * Native support for building resilient microservices in Python, JavaScript,
@@ -73,7 +97,7 @@ including:
 * Support for Ruby and Go
 * Cloud-based version of Datawire Hub
 * Per-request timeouts and per-service timeouts (aka, circuit breaking)
-* Intelligent Load balancing
+* Intelligent load balancing
 
 For more information, read our detailed Roadmap.
 
