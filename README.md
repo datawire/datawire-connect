@@ -8,6 +8,10 @@ It allows you to express the interfaces between your services, defines how they
 should behave when they interact, and helps them reliably discover and reach
 other services at runtime.
 
+Datawire Connect is designed to work with your existing software and
+languages. It does not require you to make changes to your existing
+interfaces, programming languages, or application framework.
+
 # Overview
 
 A core part of Datawire Connect is **Quark**, a language that is used to define the
@@ -18,9 +22,7 @@ if the service is running slowly, or add circuit breaking, or cache existing
 response values to improve performance. There's no practical limit to the
 sophistication of the behaviors you could add to your microservices.
 
-Datawire Connect also includes client-side load balancing through **Datawire Connect Proxy**.
-Client-side load balancers are far more scalable and less prone to becoming bottlenecks
-than traditional centralized load balancers.
+Datawire Connect also integrates client-side load balancing.
 
 Discovery is achieved in Datawire Connect through **Datawire Hub**. This technology
 offers your services a reliable and resilient way to register themselves so that
