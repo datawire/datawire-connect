@@ -24,20 +24,20 @@ Datawire Connect is built on **Quark**, a language designed for
 expressing the contract between services. Similar to a traditional
 IDL, Quark lets you define your services APIs and how data is
 serialized. In this sense, Quark is similar to technologies such as
-[gRPC](http://www.grpc.io). Quark also extends the notion of a traditional
-IDL and lets you express *protocol behaviors* as part of your service
-contract. For example, you can also define how clients of that service
-should behave if the service is running slowly, add circuit breaking,
-or cache existing response values to improve performance. There's no
-practical limit to the sophistication of the behaviors you could add
-to your microservices.
+[gRPC](http://www.grpc.io). Quark also extends the notion of a
+traditional IDL and lets you express *protocol behaviors* as part of
+your service contract. For example, you can also define how clients of
+that service should behave if the service is running slowly by adding
+circuit breakers, retry semantics, or backpressure to improve
+performance. There's no practical limit to the sophistication of the
+behaviors you could add to your microservices.
 
 Datawire Connect also includes a native interface to service
 discovery. This interface enables microservices to dynamically
 discover and route data between each other. The **Datawire Hub**
 provides an implementation of the service discovery interface, but
 support for other service discovery mechanisms such as Zookeeper or
-consul.io is supported in the design.
+Consul is supported in the design.
 
 ![Datawire Connect](static-files/dw-connect.png)
 
@@ -97,15 +97,7 @@ very powerful for defining resilient service behaviors
 
 ## Roadmap
 
-Lots of exciting features are currently being developed for Datawire Connect,
-including:
-
-* Support for Ruby and Go
-* Cloud-based version of Datawire Hub
-* Per-service timeouts (aka, circuit breaking)
-* Intelligent load balancing
-
-For more information, read our more detailed [roadmap](https://github.com/datawire/quark/blob/master/ROADMAP.md).
+We have a [roadmap](https://github.com/datawire/datawire-connect/blob/master/ROADMAP.md).
 
 # Getting Involved
 
