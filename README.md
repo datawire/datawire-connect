@@ -47,9 +47,6 @@ You can use Datawire Connect to quickly add resilience (timeouts,
 circuit breakers, and load balancing) to your existing HTTP-based
 microservice infrastructure.
 
-
-Datawire Connect is super easy to install and use!
-
 #### Installation
 ```
 pip install datawire-quark
