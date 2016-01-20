@@ -2,51 +2,51 @@
 
 # Datawire Connect
 
-**Datawire Connect** helps you build and run resilient microservices.
+**Datawire Connect** is a simple way to build and run resilient microservices.
 
-It allows you to express the interfaces between your services, defines how they
-should behave when they interact, and helps them reliably discover and reach
-other services at runtime.
+Datawire Connect allows you to fully express the contract between
+services. This includes:
 
-Datawire Connect is designed to work with your existing software and
-languages. It does not require you to make changes to your existing
-interfaces, programming languages, or application framework.
+* the interfaces between your services (e.g., expressing your REST or WebSockets API)
+* how these interfaces should behave when they interact (e.g.,
+  expressing your timeout / retry behavior over HTTP)
+* how data is serialized on the wire (e.g., JSON)
+
+Datawire Connect works with your existing framework and languages. It
+does not require you to make changes to your existing interfaces,
+programming languages, or application framework. Datawire Connect
+has native support for Python, Java, and JavaScript, with Ruby support
+coming soon.
 
 # Overview
 
-A core part of Datawire Connect is **Quark**, a language that is used to define the
-interfaces to your microservices and, more importantly, influence their runtime
-behaviors. With Quark, you can specify much more than just the parameters of the
-methods you create. For example, you can also define how clients of that service 
-should behave if the service is running slowly, or add circuit breaking, or cache 
-existing response values to improve performance. There's no practical limit to the
-sophistication of the behaviors you could add to your microservices.
+Datawire Connect is built on **Quark**, a language designed for
+expressing the contract between services. Similar to a traditional
+IDL, Quark lets you define your services APIs and how data is
+serialized. In this sense, Quark is similar to technologies such as
+GRPC. Quark also extends the notion of a traditional IDL and lets you
+express *protocol behaviors* as part of your service contract. For
+example, you can also define how clients of that service should behave
+if the service is running slowly, add circuit breaking, or cache
+existing response values to improve performance. There's no practical
+limit to the sophistication of the behaviors you could add to your
+microservices.
 
-Datawire Connect also includes client-side load balancing.
-
-Discovery is achieved in Datawire Connect through **Datawire Hub**. This technology
-offers your services a reliable and resilient way to register themselves so that
-other services can find them.
+Datawire Connect also includes a native interface to service
+discovery. This interface enables microservices to dynamically
+discover and route data between each other. The **Datawire Hub**
+provides an implementation of the service discovery interface, but
+support for other service discovery mechanisms such as Zookeeper or
+consul.io is supported in the design.
 
 ![Datawire Connect](static-files/dw-connect.png)
 
-## The Importance of Resilience
+# Quick start
 
-Resilience is crucial to the survival and growth of any microservice system.
-As they get adopted within an organization and begin to handle more traffic,
-more services get deployed, and at increasing speed.
+You can use Datawire Connect to quickly add resilience (timeouts,
+circuit breakers, and load balancing) to your existing HTTP-based
+microservice infrastructure.
 
-However, without building in behavioral protections to your clients and services,
-even a innocuous failure in your distributed system could prove devastating to
-your entire application. It's therefore extremely important to design a
-microservice-based system that is capable of handling failures, slowness, and offer
-discovery, routing, serialization, asynchronicity, and more.
-
-Datawire Connect can add resilience to any microservice system using the
-powerful runtime behaviors that can be expressed in Quark, and through its
-client-side load balancing capabilities.
-
-## Getting Started in Minutes
 
 Datawire Connect is super easy to install and use!
 
