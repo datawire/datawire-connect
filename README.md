@@ -20,11 +20,11 @@ coming soon.
 
 # Overview
 
-Datawire Connect is built on **Quark**, a language designed for
-expressing the contract between services. Similar to a traditional
-IDL, Quark lets you define your services APIs and how data is
+Datawire Connect is built on [Quark](https://github.com/datawire/quark),
+a language designed for expressing the contract between services. Similar to a
+traditional IDL, Quark lets you define your services APIs and how data is
 serialized. In this sense, Quark is similar to technologies such as
-[gRPC](http://www.grpc.io). Quark also extends the notion of a
+[gRPC](http://www.grpc.io). Quark further extends the notion of a
 traditional IDL and lets you express *protocol behaviors* as part of
 your service contract. For example, you can also define how clients of
 that service should behave if the service is running slowly by adding
@@ -50,27 +50,31 @@ semantics (timeouts, load balancing, and circuit breakers) to
 HTTP-based RPC calls.
 
 #### Installation
+The following commands will install the Quark compiler and its runtime:
 ```
 pip install datawire-quark
+pip install datawire-quark-threaded
 ```
 #### Running an Example
 
-The first demo to try is the `helloRPC` demo. We have a microservice running in
-the cloud that you can call using the `helloRPC` client example:
+The first demo to try is the `helloRPC` demo, which shows a simple RPC
+interaction between a client and a microservice. These commands are in Python,
+and will be used to make an RPC call to a microservice already running in the
+cloud:
 
 ```
-cd datawire-quark/examples/helloRPC
+git clone https://github.com/datawire/datawire-connect.git
+cd datawire-connect/examples/helloRPC
 quark --python package hello.q
 pip install hello/py/dist/hello-0.1.0-py2-none-any.whl
 python pyclient.py
 ```
 You should see the following:
-
 ```
 Response says "Responding to 'Hello from Python!' from Datawire Cloud!"
 ```
 
-## Learning more
+#### Learning more
 
 The [Getting Started with RPC tutorial](http://datawire.github.io/quark/0.3/tutorials/rpc-basic/index.html)
 will take the `helloRPC` example further by showing you how to run your own local
@@ -85,7 +89,16 @@ When you've reached the point of writing your own clients or services using
 Datawire Connect, you'll need our detailed [language reference](http://datawire.github.io/quark/0.3/language-reference/index.html)
 that covers the Quark language constructs and syntax in detail.
 
-## Features of Datawire Connect
+#### Supported Platforms
+
+Datawire Connect has been certified on:
+
+* Mac OS 10.10 (Yosemite)
+* Mac OS 10.11 (El Capitan)
+* Ubuntu 14.04 (Trusty)
+* Fedora 22
+
+# Features of Datawire Connect
 
 * Native support for building resilient microservices in Python, JavaScript,
 and Java (Ruby and Go support coming soon!)
@@ -95,12 +108,12 @@ and Java (Ruby and Go support coming soon!)
 * A sophisticated language (Quark) that combines an IDL with a DSL, making it
 very powerful for defining resilient service behaviors
 
-## Roadmap
+# Roadmap
 
 We have a [roadmap](https://github.com/datawire/datawire-connect/blob/master/ROADMAP.md).
 
 # Getting Involved
 
-Datawire Connect is open source and community-driven! Please feel free to raise 
+Datawire Connect is open source and community-driven! Please feel free to raise
 GitHub issues as needed. If you'd like to make an enhancement or fix, please submit
 a Pull Request with your proposed changes.

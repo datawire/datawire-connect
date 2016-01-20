@@ -7,7 +7,18 @@ import hello
 def main():
     runtime = get_runtime()
 
-    client = hello.HelloClient(runtime, "http://127.0.0.1:8910/hello")
+    # "http://hello.datawire.io/" is the URL of the simple "Hello" cloud
+    # microservice run by Datawire, Inc. to serve as a simple first test.
+    #
+    # You can test completely locally, too:
+    # - comment out the http://hello.datawire.io line
+    # - uncomment the http://127.0.0.1:12216/hello line
+    # - fire up the local version of the server by following the instructions
+    # in the README.md.
+
+    client = hello.HelloClient(runtime, "http://hello.datawire.io/")
+    # client = hello.HelloClient(runtime, "http://127.0.0.1:8910/hello")
+
     request = hello.Request()
     request.text = "Hello from Python!"
     print "Request says %r" % request.text

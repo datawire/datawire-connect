@@ -9,7 +9,19 @@ public class HelloRPCClient {
     public static void main(String[] args) {
         QuarkNettyRuntime runtime = QuarkNettyRuntime.getRuntime();
         runtime.setAllowSync(true);
-        HelloClient client = new HelloClient(runtime, "http://localhost:8910/hello");
+
+        // "http://hello.datawire.io/" is the URL of the simple "Hello" cloud
+        // microservice run by Datawire, Inc. to serve as a simple first test.
+        //
+        //  You can test completely locally, too:
+        //  - comment out the http://hello.datawire.io line
+        //  - uncomment the http://127.0.0.1:12216/hello line
+        //  - fire up the local version of the server by following the instructions
+        //  in the README.md.
+        //
+        HelloClient client = new HelloClient(runtime, "http://hello.datawire.io/");
+        // HelloClient client = new HelloClient(runtime, "http://localhost:8910/hello");
+
         Request request = new Request();
         request.text = "Hello from Java!";
         System.out.println("Request says: " + request.text);

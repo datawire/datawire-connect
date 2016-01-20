@@ -28,18 +28,16 @@ integration can serve the service on the given URL.
 
 ## Running this example
 
-The clients expect to find the service on http://127.0.0.1:8910/hello
-and each server runs there. Thus you may run a single server at a
-time, as well as any number of clients.
+The clients are initially coded to run against a microservice in the cloud,
+running on hello.datawire.io. If you'd prefer to run this service locally
+and call yours instead, just switch the comments in the client code to
+change the target URL.
 
-To get started, download the example by cloning its git repository as
-follows:
+Cloud service URL: http://hello.datawire.io/
+Your local service URL: http://127.0.0.1:8910/hello
 
-        git clone https://github.com/datawire/quark.git
-
-All of the directions below assume you are starting from
-*repoBase*/examples/helloRPC where *repoBase* is the location where
-you cloned the repository above.
+All of the directions below assume you are starting from the examples/helloRPC
+directory.
 
 ### Python
 
@@ -51,13 +49,17 @@ Compile and install the Service Contract in hello.q:
         quark --python package hello.q
         pip install hello/py/dist/hello-0.1.0-py2-none-any.whl
 
-Run the Python server with
-
-        python pyserver.py
-
 Run the Python client with
 
         python pyclient.py
+
+You should now see the cloud microservice respond. You can also run the
+service locally, using the command:
+
+        python pyserver.py
+
+Modify pyclient.py to use a URL of http://127.0.0.1:8910/hello and re-run the
+client to see your local server being called instead of the cloud-based service.
 
 ### Java
 
@@ -70,17 +72,22 @@ Compile and install the Service Contract in hello.q:
         quark --java package hello.q
         (cd hello/java && mvn install)
 
-Compile the Java server and client with 
+Compile the Java server and client with
 
         mvn compile
-
-Run the Java server with
-
-        mvn exec:java -Dexec.mainClass=helloRPC.HelloRPCServer
 
 Run the Java client with
 
         mvn exec:java -Dexec.mainClass=helloRPC.HelloRPCClient
+
+You should now see the cloud microservice respond. You can also run the
+service locally, using the command:
+
+        mvn exec:java -Dexec.mainClass=helloRPC.HelloRPCServer
+
+Modify `src/main/java/helloRPC/HelloRPCClient.java` to use a URL of
+http://127.0.0.1:8910/hello, recompile, and run the client to see your local
+server being called instead of the cloud-based service.
 
 ### JavaScript
 
