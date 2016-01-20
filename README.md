@@ -17,9 +17,9 @@ interfaces, programming languages, or application framework.
 A core part of Datawire Connect is **Quark**, a language that is used to define the
 interfaces to your microservices and, more importantly, influence their runtime
 behaviors. With Quark, you can specify much more than just the parameters of the
-methods you create. You can also define how clients of that service should behave
-if the service is running slowly, or add circuit breaking, or cache existing
-response values to improve performance. There's no practical limit to the
+methods you create. For example, you can also define how clients of that service 
+should behave if the service is running slowly, or add circuit breaking, or cache 
+existing response values to improve performance. There's no practical limit to the
 sophistication of the behaviors you could add to your microservices.
 
 Datawire Connect also includes client-side load balancing.
