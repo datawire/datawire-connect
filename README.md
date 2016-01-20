@@ -46,7 +46,7 @@ Datawire Connect can add resilience to any microservice system using the
 powerful runtime behaviors that can be expressed in Quark, and through its
 client-side load balancing capabilities.
 
-## Getting Started in 5 Minutes
+## Getting Started in Minutes
 
 Datawire Connect is super easy to install and use!
 
@@ -74,7 +74,7 @@ Response says "Responding to 'Hello from Python!' from Datawire Cloud!"
 ## Learning more
 
 The [Getting Started with RPC tutorial](http://datawire.github.io/quark/0.3/tutorials/rpc-basic/index.html)
-will take the `helloRPC` further by showing you how to run your own local
+will take the `helloRPC` example further by showing you how to run your own local
 server, and how to do so in other languages such as Java and JavaScript.
 
 You can also try the other included examples that show how to use a custom
