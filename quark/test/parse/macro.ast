@@ -1,7 +1,0 @@
-File(
- Macro(Type(Name(int)), Name(pi), Number(3)),
-
- Class(Name(Pie),
-
-  MethodMacro(Type(Name(int)), Name(slice), Number(3)))
-)

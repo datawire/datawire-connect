@@ -1,7 +1,0 @@
-File(
- Function(Type(Name(void)), Name(f),
-  Param(Type(Name(int)), Name(a), $type=0.int),
-  Param(Type(Name(int)), Name(b), $type=0.int),
-  Param(Type(Name(int)), Name(c), $type=0.int),
-  Block())
-)

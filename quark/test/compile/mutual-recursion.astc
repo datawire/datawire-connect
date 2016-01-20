@@ -1,7 +1,0 @@
-File(
- Function(Type(Name(int)), Name(foo), Block(
-   ExprStmt(Call(Var(Name(bar), $type=1.bar), $type=0.String)))),
-
- Function(Type(Name(String)), Name(bar), Block(
-   ExprStmt(Call(Var(Name(foo), $type=1.foo), $type=0.int))))
-)

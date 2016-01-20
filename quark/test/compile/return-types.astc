@@ -1,8 +1,0 @@
-File(
- Function(Type(Name(int)), Name(f), Block()),
-
- Function(Type(Name(void)), Name(g), Block(
-   Local(
-    Declaration(Type(Name(int)), Name(x), Call(Var(Name(f), $type=1.f),
-     $type=0.int), $type=0.int))))
-)

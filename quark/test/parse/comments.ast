@@ -1,5 +1,0 @@
-File(
- Package(Name(foo),
-
-  Function(Type(Name(void)), Name(test), Block()))
-)
