@@ -1,7 +1,7 @@
 Roadmap
 =======
 
-The following is a roughly ordered set of priorities for Quark.
+The following is a roughly ordered set of priorities for Datawire Connect.
 
 ### Phase 1 (done)
 
@@ -19,7 +19,7 @@ The following is a roughly ordered set of priorities for Quark.
 ### Phase 3 (in progress)
 
  - Resiliency patterns
-   + timeouts
+   + timeouts (done)
    + circuit breakers
    + load balancing
  - Ruby support
