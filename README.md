@@ -22,28 +22,29 @@ if the service is running slowly, or add circuit breaking, or cache existing
 response values to improve performance. There's no practical limit to the
 sophistication of the behaviors you could add to your microservices.
 
-Datawire Connect also integrates client-side load balancing.
+Datawire Connect also includes client-side load balancing.
 
 Discovery is achieved in Datawire Connect through **Datawire Hub**. This technology
 offers your services a reliable and resilient way to register themselves so that
 other services can find them.
 
-### Illustration ###
-
 ![Datawire Connect](static-files/dw-connect.png)
 
-## Why Resilience Matters
+## The Importance of Resilience
 
 Resilience is crucial to the survival and growth of any microservice system.
-Since microservices by their very nature are small, they are typically deployed
-at increased speeds to handle more traffic as they become more popular within
-an organization.
+As they get adopted within an organization and begin to handle more traffic,
+more services get deployed, and at increasing speed.
 
 However, without building in behavioral protections to your clients and services,
-even a innocuous failure anywhere in your distributed system could prove
-devastating to your entire system. It's extremely important to design a
-microservice-based system capable of handling failures, slowness, and offer
+even a innocuous failure in your distributed system could prove devastating to
+your entire application. It's therefore extremely important to design a
+microservice-based system that is capable of handling failures, slowness, and offer
 discovery, routing, serialization, asynchronicity, and more.
+
+Datawire Connect can add resilience to any microservice system using the
+powerful runtime behaviors that can be expressed in Quark, and through its
+client-side load balancing capabilities.
 
 ## Getting Started in 5 Minutes
 
@@ -55,11 +56,11 @@ pip install datawire-quark
 ```
 #### Running an Example
 
-The first demo to try is the `HelloRPC` demo. We have a microservice running in
-the cloud that you can call using the `HelloRPC` client example:
+The first demo to try is the `helloRPC` demo. We have a microservice running in
+the cloud that you can call using the `helloRPC` client example:
 
 ```
-cd datawire-quark/examples/HelloRPC
+cd datawire-quark/examples/helloRPC
 quark --python package hello.q
 pip install hello/py/dist/hello-0.1.0-py2-none-any.whl
 python pyclient.py
@@ -67,28 +68,32 @@ python pyclient.py
 You should see the following:
 
 ```
-Hello Python from Datawire Connect!
+Response says "Responding to 'Hello from Python!' from Datawire Cloud!"
 ```
-
-Follow the instructions in the HelloRPC `README` to take the next steps by
-learning how to run your own local server, how to call your new local server
-instead, and change the client to be more resilient.
 
 ## Learning more
 
-There are lots more samples for you to try out in the `quark/examples` folder.
-The Quick Start guide will help you get more acquianted with the Datawire
-Connect tools. There's also a detailed [language reference](http://datawire.github.io/quark/0.2/quick-start/index.html) for Quark
-that covers it in detail.
+The [Getting Started with RPC tutorial](http://datawire.github.io/quark/0.3/tutorials/rpc-basic/index.html)
+will take the `helloRPC` further by showing you how to run your own local
+server, and how to do so in other languages such as Java and JavaScript.
+
+You can also try the other included examples that show how to use a custom
+serialization protocol, communicate with Web Sockets, and more. We've even
+included a demo of how to invoke an existing service with Datawire Connect,
+using the collaboration tool Slack as the wrappable service.
+
+When you've reached the point of writing your own clients or services using
+Datawire Connect, you'll need our detailed [language reference](http://datawire.github.io/quark/0.3/language-reference/index.html)
+that covers the Quark language constructs and syntax in detail.
 
 ## Features of Datawire Connect
 
 * Native support for building resilient microservices in Python, JavaScript,
-and Java (Ruby and Go support coming soon)
+and Java (Ruby and Go support coming soon!)
 * Automatic microservice registration with the Datawire Hub discovery service
 * Custom serialization support
 * Support for HTTP/S, JSON, XML, Web Sockets...you name it
-* Turing Complete language (Quark) that combines an IDL with a DSL, making it
+* A sophisticated language (Quark) that combines an IDL with a DSL, making it
 very powerful for defining resilient service behaviors
 
 ## Roadmap
@@ -98,13 +103,14 @@ including:
 
 * Support for Ruby and Go
 * Cloud-based version of Datawire Hub
-* Per-request timeouts and per-service timeouts (aka, circuit breaking)
+* Per-service timeouts (aka, circuit breaking)
 * Intelligent load balancing
 
-For more information, read our detailed Roadmap.
+For more information, read our more detailed [roadmap](https://github.com/datawire/quark/blob/master/ROADMAP.md).
 
 # Getting Involved
 
-Datawire Connect is open source! Please feel free to raise issues as needed,
-or talk to the experts on this mailing list. If you'd like to make an enhancement
-or fix, please submit a Pull Request with your changes.
+Datawire Connect is open source and community-driven! Please feel free to raise
+issues as needed, or talk to the experts on our public Slack channel.
+If you'd like to make an enhancement or fix, please submit a Pull Request with
+your proposed changes.
