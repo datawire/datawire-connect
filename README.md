@@ -4,8 +4,8 @@
 
 **Datawire Connect** is a simple way to build and run resilient microservices.
 
-Datawire Connect allows you to fully express the contract between
-services. This includes:
+Datawire Connect allows you to fully express how microservices should
+connect to each other over the network. This includes:
 
 * the interfaces between your services (e.g., expressing your REST or WebSockets API)
 * how these interfaces should behave when they interact (e.g.,
