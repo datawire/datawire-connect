@@ -41,7 +41,7 @@ Consul is supported in the design.
 
 ![Datawire Connect](static-files/dw-connect.png)
 
-# Quick start
+# Quick Start
 
 We can use Datawire Connect to quickly add resilience to an existing
 HTTP-based microservice infrastructure. In this tutorial, we'll show
@@ -89,15 +89,6 @@ When you've reached the point of writing your own clients or services using
 Datawire Connect, you'll need our detailed [language reference](http://datawire.github.io/quark/0.3/language-reference/index.html)
 that covers the Quark language constructs and syntax in detail.
 
-#### Supported Platforms
-
-Datawire Connect has been certified on:
-
-* Mac OS 10.10 (Yosemite)
-* Mac OS 10.11 (El Capitan)
-* Ubuntu 14.04 (Trusty)
-* Fedora 22
-
 # Features of Datawire Connect
 
 * Native support for building resilient microservices in Python, JavaScript,
@@ -107,6 +98,15 @@ and Java (Ruby and Go support coming soon!)
 * Support for HTTP/S, JSON, XML, Web Sockets...you name it
 * A sophisticated language (Quark) that combines an IDL with a DSL, making it
 very powerful for defining resilient service behaviors
+
+# Supported Platforms
+
+Datawire Connect has been certified on:
+
+* Mac OS 10.10 (Yosemite)
+* Mac OS 10.11 (El Capitan)
+* Ubuntu 14.04 (Trusty)
+* Fedora 22
 
 # Roadmap
 
