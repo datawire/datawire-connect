@@ -24,13 +24,13 @@ Datawire Connect is built on **Quark**, a language designed for
 expressing the contract between services. Similar to a traditional
 IDL, Quark lets you define your services APIs and how data is
 serialized. In this sense, Quark is similar to technologies such as
-GRPC. Quark also extends the notion of a traditional IDL and lets you
-express *protocol behaviors* as part of your service contract. For
-example, you can also define how clients of that service should behave
-if the service is running slowly, add circuit breaking, or cache
-existing response values to improve performance. There's no practical
-limit to the sophistication of the behaviors you could add to your
-microservices.
+[gRPC](http://www.grpc.io). Quark also extends the notion of a traditional
+IDL and lets you express *protocol behaviors* as part of your service
+contract. For example, you can also define how clients of that service
+should behave if the service is running slowly, add circuit breaking,
+or cache existing response values to improve performance. There's no
+practical limit to the sophistication of the behaviors you could add
+to your microservices.
 
 Datawire Connect also includes a native interface to service
 discovery. This interface enables microservices to dynamically
@@ -43,9 +43,11 @@ consul.io is supported in the design.
 
 # Quick start
 
-You can use Datawire Connect to quickly add resilience (timeouts,
-circuit breakers, and load balancing) to your existing HTTP-based
-microservice infrastructure.
+We can use Datawire Connect to quickly add resilience to an existing
+HTTP-based microservice infrastructure. In this tutorial, we'll show
+how you add [Hystrix](https://github.com/Netflix/Hystrix) resilience
+semantics (timeouts, load balancing, and circuit breakers) to
+HTTP-based RPC calls.
 
 #### Installation
 ```
