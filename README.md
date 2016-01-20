@@ -111,6 +111,5 @@ For more information, read our more detailed [roadmap](https://github.com/datawi
 # Getting Involved
 
 Datawire Connect is open source and community-driven! Please feel free to raise
-issues as needed, or talk to the experts on our public Slack channel.
-If you'd like to make an enhancement or fix, please submit a Pull Request with
-your proposed changes.
+GitHub issues as needed. If you'd like to make an enhancement or fix, please submit
+a Pull Request with your proposed changes.
