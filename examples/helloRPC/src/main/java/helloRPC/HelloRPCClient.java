@@ -23,7 +23,12 @@ public class HelloRPCClient {
         // HelloClient client = new HelloClient(runtime, "http://localhost:8910/hello");
 
         Request request = new Request();
-        request.text = "Hello from Java!";
+
+        if (args.length > 0) {
+            request.text = args[0];
+        } else {
+            request.text = "Hello from Java!";
+        }
         System.out.println("Request says: " + request.text);
         Response response = client.hello(request);
         if (response == null) {

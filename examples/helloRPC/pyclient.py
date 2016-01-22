@@ -2,6 +2,7 @@
 
 from quark_threaded_runtime import get_runtime
 import hello
+import sys
 
 
 def main():
@@ -20,7 +21,12 @@ def main():
     # client = hello.HelloClient(runtime, "http://127.0.0.1:8910/hello")
 
     request = hello.Request()
-    request.text = "Hello from Python!"
+
+    if len(sys.argv) > 1:
+        request.text = str(sys.argv[1])
+    else: 
+        request.text = "Hello from Python!"
+    
     print "Request says %r" % request.text
 
     response = client.hello(request)
