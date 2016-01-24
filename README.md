@@ -125,8 +125,10 @@ serialization protocol, communicate with Web Sockets, and more. We've even
 included a demo of how to invoke an existing service with Datawire Connect,
 using the collaboration tool Slack as the wrappable service.
 
-When you've reached the point of writing your own clients or services using
-Datawire Connect, you'll need our detailed [language reference](http://datawire.github.io/quark/0.3/language-reference/index.html)
+Datawire Connect has [extensive documentation](http://datawire.github.io/quark/0.3/index.html)
+on all its features. When you've reached the point of writing your own clients
+and services using Datawire Connect, you'll need our detailed 
+[language reference](http://datawire.github.io/quark/0.3/language-reference/index.html)
 that covers the Quark language constructs and syntax in detail.
 
 # Features of Datawire Connect
