@@ -13,9 +13,9 @@ def main():
     #
     # You can test completely locally, too:
     # - comment out the http://hello.datawire.io line
-    # - uncomment the http://127.0.0.1:12216/hello line
+    # - uncomment the http://127.0.0.1:8910/hello line
     # - fire up the local version of the server by following the instructions
-    # in the README.md.
+    # in the file ./README.md.
 
     client = hello.HelloClient(runtime, "http://hello.datawire.io/")
     # client = hello.HelloClient(runtime, "http://127.0.0.1:8910/hello")
@@ -24,9 +24,9 @@ def main():
 
     if len(sys.argv) > 1:
         request.text = str(sys.argv[1])
-    else: 
+    else:
         request.text = "Hello from Python!"
-    
+
     print "Request says %r" % request.text
 
     response = client.hello(request)
