@@ -61,6 +61,11 @@ service locally, using the command:
 Modify pyclient.py to use a URL of http://127.0.0.1:8910/hello and re-run the
 client to see your local server being called instead of the cloud-based service.
 
+To see a request timeout in action, uncomment the line in pyserver.py that
+forces a sleep for 5 seconds within the hello() function. Then re-run the
+server, re-run the client, and you'll see the client request time out after 3
+seconds (the timeout threshold set in the service contract, hello.q).
+
 ### Java
 
 Note: This example requires the datawire-quark-netty integration. It
@@ -88,6 +93,11 @@ service locally, using the command:
 Modify `src/main/java/helloRPC/HelloRPCClient.java` to use a URL of
 http://127.0.0.1:8910/hello, recompile, and run the client to see your local
 server being called instead of the cloud-based service.
+
+To see a request timeout in action, uncomment the code block in HelloImpl.java
+that force a sleep for 5 seconds within the hello() function. Then recompile and
+re-run the server, re-run the client, and you'll see the client request time out
+after 3 seconds (the timeout threshold set in the service contract, hello.q).
 
 ### JavaScript
 
