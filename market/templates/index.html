@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
-{% block title %}Welcome to the Market -- we have things!!{% endblock %}
+{% block title %}Welcome to the Market!{% endblock %}
 {% block body %}
-<h1>Welcome to the Market -- we have Things!</h1>
+<h1>Welcome to the Datawire Market!</h1>
 
 <div class="products">
     <div class="cl">&nbsp;</div>
     <ul>
     {% for thingID in allThingIDs %}
-      <li> 
+      <li>
       <img src="{{ url_for('static', filename="%s.png" % thingID) }}" alt="" />
         <div class="product-info">
           <h2>{{ Things[thingID]['title'] }}</h2>
@@ -54,11 +54,9 @@
     </ul>
     <p> Total: ${{totalCost}} </p>
     {% else %}
-    <p style="margin: auto;"> Add some items to your cart! </p>
+    <p style="margin: auto;"> Your cart is currently empty. </p>
     {% endif %}
-    
 
-  
   <div class="cl">&nbsp;</div>
   {% if numItems > 0 %}
   <form action="", method="POST">

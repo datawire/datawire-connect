@@ -10,9 +10,9 @@ The Market is written for Python 2.7. We strongly recommend using virtualenv!
 
         cd datawire-examples/market
         python market.py
-        
+
     This will start the Market running, displaying no ratings at all. It uses the monolithic database embodied by things.json.
- 
+
 3. With the Market running, fire up the tests.
 
         nosetests

@@ -1,46 +1,42 @@
 {
 	"basketball": {
-		"title": "The Basketball",
+		"title": "Basketball",
 		"blurb": "Lots of fun on a rainy day!",
-		"desc": "This Thing will not bite you. It wants to have fun! Would you like to shake hands with your new friend Thing One?",
+		"desc": "Official size basketball. Shipped pre-inflated.",
 		"price": 19.99,
 		"rating": 2.1,
 		"warnings": [
-			"Thing One has a penchant for flying kites indoors and causing many bumps and thumps.",
-			"Not tame."
+			"Not edible."
 		]
 	},
 	"football": {
-		"title": "The Football",
-		"blurb": "Lots of fun on a rainy day!",
-		"desc": "Having fun is what this Thing is wanting to do! Come say hello to your new friend Thing Two!",
+		"title": "Football",
+		"blurb": "Pointy and leathery.",
+		"desc": "Can be used for playing rubgy.",
 		"price": 19.99,
 		"rating": 2.2,
 		"warnings": [
-			"Thing Two loves spotted dresses, but should be kept away from the headboards of beds.",
-			"Not tame."
+			"Should not be used to play basketball."
 		]
 	},
-	"winslow": {
-		"title": "The Camera",
-		"blurb": "Hi!",
-		"desc": "Indestructible, presumably immortal, and figures prominently in fully three quarters of the galaxy's religions. Some fear it, some worship, nearly everyone wants it!",
+	"camera": {
+		"title": "Camera",
+		"blurb": "Full-frame DSLR with f/2.8 kit lens.",
+		"desc": "Capture amazing photos of your sporting equipment!",
 		"price": 99.99,
 		"rating": 4.5,
 		"warnings": [
-			"Buying the Winslow will result in facing the combined wrath of everyone else who wants the Winslow.",
-			"Possibly dumber than a sack of bricks."
+			"Definitely not waterproof."
 		]
 	},
 	"briefcase": {
-		"title": "The Briefcase",
-		"blurb": "So beautiful.",
-		"desc": "Is that what you think it is? Is it diamonds? a soul? a nuclear bomb? or simply a ten-watt light bulb? All you know for certain is that it's beautiful.",
-		"price": 99999.99,
+		"title": "Briefcase",
+		"blurb": "Like the football, also pointy and leathery.",
+		"desc": "Can hold documents, smartphones, and perhaps other briefcases.",
+		"price": 49.99,
 		"rating": 3.5,
 		"warnings": [
-			"May trigger divine interventions.",
-			"May break your concentration."
+			"May cause British accents to appear."
 		]
 	}
 }
