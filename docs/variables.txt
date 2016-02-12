@@ -1,0 +1,23 @@
+{{{branch}}};0.4.x
+{{{doc_product_version}}};0.4
+{{{product}}};Datawire Connect
+{{{language}}};Quark
+{{{compiler_command}}};quark
+{{{file_extension}}};.q
+{{{github_directory}}};quark
+{{{doc_directory}}};quark/0.4
+{{{main_module}}};datawire-quark
+{{{core_integration}}};datawire-quark-core
+{{{netty_integration}}};datawire-quark-netty
+{{{node_integration}}};datawire-quark-node
+{{{threaded_integration}}};datawire-quark-threaded
+{{{twisted_integration}}};datawire-quark-twisted
+{{{threaded_import}}};datawire_quark_threaded_runtime
+{{{cli_product}}};Datawire Connect Cloud Tools
+{{{cli_command}}};dwc
+{{{cloud_product}}};Datawire Cloud
+{{{cli_module}}};datawire-cloudtools
+{{{identity_server}}};Datawire Connect Identity Server
+{{{identity_default}}};https://identity.datawire.io
+{{{state_path}}};~/.datawire/datawire.json
+{{{company}}};Datawire
