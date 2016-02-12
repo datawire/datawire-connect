@@ -1,0 +1,4 @@
+accept-invitation
+~~~~~~~~~~~~~~~~~
+
+foo
