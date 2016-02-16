@@ -22,12 +22,12 @@ namespace ratings {
   // Ratings is the microservice itself. It has one method so far, just 'get'.
 
   interface Ratings extends Service {
-    // timeout, tripCount, and retryDelay are the basic tunables for the RPC 
+    // timeout, failureLimit, and retestDelay are the basic tunables for the RPC 
     // circuit-breaker/retry functionality.
 
-    static int timeout = 10000;
-    static int tripCount = 3;
-    static int retryDelay = 30000;
+    static int timeout = 1000;
+    static int failureLimit = 1;
+    static int retestDelay = 30;
 
     // get: get the rating for a given thingID. Note that this call is 
     // _asynchronous_: Rating extends Future.
