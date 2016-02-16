@@ -21,3 +21,5 @@
 {{{identity_default}}};https://identity.datawire.io
 {{{state_path}}};~/.datawire/datawire.json
 {{{company}}};Datawire
+{{{discovery_product}}};Datawire Discovery Service
+{{{support_address}}};support@datawire.io

@@ -8,7 +8,7 @@ Syntax
 
 The basic syntax of the create-org command is:
 
-``dwc create-org organizationName userName userEmail``
+``dwc create-org <organizationName> <userName> <userEmail>``
 
 The full syntax including all optional arguments is:
 
@@ -54,7 +54,7 @@ The following arguments are supported for the create-org command:
 --adminpass
 &&&&&&&&&&&
 
-**Optional** Allows the user creating a new organization to specify his password directly in the command.
+Optional. Allows the user creating a new organization to specify his password directly in the command.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%
@@ -83,7 +83,7 @@ There are no restrictions on password value imposed by {{{cli_product}}}. If you
 <organizationName>
 &&&&&&&&&&&&&&&&&&
 
-**Required** Indicates a handle for the new organization. This handle is an external identifier; the organization will be given an orgID to identify it within {{{company}}}.
+Required. Indicates a handle for the new organization. This handle is an external identifier; the organization will be given an orgID to identify it within {{{company}}}.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%
@@ -104,7 +104,7 @@ Any UTF-8 string may be used as the organization name. Quotes must be used aroun
 <userName>
 &&&&&&&&&&
 
-**Required** Indicates a handle for the user creating the new organization. This handle is an external identifier; the user will be given a userID to identify him within {{{company}}}.
+Required. Indicates a handle for the user creating the new organization. This handle is an external identifier; the user will be given a userID to identify him within {{{company}}}.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%
@@ -125,7 +125,7 @@ Any UTF-8 string may be used for the name. Quotes must be used around the value 
 <userEmail>
 &&&&&&&&&&&
 
-**Required** Indicates an email address for the user creating the new organization.
+Required. Indicates an email address for the user creating the new organization.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%

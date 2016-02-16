@@ -55,7 +55,7 @@ The following arguments are supported for the login command:
 --password
 &&&&&&&&&&&
 
-**Optional** Allows the user to specify his password directly in the command.
+Optional. Allows the user to specify his password directly in the command.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%
@@ -72,7 +72,7 @@ If omitted, the user is prompted to enter a password interactively after submitt
 --org-id
 &&&&&&&&
 
-**Optional** Allows the user to specify his organization ID directly in the command.
+Optional. Allows the user to specify his organization ID directly in the command.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%
@@ -97,7 +97,7 @@ If omitted, the organization ID is taken from the user's stored state informatio
 <userEmail>
 &&&&&&&&&&&
 
-**Required** Indicates an email address for the user trying to log in.
+Required. Indicates an email address for the user trying to log in.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%
