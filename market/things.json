@@ -4,7 +4,6 @@
 		"blurb": "Lots of fun on a rainy day!",
 		"desc": "Official size basketball. Shipped pre-inflated.",
 		"price": 19.99,
-		"rating": 2.1,
 		"warnings": [
 			"Not edible."
 		]
@@ -14,7 +13,6 @@
 		"blurb": "Pointy and leathery.",
 		"desc": "Can be used for playing rubgy.",
 		"price": 19.99,
-		"rating": 2.2,
 		"warnings": [
 			"Should not be used to play basketball."
 		]
@@ -24,7 +22,6 @@
 		"blurb": "Full-frame DSLR with f/2.8 kit lens.",
 		"desc": "Capture amazing photos of your sporting equipment!",
 		"price": 99.99,
-		"rating": 4.5,
 		"warnings": [
 			"Definitely not waterproof."
 		]
@@ -34,7 +31,6 @@
 		"blurb": "Like the football, also pointy and leathery.",
 		"desc": "Can hold documents, smartphones, and perhaps other briefcases.",
 		"price": 49.99,
-		"rating": 3.5,
 		"warnings": [
 			"May cause British accents to appear."
 		]

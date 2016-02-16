@@ -23,9 +23,11 @@
             <div class="product-price">
               <p> ${{ Things[thingID]['price']}} </p>
             </div>
-            <div class="product-rating">
-            <p> <span style="float:right;"> {{Things[thingID]['rating']}}/5 </span></p>
-            </div>
+            {% if 'rating' in Things[thingID] %}
+              <div class="product-rating">
+              <p> <span style="float:right;"> {{Things[thingID]['rating']}}/5 </span></p>
+              </div>
+            {% endif %}
           </div>
         </div>
       </li>
