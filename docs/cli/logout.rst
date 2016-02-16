@@ -58,7 +58,7 @@ The following arguments are supported for the login command:
 --force
 &&&&&&&
 
-**Optional** Forces a logout without prompting for verification.
+Optional. Forces a logout without prompting for verification.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%

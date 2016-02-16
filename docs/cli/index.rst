@@ -5,6 +5,7 @@
 .. toctree::
    :maxdepth: 3
 
+   About this Document <about>
    Introduction <intro>
    Installation <install>
    Command Line Syntax <syntax>

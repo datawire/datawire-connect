@@ -44,7 +44,7 @@ and
 
 Further, if you specify the following:
 
-````{{{cli_command}}} -h <command> -h``
+``{{{cli_command}}} -h <command> -h``
 
 only the first -h is evaluated; no information about <command> will be returned.
 
