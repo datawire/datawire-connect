@@ -46,7 +46,7 @@ def checkRatings(things):
 
   for wireable in wireables:
     if wireable:
-      thingID = wireable.thingID
+      thingID = getattr(wireable, "thingID", None)
       errString = wireable.getError()
 
       if errString:
