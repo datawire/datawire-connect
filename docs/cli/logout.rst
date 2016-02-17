@@ -21,14 +21,18 @@ Expected Response
 
 With the default options, you will be asked to verify that you want to log out:
 
-``THIS WILL COMPLETELY LOG YOU OUT AND REMOVE ALL YOUR DATAWIRE STATE.``
-``Continue?``
+.. code-block:: none
+
+   THIS WILL COMPLETELY LOG YOU OUT AND REMOVE ALL YOUR DATAWIRE STATE.
+   Continue?
 
 If you turn off the confirmation option or confirm that you do want to log out, you will be silently logged out and returned to your normal command prompt.
 
 If you get the confirmation request and reply with anything other than y or yes, you will get the following response:
 
-``OK, carry on.``
+.. code-block:: none
+   
+   OK, carry on.
 
 and remain logged in.
 
