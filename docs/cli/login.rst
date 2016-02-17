@@ -21,7 +21,9 @@ Expected Response
 
 Successful calls will result in the following response:
 
-``Now logged in as [<orgId>]<email>``
+.. code-block:: none
+   
+   Now logged in as [<orgId>]<email>
 
 where <orgId> is the {{{company}}} ID for the new organization and <email> is the email address of its creator.
 

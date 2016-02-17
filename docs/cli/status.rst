@@ -5,6 +5,10 @@ The status command provides information on the currently logged in user includin
 
 [[JMK depending on resolution of issue #3 may contain additional tokens/service info for other services in the org]]
 
+.. |br| raw:: html
+
+   <br />
+
 Syntax
 ++++++
 
@@ -23,20 +27,22 @@ Expected Response
 
 Successful calls will result in the following response:
 
-``{
-    "orgID":"<orgId>",
-    "orgs":{
-        "<orgId>":{
-            "email":"<emailAddress>",
-            "service_tokens":{
-                "service1":"<service1Token>",
-                "service2":"<service2Token>"
-            },
-            "user_token":"<userToken>"
-        }
-    }
-}
-``
+.. code-block:: none
+   
+   {
+       "orgID":"<orgId>", 
+       "orgs":{
+           "<orgId>":{
+               "email":"<emailAddress>",
+               "service_tokens":{ 
+                  "service1":"<service1Token>",
+                  "service2":"<service2Token>"
+               },
+               "user_token":"<userToken>" 
+           } 
+       }
+   } 
+
 
 where <orgId> is the user's organization ID, <emailAddress> is their email address, each <serviceKToken> is a service token, and <userToken> is the current user token.
 

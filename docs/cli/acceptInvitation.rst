@@ -21,8 +21,10 @@ Expected Response
 
 Successful calls will result in the following response:
 
-``Accepting invitation to <orgId>
-Now logged in as [<orgId>]<emailAddress>``
+.. code-block:: none
+
+   Accepting invitation to <orgId>
+   Now logged in as [<orgId>]<emailAddress>
 
 where <orgId> is the organization ID of your organization and <emailAddress> is the email address supplied in the request.
 

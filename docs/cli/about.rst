@@ -20,7 +20,8 @@ The Datawire style limits formatting unless it is essential to conveying intende
 
 This document uses the following typographical conventions:
 
-* ``monospace fonts`` for full commands, command syntax lines, or responses to commands
+* ``monospace fonts`` for full commands and command syntax lines
+* ``monospace fonts`` with a gray background for responses to commands
 * <variable> for variables in commands, command syntax lines, or responses to commands (all other command, syntax, or response content is presented verbatim)
 * ellipses (...) to indicate possible content that is not pertinent to the current discussion
 
