@@ -1,14 +1,6 @@
 package ratings 0.0.1;
 import builtin.concurrent;
 
-class MyHub extends Hub {
-  List<String> lookup(String serviceName) {
-    return [ "http://127.0.0.1:8001/" + serviceName,
-             "http://127.0.0.1:8002/" + serviceName, 
-             "http://127.0.0.1:8003/" + serviceName ];
-  }
-}
-
 namespace ratings {
   // Rating is the data structure we'll be passing around between the microservice
   // and its client. It extends Future because the RPC can take awhile, and we don't
@@ -17,6 +9,16 @@ namespace ratings {
   class Rating extends Future {
     String thingID;  // We include the thingID with its rating just to make it a
     int rating;    // little easier to keep track of what's what.
+  }
+
+  // RatingsResolver is test resolver for use with localhost.
+
+  class RatingsResolver extends Resolver {
+    List<String> resolve(String serviceName) {
+      return [ "http://127.0.0.1:8001/" + serviceName,
+               "http://127.0.0.1:8002/" + serviceName, 
+               "http://127.0.0.1:8003/" + serviceName ];
+    }
   }
 
   // Ratings is the microservice itself. It has one method so far, just 'get'.

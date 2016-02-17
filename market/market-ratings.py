@@ -13,7 +13,8 @@ Things = json.load(open("things.json", "r"))
 # ...an empty shopping cart...
 cartItems = []
 
-ratings = RatingsClient("ratings", MyHub())
+ratings = RatingsClient("ratings")
+ratings.setResolver(RatingsResolver())
 
 app = Flask("Market")
 
