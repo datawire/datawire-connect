@@ -14,9 +14,9 @@ The basic syntax of the accept-invitation command is:
 
 The full syntax including all optional arguments is:
 
-``dwc status -h --verify``
+``dwc <top level arguments> status -h --verify``
 
-More information about each argument can be found under :ref:`arguments <acceptInvitationArguments>`.
+More information about each argument can be found under :ref:`arguments <statusArguments>`.
 
 Expected Response
 +++++++++++++++++

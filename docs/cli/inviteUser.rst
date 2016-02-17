@@ -12,7 +12,7 @@ The basic syntax of the invite-user command is:
 
 The full syntax including all optional arguments is:
 
-``dwc invite-user -h --non-admin --no-svc --verify <emailAddress>``
+``dwc <top level arguments> invite-user -h --non-admin --no-svc --verify <emailAddress>``
 
 More information about each argument can be found under :ref:`arguments <inviteUserArguments>`.
 
