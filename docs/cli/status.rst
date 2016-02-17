@@ -5,10 +5,6 @@ The status command provides information on the currently logged in user includin
 
 [[JMK depending on resolution of issue #3 may contain additional tokens/service info for other services in the org]]
 
-.. |br| raw:: html
-
-   <br />
-
 Syntax
 ++++++
 
