@@ -1,7 +1,7 @@
 create-org
 ~~~~~~~~~~
 
-The create-org command creates a new organization in the {{{cli-product}}} with a single member. That member can then invite additional people into the organization as needed.
+The create-org command creates a new organization in the {{{cli_product}}} with a single member. That member can then invite additional people into the organization as needed.
 
 Syntax
 ++++++
