@@ -10,9 +10,9 @@ The basic syntax of the accept-invitation command is:
 
 ``dwc accept-invitation <orgId> <invitationCode> <emailAddress>``
 
-The full syntax including all optional arguments is:
+The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``dwc <top level arguments> accept-invitation -h --name <name> --password <password> --verify <orgId> <invitationCode> <emailAddress>``
+``dwc ... accept-invitation -h --name <name> --password <password> --verify <orgId> <invitationCode> <emailAddress>``
 
 More information about each argument can be found under :ref:`arguments <acceptInvitationArguments>`.
 

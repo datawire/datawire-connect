@@ -10,11 +10,11 @@ The basic syntax of the logout command is:
 
 ``dwc logout``
 
-The full syntax including all optional arguments is:
+The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``dwc <top level arguments> logout -h --force --verify``
+``dwc ... logout -h --force --verify``
 
-More information about each argument can be found under :ref:`arguments <logoutArguments>`.
+More information about each command argument can be found under :ref:`arguments <logoutArguments>`.
 
 Expected Response
 +++++++++++++++++

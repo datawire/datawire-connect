@@ -12,11 +12,11 @@ The basic syntax of the create-service command is:
 
 ``dwc create-service <serviceName>``
 
-The full syntax including all optional arguments is:
+The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``dwc <top level arguments> create-service -h --verify <serviceName>``
+``dwc ... create-service -h --verify <serviceName>``
 
-More information about each argument can be found under :ref:`arguments <createServiceArguments>`.
+More information about each command argument can be found under :ref:`arguments <createServiceArguments>`.
 
 Expected Response
 +++++++++++++++++

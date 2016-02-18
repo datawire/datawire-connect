@@ -10,11 +10,11 @@ The basic syntax of the login command is:
 
 ``dwc login userEmail``
 
-The full syntax including all optional arguments is:
+The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``dwc <top level arguments> login -h --password <password> --org-id <orgId> --verify <userEmail>``
+``dwc ... login -h --password <password> --org-id <orgId> --verify <userEmail>``
 
-More information about each argument can be found under :ref:`arguments <loginArguments>`.
+More information about each command argument can be found under :ref:`arguments <statusArguments>`.
 
 Expected Response
 +++++++++++++++++
