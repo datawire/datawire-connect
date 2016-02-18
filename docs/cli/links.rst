@@ -1,4 +1,0 @@
-More Information
-================
-
-foo
