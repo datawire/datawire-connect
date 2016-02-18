@@ -27,9 +27,9 @@ namespace ratings {
     // timeout, failureLimit, and retestDelay are the basic tunables for the RPC 
     // circuit-breaker/retry functionality.
 
-    static int timeout = 1000;
+    static float timeout = 1.0;
     static int failureLimit = 1;
-    static int retestDelay = 30;
+    static float retestDelay = 30.0;
 
     // get: get the rating for a given thingID. Note that this call is 
     // _asynchronous_: Rating extends Future.

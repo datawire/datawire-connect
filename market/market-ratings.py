@@ -38,7 +38,7 @@ def checkRatings(things):
     print("ASK for %s" % thingID)      
     wireables.append(ratings.get(thingID))
 
-  [ wireable.await(1000) for wireable in wireables ]
+  [ wireable.await(1.0) for wireable in wireables ]
 
   end = os.times()[4]
   elapsed = (end - start) * 1000
