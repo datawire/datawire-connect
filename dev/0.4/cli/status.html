@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>status &mdash; Datawire Connect 0.4.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/better.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.4.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Datawire Connect 0.4.2 documentation" href="../index.html" />
+    <link rel="up" title="Commands" href="commands.html" />
+    <link rel="next" title="create-service" href="createService.html" />
+    <link rel="prev" title="logout" href="logout.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  </head>
+  <body role="document">
+    <header id="pageheader"><h1><a href="../index.html ">
+        Datawire Connect 0.4.2 documentation
+    </a></h1></header>
+  <div class="related top">
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="logout.html" title="Previous document">logout</a>
+        </li>
+        <li>
+          <a href="createService.html" title="Next document">create-service</a>
+          &rarr;
+        </li>
+    </ul>
+  </nav>
+  <nav id="breadcrumbs">
+    <ul>
+      <li><a href="../index.html">Datawire Connect 0.4.2 documentation</a></li>
+      <li>
+        <a href="index.html">Datawire Connect Cloud Tools Command Line Interface Guide</a>
+      </li>
+      <li>
+        <a href="syntax.html">Command Line Syntax</a>
+      </li>
+      <li>
+        <a href="commands.html">Commands</a>
+      </li> 
+    </ul>
+  </nav>
+  </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="status">
+<h1>status<a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h1>
+<p>The status command provides information on the currently logged in user including organization ID, user ID, and the tokens for any services they created.</p>
+<p>[[JMK depending on resolution of issue #3 may contain additional tokens/service info for other services in the org]]</p>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>The basic syntax of the accept-invitation command is:</p>
+<p><code class="docutils literal"><span class="pre">dwc</span> <span class="pre">status</span></code></p>
+<p>The full syntax including all optional arguments is:</p>
+<p><code class="docutils literal"><span class="pre">dwc</span> <span class="pre">&lt;top</span> <span class="pre">level</span> <span class="pre">arguments&gt;</span> <span class="pre">status</span> <span class="pre">-h</span> <span class="pre">--verify</span></code></p>
+<p>More information about each argument can be found under <a class="reference internal" href="#statusarguments"><span>arguments</span></a>.</p>
+</div>
+<div class="section" id="expected-response">
+<h2>Expected Response<a class="headerlink" href="#expected-response" title="Permalink to this headline">¶</a></h2>
+<p>Successful calls will result in the following response:</p>
+<div class="highlight-none"><div class="highlight"><pre>{
+    &quot;orgID&quot;:&quot;&lt;orgId&gt;&quot;,
+    &quot;orgs&quot;:{
+        &quot;&lt;orgId&gt;&quot;:{
+            &quot;email&quot;:&quot;&lt;emailAddress&gt;&quot;,
+            &quot;service_tokens&quot;:{
+               &quot;service1&quot;:&quot;&lt;service1Token&gt;&quot;,
+               &quot;service2&quot;:&quot;&lt;service2Token&gt;&quot;
+            },
+            &quot;user_token&quot;:&quot;&lt;userToken&gt;&quot;
+        }
+    }
+}
+</pre></div>
+</div>
+<p>where &lt;orgId&gt; is the user&#8217;s organization ID, &lt;emailAddress&gt; is their email address, each &lt;serviceKToken&gt; is a service token, and &lt;userToken&gt; is the current user token.</p>
+<p>[[JMK where does a user token come in here? we&#8217;re not returning it excepting in status and don&#8217;t seem to require its use anywhere]]</p>
+</div>
+<div class="section" id="common-error-states">
+<h2>Common Error States<a class="headerlink" href="#common-error-states" title="Permalink to this headline">¶</a></h2>
+<p>The most likely error state is trying to use status without being logging in first. Since status returns the current user&#8217;s state in the system, it requires a valid, logged in current user.</p>
+<p>[[JMK the current error message could use improvement. See issue #6]]</p>
+</div>
+<div class="section" id="arguments">
+<span id="statusarguments"></span><h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<p>The following arguments are supported for the invite-user command:</p>
+<ul class="simple">
+<li>-h</li>
+<li>&#8211;verify</li>
+</ul>
+<div class="section" id="h">
+<h3>-h<a class="headerlink" href="#h" title="Permalink to this headline">¶</a></h3>
+<p>-h is described under <a class="reference internal" href="general.html#generalh"><span>general command arguments</span></a>.</p>
+</div>
+<div class="section" id="verify">
+<h3>&#8211;verify<a class="headerlink" href="#verify" title="Permalink to this headline">¶</a></h3>
+<p>&#8211;verify is described under <a class="reference internal" href="general.html#generalverify"><span>general command arguments</span></a>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">status</a><ul>
+<li><a class="reference internal" href="#syntax">Syntax</a></li>
+<li><a class="reference internal" href="#expected-response">Expected Response</a></li>
+<li><a class="reference internal" href="#common-error-states">Common Error States</a></li>
+<li><a class="reference internal" href="#arguments">Arguments</a><ul>
+<li><a class="reference internal" href="#h">-h</a></li>
+<li><a class="reference internal" href="#verify">&#8211;verify</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="logout.html"
+                        title="previous chapter">logout</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="createService.html"
+                        title="next chapter">create-service</a></p>
+<div class="sourcelink">
+  <a href="../_sources/cli/status.txt" rel="nofollow">
+    Show page source
+  </a>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="related bottom">
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="logout.html" title="Previous document">logout</a>
+        </li>
+        <li>
+          <a href="createService.html" title="Next document">create-service</a>
+          &rarr;
+        </li>
+    </ul>
+  </nav>
+  <nav id="breadcrumbs">
+    <ul>
+      <li><a href="../index.html">Datawire Connect 0.4.2 documentation</a></li>
+      <li>
+        <a href="index.html">Datawire Connect Cloud Tools Command Line Interface Guide</a>
+      </li>
+      <li>
+        <a href="syntax.html">Command Line Syntax</a>
+      </li>
+      <li>
+        <a href="commands.html">Commands</a>
+      </li> 
+    </ul>
+  </nav>
+  </div>
+
+  <footer id="pagefooter">&copy; 2015, 2016 Datawire.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a>
+      1.3.5.
+
+  </footer>
+
+  
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57322503-4', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
