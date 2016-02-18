@@ -8,11 +8,11 @@ Syntax
 
 The basic syntax of the create-org command is:
 
-``dwc create-org <organizationName> <userName> <userEmail>``
+``{{{cli_command}}} create-org <organizationName> <userName> <userEmail>``
 
 The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``dwc ... create-org -h --adminpass <password> --verify <organizationName> <userName> <userEmail>``
+``{{{cli_command}}} ... create-org -h --adminpass <password> --verify <organizationName> <userName> <userEmail>``
 
 More information about each argument can be found under :ref:`arguments <createOrgArguments>`.
 

@@ -10,11 +10,11 @@ Syntax
 
 The basic syntax of the create-service command is:
 
-``dwc service-token <serviceName>``
+``{{{cli_command}}} service-token <serviceName>``
 
 The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``dwc ... service-token -h --verify <serviceName>``
+``{{{cli_command}}} ... service-token -h --verify <serviceName>``
 
 More information about each command argument can be found under :ref:`arguments <serviceTokenArguments>`.
 

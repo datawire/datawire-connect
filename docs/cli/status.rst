@@ -10,11 +10,11 @@ Syntax
 
 The basic syntax of the accept-invitation command is:
 
-``dwc status``
+``{{{cli_command}}} status``
 
 The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``dwc ... status -h --verify``
+``{{{cli_command}}} ... status -h --verify``
 
 More information about each command argument can be found under :ref:`arguments <statusArguments>`.
 

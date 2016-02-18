@@ -8,11 +8,11 @@ Syntax
 
 The basic syntax of the login command is:
 
-``dwc login userEmail``
+``{{{cli_command}}} login userEmail``
 
 The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``dwc ... login -h --password <password> --org-id <orgId> --verify <userEmail>``
+``{{{cli_command}}} ... login -h --password <password> --org-id <orgId> --verify <userEmail>``
 
 More information about each command argument can be found under :ref:`arguments <statusArguments>`.
 

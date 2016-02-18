@@ -8,11 +8,11 @@ Syntax
 
 The basic syntax of the logout command is:
 
-``dwc logout``
+``{{{cli_command}}} logout``
 
 The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``dwc ... logout -h --force --verify``
+``{{{cli_command}}} ... logout -h --force --verify``
 
 More information about each command argument can be found under :ref:`arguments <logoutArguments>`.
 

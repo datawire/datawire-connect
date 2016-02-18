@@ -8,11 +8,11 @@ Syntax
 
 The basic syntax of the invite-user command is:
 
-``dwc invite-user <emailAddress>``
+``{{{cli_command}}} invite-user <emailAddress>``
 
 The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``dwc ... invite-user -h --non-admin --no-svc --verify <emailAddress>``
+``{{{cli_command}}} ... invite-user -h --non-admin --no-svc --verify <emailAddress>``
 
 More information about each argument can be found under :ref:`arguments <inviteUserArguments>`.
 
