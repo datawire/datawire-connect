@@ -33,7 +33,7 @@ This document uses the following typographical conventions:
 |                       | (anything in commands, syntax, or responses not called out |
 |                       | as a variable is a literal value excepting ellipses)       |
 +-----------------------+------------------------------------------------------------+
-| ellipses (...)        | optional content not pertinent to current discussion       |
+| ellipsis (...)        | optional content not pertinent to current discussion       |
 +-----------------------+------------------------------------------------------------+
 
 
