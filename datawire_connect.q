@@ -6,7 +6,7 @@ namespace datawire_connect {
   namespace resolver {
     @doc("BaseDiscoResolver has the basic logic to use the Discovery service to resolve names into URLs.")
     class BaseDiscoResolver extends Resolver {
-      client.DiscoveryClient disco;
+      client.CloudDiscoveryClient disco;
 
       List<String> resolve(String serviceName) {
         List<model.Endpoint> endpoints = self.disco.getRoutes(serviceName);
@@ -28,6 +28,8 @@ namespace datawire_connect {
     class DiscoveryConsumer extends BaseDiscoResolver {
       DiscoveryConsumer(client.GatewayOptions options) {
         self.disco = new client.CloudDiscoveryClient(concurrent.Context.runtime(), options, null, null);
+
+        self.disco.subscribe();
       }
     }
 
@@ -47,6 +49,7 @@ namespace datawire_connect {
       }
 
       void onExecute(Runtime runtime) {
+        print("heartbeat! for " + self.provider.disco.endpoint.toString());
         self.provider.disco.heartbeat();
         self.reschedule(runtime);
       }
