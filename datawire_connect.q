@@ -31,10 +31,41 @@ namespace datawire_connect {
       }
     }
 
+    class AutoHeartbeat extends Task {
+      DiscoveryProvider provider;
+      float interval;
+
+      AutoHeartbeat(DiscoveryProvider provider, float interval) {
+        self.provider = provider;
+        self.interval = interval;
+
+        self.reschedule(concurrent.Context.runtime());
+      }
+
+      void reschedule(Runtime runtime) {
+        runtime.schedule(self, self.interval);
+      }
+
+      void onExecute(Runtime runtime) {
+        self.provider.disco.heartbeat();
+        self.reschedule(runtime);
+      }
+    }
+
     @doc("DiscoveryProvider uses Datawire Connect's Discovery service to register a service-to-URL mapping, and to resolve other service names to URLs")
     class DiscoveryProvider extends BaseDiscoResolver {
+      AutoHeartbeat pulse;
+
       DiscoveryProvider(client.GatewayOptions options, String serviceName, model.Endpoint endpoint) {
         self.disco = new client.CloudDiscoveryClient(concurrent.Context.runtime(), options, serviceName, endpoint);
+      }
+
+      void register(float heartbeatInterval) {
+        self.disco.registerEndpoint();
+
+        if (heartbeatInterval > 0.0) {
+          self.pulse = AutoHeartbeat(self, heartbeatInterval);
+        }
       }
     }
   }
