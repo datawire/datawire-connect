@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>create-org &mdash; Datawire Connect 0.4.2 documentation</title>
+    <title>create-org &mdash; Datawire Connect 0.4.14 documentation</title>
     
-    <link rel="stylesheet" href="../_static/better.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/style.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.4.2',
+        VERSION:     '0.4.14',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,44 +23,60 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Datawire Connect 0.4.2 documentation" href="../index.html" />
+    <link rel="top" title="Datawire Connect 0.4.14 documentation" href="../index.html" />
     <link rel="up" title="Commands" href="commands.html" />
     <link rel="next" title="invite-user" href="inviteUser.html" />
     <link rel="prev" title="Commands" href="commands.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   
+  
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head>
-  <body role="document">
-    <header id="pageheader"><h1><a href="../index.html ">
-        Datawire Connect 0.4.2 documentation
-    </a></h1></header>
-  <div class="related top">
-  <nav id="rellinks">
-    <ul>
-        <li>
-          &larr;
-          <a href="commands.html" title="Previous document">Commands</a>
-        </li>
-        <li>
-          <a href="inviteUser.html" title="Next document">invite-user</a>
-          &rarr;
-        </li>
-    </ul>
-  </nav>
-  <nav id="breadcrumbs">
-    <ul>
-      <li><a href="../index.html">Datawire Connect 0.4.2 documentation</a></li>
-      <li>
-        <a href="index.html">Datawire Connect Cloud Tools Command Line Interface Guide</a>
-      </li>
-      <li>
-        <a href="syntax.html">Command Line Syntax</a>
-      </li>
-      <li>
-        <a href="commands.html">Commands</a>
-      </li> 
-    </ul>
-  </nav>
-  </div>  
+  <body role="document"><header class="dw-header" role="banner">
+    <div class="dw-headerwrapper group">
+        <div class="dw-sidebar">
+            <a href="../index.html">
+                <img class="dw-logo" src="../_static/img/logo-datawire.png" alt="Datawire">
+            </a>
+        </div>
+        <div class="dw-search group" role="search">
+            <form class="dw-searchform" action="../search.html" method="get">
+                <input type="text" placeholder="Search" name="q" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+    </div>
+</header>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a
+            href="inviteUser.html"
+            title="invite-user"
+            accesskey="N">
+              
+              next
+              &rarr;
+          </a></li>
+        <li class="right" >
+          <a
+            href="commands.html"
+            title="Commands"
+            accesskey="P">
+              &larr;
+              previous
+              
+          </a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Datawire Connect 0.4.14 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Datawire Connect Cloud Tools Command Line Interface Guide</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="syntax.html" >Command Line Syntax</a> &raquo;</li>
+          <li class="nav-item nav-item-3"><a href="commands.html" accesskey="U">Commands</a> &raquo;</li> 
+      </ul>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
@@ -180,106 +196,125 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">create-org</a><ul>
-<li><a class="reference internal" href="#syntax">Syntax</a></li>
-<li><a class="reference internal" href="#expected-response">Expected Response</a></li>
-<li><a class="reference internal" href="#common-error-states">Common Error States</a></li>
-<li><a class="reference internal" href="#arguments">Arguments</a><ul>
-<li><a class="reference internal" href="#h">-h</a></li>
-<li><a class="reference internal" href="#adminpass">&#8211;adminpass</a><ul>
-<li><a class="reference internal" href="#equivalent-options">Equivalent Options</a></li>
-<li><a class="reference internal" href="#constraints-and-usage-notes">Constraints and Usage Notes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#verify">&#8211;verify</a></li>
-<li><a class="reference internal" href="#organizationname">&lt;organizationName&gt;</a><ul>
-<li><a class="reference internal" href="#id1">Equivalent Options</a></li>
-<li><a class="reference internal" href="#id2">Constraints and Usage Notes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#username">&lt;userName&gt;</a><ul>
-<li><a class="reference internal" href="#id3">Equivalent Options</a></li>
-<li><a class="reference internal" href="#id4">Constraints and Usage Notes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#useremail">&lt;userEmail&gt;</a><ul>
-<li><a class="reference internal" href="#id5">Equivalent Options</a></li>
-<li><a class="reference internal" href="#id6">Constraints and Usage Notes</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+    
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="commands.html"
-                        title="previous chapter">Commands</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="inviteUser.html"
-                        title="next chapter">invite-user</a></p>
-<div class="sourcelink">
-  <a href="../_sources/cli/createOrg.txt" rel="nofollow">
-    Show page source
-  </a>
+
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul>
+    <li >
+        <a href="../index.html" >Welcome</a>
+    </li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="http://datawire.github.io/quark/0.4">Datawire Connect Documentation focused on Quark</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Datawire Connect Cloud Tools Command Line Interface Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="about.html">About this Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="syntax.html">Command Line Syntax</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="topLevel.html">Top Level Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general.html">General Command Arguments</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="commands.html">Commands</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="">create-org</a></li>
+<li class="toctree-l4"><a class="reference internal" href="inviteUser.html">invite-user</a></li>
+<li class="toctree-l4"><a class="reference internal" href="acceptInvitation.html">accept-invitation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="login.html">login</a></li>
+<li class="toctree-l4"><a class="reference internal" href="logout.html">logout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="status.html">status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="createService.html">create-service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="serviceToken.html">service-token</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flows.html">Usage Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html">More Information</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Datawire Connect Cloud Tools Command Line Interface Guide</a><ul>
+  <li><a href="syntax.html">Command Line Syntax</a><ul>
+  <li><a href="commands.html">Commands</a><ul>
+      <li>Previous: <a href="commands.html" title="previous chapter">Commands</a></li>
+      <li>Next: <a href="inviteUser.html" title="next chapter">invite-user</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+    <h3>Next Topic</h3>
+    <ul>
+        <li><a href="inviteUser.html">invite-user</a></li>
+    </ul>
+
+
+
+    <h3>Previous Topic</h3>
+    <ul>
+        <li><a href="commands.html">Commands</a></li>
+    </ul>
 
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-  <div class="related bottom">
-  <nav id="rellinks">
-    <ul>
-        <li>
-          &larr;
-          <a href="commands.html" title="Previous document">Commands</a>
-        </li>
-        <li>
-          <a href="inviteUser.html" title="Next document">invite-user</a>
-          &rarr;
-        </li>
-    </ul>
-  </nav>
-  <nav id="breadcrumbs">
-    <ul>
-      <li><a href="../index.html">Datawire Connect 0.4.2 documentation</a></li>
-      <li>
-        <a href="index.html">Datawire Connect Cloud Tools Command Line Interface Guide</a>
-      </li>
-      <li>
-        <a href="syntax.html">Command Line Syntax</a>
-      </li>
-      <li>
-        <a href="commands.html">Commands</a>
-      </li> 
-    </ul>
-  </nav>
-  </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a
+            href="inviteUser.html"
+            title="invite-user"
+            >
+              
+              next
+              &rarr;
+          </a></li>
+        <li class="right" >
+          <a
+            href="commands.html"
+            title="Commands"
+            >
+              &larr;
+              previous
+              
+          </a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Datawire Connect 0.4.14 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Datawire Connect Cloud Tools Command Line Interface Guide</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="syntax.html" >Command Line Syntax</a> &raquo;</li>
+          <li class="nav-item nav-item-3"><a href="commands.html" >Commands</a> &raquo;</li> 
+      </ul>
+    </div>
 
-  <footer id="pagefooter">&copy; 2015, 2016 Datawire.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a>
-      1.3.5.
+    <div class="footer">
+      &copy;2015, 2016 Datawire.
+      
+      |
+      <a href="https://github.com/datawire/quark"
+          rel="nofollow">GitHub Repository</a>
+    </div>
 
-  </footer>
+    
 
-  
+    
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-57322503-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+
+    <script src="../_static/vendor/zc/ZeroClipboard.js" ></script>
+    <script src="../_static/js/main.js" ></script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

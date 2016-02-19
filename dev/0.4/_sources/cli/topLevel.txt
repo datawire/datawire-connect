@@ -3,12 +3,12 @@ Top Level Arguments
 
 The {{{cli_product}}} command line interface supports the following top-level arguments:
 
-* -h
-* -v
-* -q
-* --registrar-url
-* --local
-* --state
+* :ref:`-h <topH>`
+* :ref:`-v <topV>`
+* :ref:`-q <topQ>`
+* :ref:`--registrar-url <topRegistrarUrl>`
+* :ref:`--local <topLocal>`
+* :ref:`--state <topState>`
 
 These arguments are all optional but must be specified in the order listed above if used.
 

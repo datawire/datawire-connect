@@ -1,18 +1,18 @@
 create-org
 ~~~~~~~~~~
 
-The create-org command creates a new organization in the {{{cli-product}}} with a single member. That member can then invite additional people into the organization as needed.
+The create-org command creates a new organization in the {{{cli_product}}} with a single member. That member can then invite additional people into the organization as needed.
 
 Syntax
 ++++++
 
 The basic syntax of the create-org command is:
 
-``dwc create-org <organizationName> <userName> <userEmail>``
+``{{{cli_command}}} create-org <organizationName> <userName> <userEmail>``
 
-The full syntax including all optional arguments is:
+The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``dwc <top level arguments> create-org -h --adminpass <password> --verify <organizationName> <userName> <userEmail>``
+``{{{cli_command}}} ... create-org -h --adminpass <password> --verify <organizationName> <userName> <userEmail>``
 
 More information about each argument can be found under :ref:`arguments <createOrgArguments>`.
 

@@ -3,8 +3,8 @@ General Command Arguments
 
 The {{{cli_product}}} command line interface supports the following arguments with any command:
 
-* -h
-* --verify
+* :ref:`-h <generalH>`
+* :ref:`--verify <generalVerify>`
 
 These arguments are all optional but must be specified after the command and in the order listed above if used. Some commands may require command-specific arguments between the general command arguments. Refer to the documentation for each command for specifics.
 
