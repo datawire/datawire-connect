@@ -34,7 +34,9 @@ where <orgId> is the user's organization ID and <serviceToken> is the current se
 Common Error States
 +++++++++++++++++++
 
-The most likely error state is trying to use status without being logging in first. Only logged in users can create new services.
+A common error state is trying to create a service with the same name as an existing service within the user's scope. You will need to choose another name and try again if this happens.
+
+Another common error state is trying to use status without being logging in first. Only logged in users can create new services.
 
 .. _createServiceArguments:
 
@@ -74,10 +76,10 @@ Constraints and Usage Notes
 
 The service name must be the last argument supplied with the command.
 
-Service names should be unique. If a new service is created with the same name as an existing service the creating user can access, the existing service is disassociated with the account and can no longer be accessed.
+The service name must be unique within the user's scope. If another service with the supplied name already exists the request will be rejected.
 
-[[JMK IMO we should enforce name uniqueness. See issue #4]]
+.. JMK: scope is currently the user but should be the org. See issue #3
 
-Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces. The name may be up to XXX characters long.
+Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces.
 
-[[JMK test this]]
+.. JMK: Add any length restrictions
