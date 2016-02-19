@@ -65,9 +65,9 @@ The -v flag has no meaning if used with -h.
 
 The CLI supports XXX verbosity levels. By default, most commands that create items (organizations, users, services, tokens, etc.) return a handle to the newly created item.
 
-[[JMK Need more info. As far as I can tell -v currently does nothing.]]
+.. JMK: Need more info. As far as I can tell -v currently does nothing.
 
-[[JMK what happens if I use both -v and -q at the same time?]]
+.. JMK: what happens if I use both -v and -q at the same time?
 
 .. _topQ:
 
@@ -94,9 +94,13 @@ Constraints and Usage Notes
 
 -q suppresses responses from the CLI. This may be useful if you are using the interface programmatically or want to maintain privacy and not display information specific to identifiers and tokens.
 
-[[JMK check what this actually does. what about something like invite-user where the output is required to move on to the next step of accept-invitation]]
+.. 
+   
+   JMK: check what this actually does.
+   What about something like invite-user where the output is required
+   to move on to the next step of accept-invitation?
 
-[[JMK what happens if I use both -v and -q at the same time?]]
+.. JMK: what happens if I use both -v and -q at the same time?
 
 .. _topRegistrarUrl:
 
@@ -124,7 +128,7 @@ Constraints and Usage Notes
 
 If this argument is omitted, {{{identity_default}}} is used by default.
 
-[[JMK what happens if you specify both --registrar-url and --local?]]
+.. JMK: what happens if you specify both --registrar-url and --local?
 
 .. _topLocal:
 
@@ -147,9 +151,11 @@ Equivalent Options
 Constraints and Usage Notes
 +++++++++++++++++++++++++++
 
-[[JMK does it listen on a specific port? what happens if no local server is running?]]
+Coming Soon
 
-[[JMK what happens if you specify both --registrar-url and --local?]]
+.. JMK: does it listen on a specific port? what happens if no local server is running?
+
+.. JMK: what happens if you specify both --registrar-url and --local?
 
 .. _topState:
 
@@ -158,7 +164,7 @@ Constraints and Usage Notes
 
 --state specifies a location for the state file containing information about the current user's organizations, identifiers, and services.
 
-[[JMK currently only one org and just a user ID]]
+.. JMK: currently only one org and just a user ID
 
 Syntax
 ++++++
