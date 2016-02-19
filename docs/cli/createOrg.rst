@@ -97,9 +97,9 @@ Constraints and Usage Notes
 
 The organization name must be the third to last argument supplied with the command.
 
-Any UTF-8 string may be used as the organization name. Quotes must be used around the value if it includes spaces. The name may be up to XXX characters long.
+Any UTF-8 string may be used as the organization name. Quotes must be used around the value if it includes spaces. 
 
-[[JMK test this]]
+.. JMK: Add any length restrictions. I've successfully used several hundred characters.
 
 .. _createOrgUserName:
 
@@ -118,9 +118,9 @@ Constraints and Usage Notes
 
 The user's name must be the second to last argument supplied with the command.
 
-Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces. The name may be up to XXX characters long.
+Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces.
 
-[[JMK test this]]
+.. JMK: Add any length restrictions. I've successfully used several hundred characters.
 
 .. _createOrgUserEmail:
 
@@ -140,8 +140,6 @@ Constraints and Usage Notes
 The email address must be the last argument supplied with the command.
 
 Any valid email address may be used. The string must have the format a@b.c or it will be rejected.
-
-[[JMK test this]]
 
 Each email address may only be used once in the system. A user may not have multiple accounts or belong to multiple organizations.
 
