@@ -1,20 +1,17 @@
+The Datawire Market Example
+===========================
+
 This is the Datawire Market example, showing a very simple monolith and walking through how to switch it to use microservices.
 
-The Market is written for Python 2.7. We strongly recommend using virtualenv!
+The Market is written for Python 2.7. You _must_ use `virtualenv` to do everything the easy way. If you don't already have `virtualenv`, check out `https://virtualenv.readthedocs.org` to get it installed.
 
-1. To get started, you'll need Flask, Requests, and Nose:
+The Easy Way
+------------
 
-        pip install flask requests nose
+1. Create up and activate a virtualenv.
+2. `make monolith`. This will set up your virtualenv with all the packages needed to run the monolith Market app, and start the Market running.
+3. Point a web browser to `http://localhost:5000`.
 
-2. Run the completely monolithic Market, sans edits.
+You should see a Market offering four Things. You can add Things to your cart, and check out (which clears your cart, but doesn't do anything else).
 
-        cd datawire-examples/market
-        python market.py
-
-    This will start the Market running, displaying no ratings at all. It uses the monolithic database embodied by things.json.
-
-3. With the Market running, fire up the tests.
-
-        nosetests
-
-    All tests should pass.
+Note that each Thing has a price, but no rating.
