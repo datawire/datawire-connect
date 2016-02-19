@@ -3,7 +3,9 @@ status
 
 The status command provides information on the currently logged in user including organization ID, user ID, and the tokens for any services they created.
 
-[[JMK depending on resolution of issue #3 may contain additional tokens/service info for other services in the org]]
+.. 
+   JMK: depending on resolution of issue #3 may contain additional tokens/service
+   info for other services in the org
 
 Syntax
 ++++++
@@ -21,35 +23,19 @@ More information about each command argument can be found under :ref:`arguments 
 Expected Response
 +++++++++++++++++
 
-Successful calls will result in the following response:
+Information about the expected response is coming soon.
 
-.. code-block:: none
+.. 
    
-   {
-       "orgID":"<orgId>", 
-       "orgs":{
-           "<orgId>":{
-               "email":"<emailAddress>",
-               "service_tokens":{ 
-                  "service1":"<service1Token>",
-                  "service2":"<service2Token>"
-               },
-               "user_token":"<userToken>" 
-           } 
-       }
-   } 
-
-
-where <orgId> is the user's organization ID, <emailAddress> is their email address, each <serviceKToken> is a service token, and <userToken> is the current user token.
-
-[[JMK where does a user token come in here? we're not returning it excepting in status and don't seem to require its use anywhere]]
+   JMK: where does a user token come in here?
+   we're not returning it excepting in status and don't seem to require its use anywhere
 
 Common Error States
 +++++++++++++++++++
 
 The most likely error state is trying to use status without being logging in first. Since status returns the current user's state in the system, it requires a valid, logged in current user.
 
-[[JMK the current error message could use improvement. See issue #6]]
+.. JMK: the current error message could use improvement. See issue #6
 
 .. _statusArguments:
 
