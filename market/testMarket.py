@@ -6,8 +6,9 @@ def thingIsSane(thingID, thing):
       thing['blurb'] and
       thing['desc'] and
       thing['price'] > 0 and
-      thing['rating'] >= 0 and
-      thing['warnings'] is not None):
+      (('rating' not in thing) or
+       (thing['rating'] >= 0)) and
+      (thing['warnings'] is not None)):
     return True
   else:
     print("Thing %s is not sane" % thingID)

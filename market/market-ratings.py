@@ -96,6 +96,17 @@ def index():
           cartItems.remove(thingID)
           return renderIndex("Item removed successfully!")
 
+@app.route('/thing/<thingID>', methods = [ 'GET' ])
+def thing(thingID=None):
+  if (request.method == 'GET'):
+    # You always get JSON when looking up a particular Thing. This is mostly
+    # here for tests.
+
+    if (thingID is None) or (not thingID in Things):
+      return ('no such Thing: %s' % thingID, 404)
+  
+    return jsonify(Things[thingID])
+
 @app.errorhandler(404)
 def page_not_found(e):
     return (render_template('404.html'), 404)
