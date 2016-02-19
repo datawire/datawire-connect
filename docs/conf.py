@@ -161,7 +161,7 @@ html_theme_path = ['.']
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'analytics_id': 'UA-57322503-4'
+    'analytics_id': 'UA-57322503-5'
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
