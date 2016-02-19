@@ -20,20 +20,21 @@ The Datawire style limits formatting unless it is essential to conveying intende
 
 This document uses the following typographical conventions:
 
-+-----------------------+--------------------------------------------------------------+
-| Format                | Usage                                                        |
-+=======================+==============================================================+
-|``red monospace fonts``| commands and command syntax                                  |
-+-----------------------+--------------------------------------------------------------+
-| .. code-block:: none  | responses to commands                                        |
-|                       |                                                              |
-|    monospace fonts    |                                                              |
-+-----------------------+--------------------------------------------------------------+
-| <variable>            | variables in commands, syntax, and responses                 |
-|                       | (everything not called out as a variable is a literal value) |
-+-----------------------+--------------------------------------------------------------+
-| ellipses (...)        | optional content not pertinent to current discussion         |
-+-----------------------+--------------------------------------------------------------+
++-----------------------+------------------------------------------------------------+
+| Format                | Usage                                                      |
++=======================+============================================================+
+|``red monospace fonts``| commands and command syntax                                |
++-----------------------+------------------------------------------------------------+
+| .. code-block:: none  | responses to commands                                      |
+|                       |                                                            |
+|    monospace fonts    |                                                            |
++-----------------------+------------------------------------------------------------+
+| <variable>            | variables in commands, syntax, and responses               |
+|                       | (anything in commands, syntax, or responses not called out |
+|                       | as a variable is a literal value excepting ellipses)       |
++-----------------------+------------------------------------------------------------+
+| ellipses (...)        | optional content not pertinent to current discussion       |
++-----------------------+------------------------------------------------------------+
 
 
 Known Issues
