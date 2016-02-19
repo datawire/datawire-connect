@@ -1,4 +1,4 @@
-all: checkVirtual prep ratingsService tests
+all: checkVirtual prep ratingsService
 
 checkVirtual:
 	@if [ -z "$$VIRTUAL_ENV" ]; then \
