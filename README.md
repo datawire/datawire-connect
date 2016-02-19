@@ -51,91 +51,54 @@ RPC calls.
 
 #### Installation
 
-The following commands will install the Quark compiler and its runtime:
+The following command will install the Quark compiler and its runtime:
 ```
 pip install datawire-quark
-pip install datawire-quark-threaded
 ```
 #### Running an Example
 
 The first demo to try is the `helloRPC` demo, which shows a simple RPC
-interaction between a client and a microservice. These commands are in Python,
-and will be used to make an RPC call to a microservice already running in the
-cloud:
+interaction between a client and a microservice.
 
 ```
-git clone https://github.com/datawire/datawire-connect.git
-cd datawire-connect/examples/helloRPC
-quark --python package hello.q
-pip install hello/py/dist/hello-0.1.0-py2-none-any.whl
-python pyclient.py
+git clone https://github.com/datawire/quark.git
+cd quark/examples/helloRPC
+quark install hello.q --python
 ```
-You should see the following:
-```
-Response says "Responding to 'Hello from Python!' from Datawire Cloud!"
-```
-
-#### Running the server locally  
-
-Now it's time to run that same cloud server code in your own environment. Change the
-`pyclient.py` code to uncomment this line to make it refer to your local server:
-```python
-  client = hello.HelloClient(runtime, "http://127.0.0.1:8910/hello")
-```
-Open another terminal window and run the local Python server with the command:
+Run the local Python server with the command:
 ```
 python pyserver.py
 ```
-Then run the client again with this command:
+Then run the client with this command:
 ```
 python pyclient.py
 ```
-You'll see the full client / server interaction in your local environment.
-
-#### Adding Resilience
-
-If you look inside the service contract file `hello.q`, you'll see that
-this example already defines a request timeout value of 3 seconds:
-
-```python
-  @delegate(self.rpc, {"timeout": 3000})
-  Response hello(Request request);
+You should see the following in the client window:
 ```
-
-To see this timeout being tripped, simply uncomment this line in `pyserver.py`
-to simulate a long processing time for the request:
-```python
-  import time; time.sleep(5)
+Response says 'Responding to [Hello from Python!] from Python'
 ```
-
-Now re-run the Python server, re-run the client, and you'll see the client
-give up waiting for a response from the server after 3 seconds. Datawire Connect
-makes it trivial to add all kinds of important behaviors to your service
-contracts, from simple timeouts such as these to more complex things like circuit
-breakers.
 
 #### Learning more
 
-The README.md in the `helloRPC` demo directory will take the example further by
-showing you how to run your own local server, and how to do so in other languages
-such as Java and JavaScript.
+The README.md in the `helloRPC` example directory will take the demo further by
+showing you how to run the scenario in other languages such as Java and JavaScript.
 
 You can also try the other included examples that show how to use a custom
 serialization protocol, communicate with Web Sockets, and more. We've even
 included a demo of how to invoke an existing service with Datawire Connect,
 using the collaboration tool Slack as the wrappable service.
 
-Datawire Connect has [extensive documentation](http://datawire.github.io/quark/0.3/index.html)
+Datawire Connect has [extensive documentation](http://datawire.github.io/quark/0.4/index.html)
 on all its features. When you've reached the point of writing your own clients
-and services using Datawire Connect, you'll need our detailed 
-[language reference](http://datawire.github.io/quark/0.3/language-reference/index.html)
+and services using Datawire Connect, you'll need our detailed
+[language reference](http://datawire.github.io/quark/0.4/language-reference/index.html)
 that covers the Quark language constructs and syntax in detail.
 
 # Features of Datawire Connect
 
 * Native support for building resilient microservices in Python, JavaScript,
 and Java (Ruby and Go support coming soon!)
-* Automatic microservice registration with the Datawire Hub discovery service
+* Automatic microservice registration with the Datawire Discovery service
 * Custom serialization support
 * Support for HTTP/S, JSON, XML, Web Sockets...you name it
 * A sophisticated language (Quark) that combines an IDL with a DSL, making it
