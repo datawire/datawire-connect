@@ -4,23 +4,19 @@ import sys
 
 import json
 
+import argparse
 from ratings import *
 
-# Start by finding the root directory of our script...
-scriptDir = os.path.dirname(os.path.realpath(__file__))
+parser = argparse.ArgumentParser(description='Ratings Microservice')
 
-# ...from which we can determine the root of the Market example...
-rootDir = os.path.abspath(os.path.join(scriptDir, ".."))
+parser.add_argument('--instance', metavar='INSTANCE', type=int,
+                    help='Listen on port 8000 + INSTANCE (--instance 1 => listen on port 8001)')
+parser.add_argument('--port', metavar='PORT', type=int,
+                    help='Listen on PORT (defaults to 8001)')
+parser.add_argument('--count', metavar='COUNT', type=int,
+                    help='Listen on COUNT ports starting with 8001 (--count 2 => 8001, 8002)')
 
-# ...from which we can locate our resources.
-resourceDir = os.path.join(rootDir, "resources")
-
-# Utility function for setting up paths within the resource directory.
-def resPath(path):
-  """ Return a path to something in the resource directory. """
-  return os.path.join(resourceDir, path)
-
-#### The Ratings microservice itself
+######## RATINGS MICROSERVICE
 class RatingsService (object):
   """ The Ratings microservice itself. """
   def __init__(self, ratings):
@@ -39,21 +35,44 @@ class RatingsService (object):
 
     return rating
 
-#### MAINLINE
+######## MAINLINE
 
-# Start by loading up the ratings data we'll use.
-Ratings = json.load(open(resPath("ratings.json"), "r"))
+# Parse arguments first off...
+args = parser.parse_args()
 
-# Next up, get our port number...
-port = 8001
+# ...then, from our arguments, work out where to listen.
 
-if len(sys.argv) > 1:
-  port = int(sys.argv[1])
+ports = [ 8001 ]
 
-print("listening on port %d" % port)
+if args.count:
+  ports = [ 8000 + i for i in range(1, args.count+1) ]
+elif args.instance:
+  ports = [ 8000 + args.instance ]
+elif args.port:
+  ports = [ args.port ]
 
-url = "http://127.0.0.1:%d/ratings" % port
+# Next up, find the root directory of our script...
+scriptDir = os.path.dirname(os.path.realpath(__file__))
 
-# ...and fire up the ratings service.
-srv = RatingsServer(RatingsService(Ratings))
-srv.serveHTTP(url)
+# ...from which we can determine the root of the Market example...
+rootDir = os.path.abspath(os.path.join(scriptDir, ".."))
+
+# ...from which we can locate our resources...
+resourceDir = os.path.join(rootDir, "resources")
+
+# ...from which we can locate our ratings info.
+ratingsPath = os.path.join(resourceDir, "ratings.json")
+
+# OK. Load up the ratings data we'll use...
+ratings = json.load(open(ratingsPath, "r"))
+
+# ...and fire up listener(s).
+
+for port in ports:
+  print("listening on port %d" % port)
+
+  url = "http://127.0.0.1:%d/ratings" % port
+
+  # ...and fire up the ratings service.
+  srv = RatingsServer(RatingsService(ratings))
+  srv.serveHTTP(url)

@@ -15,9 +15,6 @@ ratingsService:
 start:
 	python market.py
 
-startRatings:
-	python ../ratings/ratingsService.py 8001
-
 test tests:
 	@echo "Make sure the Market is running, then Y to continue or N to quit:"
 	@read junk ;\
