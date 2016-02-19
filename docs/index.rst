@@ -11,7 +11,7 @@ Available documentation:
 .. toctree::
    :maxdepth: 1
 
-   {{{product}}} Documentation focused on Quark <http://datawire.github.io/{{{doc_directory}}}>
+   {{{product}}} Documentation focused on {{{language}}} <http://datawire.github.io/{{{doc_directory}}}>
    {{{cli_product}}} Command Line Interface Guide <cli/index>
 
 Indices and tables
