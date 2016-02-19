@@ -20,13 +20,21 @@ The Datawire style limits formatting unless it is essential to conveying intende
 
 This document uses the following typographical conventions:
 
-* ``monospace fonts`` for full commands and command syntax lines
-* ``monospace fonts`` with a gray background for responses to commands
-* <variable> for variables in commands, command syntax lines, or responses to commands (all other command, syntax, or response content is presented verbatim)
-* ellipses (...) to indicate possible content that is not pertinent to the current discussion
++-----------------------+--------------------------------------------------------------+
+| Format                | Usage                                                        |
++=======================+==============================================================+
+|``red monospace fonts``| commands and command syntax                                  |
++-----------------------+--------------------------------------------------------------+
+| .. code-block:: none  | responses to commands                                        |
+|                       |                                                              |
+|    monospace fonts    |                                                              |
++-----------------------+--------------------------------------------------------------+
+| <variable>            | variables in commands, syntax, and responses                 |
+|                       | (everything not called out as a variable is a literal value) |
++-----------------------+--------------------------------------------------------------+
+| ellipses (...)        | optional content not pertinent to current discussion         |
++-----------------------+--------------------------------------------------------------+
 
-
-[[JMK put in a table?]]
 
 Known Issues
 ------------
