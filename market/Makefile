@@ -1,23 +1,13 @@
-all: checkVirtual prep ratingsService
+all: monolith
 
-checkVirtual:
-	@if [ -z "$$VIRTUAL_ENV" ]; then \
-		echo "Please activate a virtualenv to continue (cf https://virtualenv.readthedocs.org)" >&2 ;\
-		exit 1; \
-	fi
+.always:
 
-prep:
-	pip install -r requirements.txt
+monolith: .always
+	cd monolith && make 
 
-ratingsService:
-	quark install --python ratings/ratings.q
+add-ratings: .always
+	cd add-ratings && make
 
-test tests:
-	@echo "Make sure the Market is running, then Y to continue or N to quit:"
-	@read junk ;\
-	case $$junk in \
-	  y|Y)  nosetests ;\
-            ;; \
-      *)    ;; \
-    esac
+add-prices: .always
+	cd add-prices && make
 

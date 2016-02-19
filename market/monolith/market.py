@@ -1,17 +1,35 @@
 import sys
 
 import json
+import os
 import time
 
 from flask import Flask, render_template, url_for, request, jsonify
 
-# Start by loading up our set of Things...
-Things = json.load(open("things.json", "r"))
+# Start by finding the root directory of our script...
+scriptDir = os.path.dirname(os.path.realpath(__file__))
 
-# ...an empty shopping cart...
+# ...from which we can determine the root of the Market example...
+rootDir = os.path.abspath(os.path.join(scriptDir, ".."))
+
+# ...from which we can locate our resources.
+resourceDir = os.path.join(rootDir, "resources")
+templateDir = os.path.join(resourceDir, "templates")
+staticDir = os.path.join(resourceDir, "static")
+
+# Utility function for setting up paths within the resource directory.
+def resPath(path):
+  """ Return a path to something in the resource directory. """
+  return os.path.join(resourceDir, path)
+
+# OK, load up the set of Things we'll show!
+Things = json.load(open(resPath("things.json"), "r"))
+
+# Next, set up an empty shopping cart...
 cartItems = []
 
-app = Flask("Market")
+# ...and get Flask running, using the correct directories.
+app = Flask("Market", template_folder=templateDir, static_folder=staticDir)
 
 def cartCost():
   totalCost = 0
@@ -23,7 +41,6 @@ def checkout():
   global cartItems
   del cartItems[:]
   return renderIndex("Succesfully checked out your items!")
-
 
 def renderIndex(cartMessage):
   return render_template('index.html',
