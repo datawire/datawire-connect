@@ -84,11 +84,26 @@ You'll see the full client / server interaction in your local environment.
 
 #### Adding Resilience
 
-If you look inside the service contract file `hello.q`, you'll see that this example already defines a request timeout value of 3 seconds:
+If you look inside the service contract file `hello.q`, you'll see that this example already defines a default request timeout value of 3 seconds:
 
-```python
-  @delegate(self.rpc, {"timeout": 3000})
-  Response hello(Request request);
+```java
+    @doc("The hello service.")
+    interface Hello extends Service {
+
+	// How long (in seconds) the remote request is given to complete
+        static float timeout = 3.0;
+	// Number of failed requests before circuit breaker trips
+        static int failureLimit = 1;
+	// How long (in seconds) before circuit breaker resets
+        static float retestDelay = 30.0;
+
+        @doc("Respond to a hello request.")
+        Response hello(Request request) {
+	    // ? operator casts the return value to a Response object
+            return ?self.rpc("hello", [request]);
+        }
+
+    }
 ```
 
 To see this timeout being tripped, simply uncomment this line in `pyserver.py` to simulate a long processing time for the request:
