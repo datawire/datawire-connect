@@ -27,7 +27,7 @@ Add Ratings
 
 You should see pretty much the same thing as with the monolith now: prices, but no ratings. That's because no Ratings services are running yet.
 
-4. In another window:
+4. In another window (WINDOW 2):
    1. Activate your virtualenv
    2. Get to the Market directory
    3. `make startRatings COUNT=3`
@@ -38,33 +38,88 @@ This will start three Ratings services running.
 
 You should see all the ratings appear.
 
-6. Simulate failure of the Ratings service:
+6. Simulate complete failure of the Ratings service:
    1. Use ^C to kill the Ratings services you started in step 4.
-   2. `make startRatings COUNT=1`
-
-This will start only one instance of the Ratings service.
 
 7. Refresh the web browser.
 
-All the ratings should still be present, but in the Market's output you should see that ratings are still trying to use all three instances:
+All the ratings should still be present, but in the Market's output you should see that all the Ratings services are down:
+
+```BAD None: all serivecs are down```
+
+8. Start a single Ratings service in WINDOW 2:
+   1. `make startRatings INSTANCE=1`
+
+This will start one Ratings instance running.
+
+9. Refresh the web browser.
+
+All the ratings should still be present. In the Market's output you should see all the ratings requests using the single instance that's running:
 
 ```ASK for camera
-- ratings using instance 2: http://127.0.0.1:8002/ratings
-ASK for football
-- ratings using instance 1: http://127.0.0.1:8001/ratings
+DEBUG:DWC:DWC resolving ratings
+DEBUG:DWC:DWC resolved ratings => [http://127.0.0.1:8001]
+INFO:quark.client:- ratings using instance 1: http://127.0.0.1:8001
 ```
 
-and you should see some errors:
+10. In another window (WINDOW 3), start another instance of the Ratings service:
+   1. Activate your virtualenv
+   2. Get to the Market directory
+   3. `make startRatings INSTANCE=2`
 
-```BAD None: request timed out`
+This will start a second Ratings instance running.
 
-8. Before thirty seconds have passed, refresh the browser again.
+11. Refresh the web browser.
 
-This time you won't see any attempts to use instances 2 or 3, and all the requests should succeed. This happens because the circuit breakers for instances 2 and 3 opened when they failed, causing all requests to funnel to instance 1.
+All the ratings should still be present. In the Market's output you should see the ratings requests interleaving between the two instances that are running:
 
-9. Wait thirty seconds. Refresh again.
+```ASK for camera
+DEBUG:DWC:DWC resolving ratings
+DEBUG:DWC:DWC resolved ratings => [http://127.0.0.1:8001, http://127.0.0.1:8002]
+INFO:quark.client:- ratings using instance 1: http://127.0.0.1:8001
+ASK for basketball
+DEBUG:DWC:DWC resolving ratings
+DEBUG:DWC:DWC resolved ratings => [http://127.0.0.1:8001, http://127.0.0.1:8002]
+INFO:quark.client:- ratings using instance 2: http://127.0.0.1:8002
+```
 
-This should behave exactly as in step 7: the breakers are reset to check if the dead services have come back to life.
+12. Pause, but do not kill, Ratings service #2:
+  1. In WINDOW 2, hit ^Z.
+
+At this point the second instance is running but unresponsive.
+
+13. Refresh the web browser.
+
+All the ratings should still be present, but in the Market's output you should see errors about the unresponsive instance.
+
+```
+ASK for football
+DEBUG:DWC:DWC resolving ratings
+DEBUG:DWC:DWC resolved ratings => [http://127.0.0.1:8001, http://127.0.0.1:8002]
+INFO:quark.client:- ratings using instance 2: http://127.0.0.1:8002
+WARNING:quark.client:- OPEN breaker on [ratings at http://127.0.0.1:8002]
+...
+WAITED 1090ms
+BAD None: request timed out
+```
+
+14. Before thirty seconds have passed, refresh the web browser again.
+
+This time all requests should go to instance 1, and they should all succeed.
+
+15. Wait thirty seconds, then restart instance 2.
+  1. In WINDOW 1, run `fg` to restart the paused process.
+
+This will simulate the unresponsive instance recovering. You may see some old requests suddenly appear in WINDOW 2, which is OK. 
+
+Once the instance is resumed, it should send a heartbeat within 15 seconds. At that point you should see the Market indicating that it sees that the instance is alive again:
+
+```INFO:quark.client:- CLOSE breaker on [ratings at http://127.0.0.1:8002]```
+
+16. Refresh the web browser.
+
+Once again, requests should be interleaved between the two instances, and all should succeed.
+
 
 
 
