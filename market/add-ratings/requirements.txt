@@ -1,5 +1,5 @@
 datawire-quark>=0.4.15
-datawire-cloudtools>=0.2.2
+datawire-cloudtools>=0.2.3
 Flask==0.10.1
 nose==1.3.7
 requests==2.9.1
