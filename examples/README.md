@@ -13,7 +13,7 @@ is a very simple client-to-microservice interaction using an RPC pattern.
 
 ### The market example
 
-The [market](https://github.com/datawire/datawire-connect/tree/master/market)
+The [market](https://github.com/datawire/datawire-connect/tree/master/examples/market)
 example shows how to take an existing monolith application and connect it to a new
 microservice. It also demonstrates how easy it is to get behaviors like timeouts, 
 circuit breaking, and load balancing in your applications that consume microservices
