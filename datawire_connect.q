@@ -1,6 +1,5 @@
 // We rely on the Discovery Service.
 use https://raw.githubusercontent.com/datawire/discovery/flynn/feature/discoball/discovery.q;
-// use file:///Users/flynn/datawire/discovery/discovery.q;
 
 import discovery;
 
