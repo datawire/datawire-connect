@@ -99,7 +99,8 @@ The organization name must be the third to last argument supplied with the comma
 
 Any UTF-8 string may be used as the organization name. Quotes must be used around the value if it includes spaces. 
 
-.. JMK: Add any length restrictions. I've successfully used several hundred characters.
+..    
+   JMK: Add any length restrictions. I've successfully used several hundred characters.
 
 .. _createOrgUserName:
 
@@ -120,7 +121,8 @@ The user's name must be the second to last argument supplied with the command.
 
 Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces.
 
-.. JMK: Add any length restrictions. I've successfully used several hundred characters.
+.. 
+   JMK: Add any length restrictions. I've successfully used several hundred characters.
 
 .. _createOrgUserEmail:
 

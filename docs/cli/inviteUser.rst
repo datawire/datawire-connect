@@ -35,7 +35,8 @@ Common Error States
 
 The most common error encountered with this call is that the user being invited is already registered with {{{company}}} (possibly under a different organization). In this case, the user should contact {{{company}}} at {{{support_address}}}.
 
-.. JMK: Are we adding expiration dates? it was mentioned as a TODO previously
+..    
+   JMK: Are we adding expiration dates? it was mentioned as a TODO previously
 
 .. _inviteUserArguments:
 
@@ -83,7 +84,6 @@ Constraints and Usage Notes
 If this option is specified, the user cannot create services within the organization.
 
 .. 
-   
    JMK what can they do? currently users cannot see services they did not create 
    let alone get tokens for them, although I think they should be able to see and get 
    tokens for all services within their organization.

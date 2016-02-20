@@ -74,7 +74,8 @@ If omitted, the user is prompted to enter a name interactively after submitting 
 
 Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces.
 
-.. JMK: determine any length limits
+..    
+   JMK: determine any length limits
 
 .. _acceptInvitationPassword:
 
