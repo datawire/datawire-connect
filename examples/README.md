@@ -4,8 +4,7 @@ Examples using only Quark features are available in the
 [Quark repository](https://github.com/datawire/quark/tree/master/examples).
 
 Examples that demonstrate Datawire Connect and its associated cloud services 
-are available in the
-[Datawire Examples repository](https://github.com/datawire/datawire-examples).
+are available in this repository.
 
 ### The helloRPC example
 
@@ -14,7 +13,7 @@ is a very simple client-to-microservice interaction using an RPC pattern.
 
 ### The market example
 
-The [market](https://github.com/datawire/datawire-examples/tree/master/market)
+The [market](https://github.com/datawire/datawire-connect/tree/master/market)
 example shows how to take an existing monolith application and connect it to a new
 microservice. It also demonstrates how easy it is to get behaviors like timeouts, 
 circuit breaking, and load balancing in your applications that consume microservices
