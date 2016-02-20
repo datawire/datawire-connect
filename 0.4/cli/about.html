@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>About this Document &mdash; Datawire Connect 0.4.14 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.4.14',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Datawire Connect 0.4.14 documentation" href="../index.html" />
+    <link rel="up" title="Datawire Connect Cloud Tools Command Line Interface Guide" href="index.html" />
+    <link rel="next" title="Introduction" href="intro.html" />
+    <link rel="prev" title="Datawire Connect Cloud Tools Command Line Interface Guide" href="index.html" />
+   
+  
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document"><header class="dw-header" role="banner">
+    <div class="dw-headerwrapper group">
+        <div class="dw-sidebar">
+            <a href="../index.html">
+                <img class="dw-logo" src="../_static/img/logo-datawire.png" alt="Datawire">
+            </a>
+        </div>
+        <div class="dw-search group" role="search">
+            <form class="dw-searchform" action="../search.html" method="get">
+                <input type="text" placeholder="Search" name="q" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+    </div>
+</header>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a
+            href="intro.html"
+            title="Introduction"
+            accesskey="N">
+              
+              next
+              &rarr;
+          </a></li>
+        <li class="right" >
+          <a
+            href="index.html"
+            title="Datawire Connect Cloud Tools Command Line Interface Guide"
+            accesskey="P">
+              &larr;
+              previous
+              
+          </a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Datawire Connect 0.4.14 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Datawire Connect Cloud Tools Command Line Interface Guide</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="about-this-document">
+<h1>About this Document<a class="headerlink" href="#about-this-document" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to the Datawire Connect Cloud Tools Command Line Interface Guide.</p>
+<div class="section" id="intended-audience">
+<h2>Intended Audience<a class="headerlink" href="#intended-audience" title="Permalink to this headline">¶</a></h2>
+<p>This documentation is written for developers who wish to use the Datawire Cloud and Datawire Discovery Service to perform discovery, health checks, and load balancing for instances of microservices developed using Datawire Connect and Quark.</p>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>This documentation makes no assumptions about specific prior knowledge beyond basic familiarity with UNIX.</p>
+</div>
+<div class="section" id="conventions">
+<h2>Conventions<a class="headerlink" href="#conventions" title="Permalink to this headline">¶</a></h2>
+<p>The Datawire style limits formatting unless it is essential to conveying intended meaning. To that end, Datawire does not use bold or italics for emphasis or to introduce new terms nor do we format names within text in any way.</p>
+<p>This document uses the following typographical conventions:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Format</th>
+<th class="head">Usage</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">red</span> <span class="pre">monospace</span> <span class="pre">fonts</span></code></td>
+<td>commands and command syntax</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-none"><div class="highlight"><pre>monospace fonts
+</pre></div>
+</div>
+</td>
+<td>responses to commands</td>
+</tr>
+<tr class="row-even"><td>&lt;variable&gt;</td>
+<td>variables in commands, syntax, and responses
+(anything in commands, syntax, or responses not called out
+as a variable is a literal value excepting ellipses)</td>
+</tr>
+<tr class="row-odd"><td>ellipsis (...)</td>
+<td>optional content not pertinent to current discussion</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="known-issues">
+<h2>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Two consecutive dashes may appear as a single endash within the documentation. There are no cases where an endash is intentionally used, so substitute two dashes anytime you see an endash in the document.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+
+
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul>
+    <li >
+        <a href="../index.html" >Welcome</a>
+    </li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="http://datawire.github.io/quark/0.4">Datawire Connect Documentation focused on Quark</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Datawire Connect Cloud Tools Command Line Interface Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">About this Document</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntax.html">Command Line Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flows.html">Usage Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html">More Information</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Datawire Connect Cloud Tools Command Line Interface Guide</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Datawire Connect Cloud Tools Command Line Interface Guide</a></li>
+      <li>Next: <a href="intro.html" title="next chapter">Introduction</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+    <h3>Next Topic</h3>
+    <ul>
+        <li><a href="intro.html">Introduction</a></li>
+    </ul>
+
+
+
+    <h3>Previous Topic</h3>
+    <ul>
+        <li><a href="index.html">Datawire Connect Cloud Tools Command Line Interface Guide</a></li>
+    </ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a
+            href="intro.html"
+            title="Introduction"
+            >
+              
+              next
+              &rarr;
+          </a></li>
+        <li class="right" >
+          <a
+            href="index.html"
+            title="Datawire Connect Cloud Tools Command Line Interface Guide"
+            >
+              &larr;
+              previous
+              
+          </a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Datawire Connect 0.4.14 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Datawire Connect Cloud Tools Command Line Interface Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="footer">
+      &copy;2015, 2016 Datawire.
+      
+      |
+      <a href="https://github.com/datawire/quark"
+          rel="nofollow">GitHub Repository</a>
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-57322503-5', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+
+    <script src="../_static/vendor/zc/ZeroClipboard.js" ></script>
+    <script src="../_static/js/main.js" ></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57322503-4', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

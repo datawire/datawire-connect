@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>login &mdash; Datawire Connect 0.4.14 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.4.14',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Datawire Connect 0.4.14 documentation" href="../index.html" />
+    <link rel="up" title="Commands" href="commands.html" />
+    <link rel="next" title="logout" href="logout.html" />
+    <link rel="prev" title="accept-invitation" href="acceptInvitation.html" />
+   
+  
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document"><header class="dw-header" role="banner">
+    <div class="dw-headerwrapper group">
+        <div class="dw-sidebar">
+            <a href="../index.html">
+                <img class="dw-logo" src="../_static/img/logo-datawire.png" alt="Datawire">
+            </a>
+        </div>
+        <div class="dw-search group" role="search">
+            <form class="dw-searchform" action="../search.html" method="get">
+                <input type="text" placeholder="Search" name="q" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+    </div>
+</header>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a
+            href="logout.html"
+            title="logout"
+            accesskey="N">
+              
+              next
+              &rarr;
+          </a></li>
+        <li class="right" >
+          <a
+            href="acceptInvitation.html"
+            title="accept-invitation"
+            accesskey="P">
+              &larr;
+              previous
+              
+          </a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Datawire Connect 0.4.14 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Datawire Connect Cloud Tools Command Line Interface Guide</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="syntax.html" >Command Line Syntax</a> &raquo;</li>
+          <li class="nav-item nav-item-3"><a href="commands.html" accesskey="U">Commands</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="login">
+<h1>login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h1>
+<p>The login command allows an existing user to log in to the Datawire Connect Identity Server.</p>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>The basic syntax of the login command is:</p>
+<p><code class="docutils literal"><span class="pre">dwc</span> <span class="pre">login</span> <span class="pre">userEmail</span></code></p>
+<p>The full syntax (excepting <a class="reference internal" href="topLevel.html"><em>top level arguments</em></a>) is:</p>
+<p><code class="docutils literal"><span class="pre">dwc</span> <span class="pre">...</span> <span class="pre">login</span> <span class="pre">-h</span> <span class="pre">--password</span> <span class="pre">&lt;password&gt;</span> <span class="pre">--org-id</span> <span class="pre">&lt;orgId&gt;</span> <span class="pre">--verify</span> <span class="pre">&lt;userEmail&gt;</span></code></p>
+<p>More information about each command argument can be found under <a class="reference internal" href="status.html#statusarguments"><span>arguments</span></a>.</p>
+</div>
+<div class="section" id="expected-response">
+<h2>Expected Response<a class="headerlink" href="#expected-response" title="Permalink to this headline">¶</a></h2>
+<p>Successful calls will result in the following response:</p>
+<div class="highlight-none"><div class="highlight"><pre>Now logged in as [&lt;orgId&gt;]&lt;email&gt;
+</pre></div>
+</div>
+<p>where &lt;orgId&gt; is the Datawire ID for the new organization and &lt;email&gt; is the email address of its creator.</p>
+</div>
+<div class="section" id="common-error-states">
+<h2>Common Error States<a class="headerlink" href="#common-error-states" title="Permalink to this headline">¶</a></h2>
+<p>The most common error encountered with this call is that the user supplies the wrong password. If this occurs, please try again to ensure that you did not make a typo.</p>
+<p>If you specify an organization ID in the call and it does not match the one stored for your user (correlated by email address) an error will also be thrown. In this case, you may use the <a class="reference internal" href="status.html"><em>status command</em></a> to retrieve the proper organization ID and try again.</p>
+</div>
+<div class="section" id="arguments">
+<span id="loginarguments"></span><h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<p>The following arguments are supported for the login command:</p>
+<ul class="simple">
+<li>-h</li>
+<li>&#8211;password</li>
+<li>&#8211;org-id</li>
+<li>&#8211;verify</li>
+<li>&lt;userEmail&gt;</li>
+</ul>
+<div class="section" id="h">
+<h3>-h<a class="headerlink" href="#h" title="Permalink to this headline">¶</a></h3>
+<p>-h is described under <a class="reference internal" href="general.html#generalh"><span>general command arguments</span></a>.</p>
+</div>
+<div class="section" id="password">
+<span id="loginpassword"></span><h3>&#8211;password<a class="headerlink" href="#password" title="Permalink to this headline">¶</a></h3>
+<p>Optional. Allows the user to specify his password directly in the command.</p>
+<div class="section" id="equivalent-options">
+<h4>Equivalent Options<a class="headerlink" href="#equivalent-options" title="Permalink to this headline">¶</a></h4>
+<p>The following arguments are equivalent to &#8211;password:</p>
+<ul class="simple">
+<li>&#8211;pw</li>
+</ul>
+</div>
+<div class="section" id="constraints-and-usage-notes">
+<h4>Constraints and Usage Notes<a class="headerlink" href="#constraints-and-usage-notes" title="Permalink to this headline">¶</a></h4>
+<p>If omitted, the user is prompted to enter a password interactively after submitting the command.</p>
+</div>
+</div>
+<div class="section" id="org-id">
+<h3>&#8211;org-id<a class="headerlink" href="#org-id" title="Permalink to this headline">¶</a></h3>
+<p>Optional. Allows the user to specify his organization ID directly in the command.</p>
+<div class="section" id="id1">
+<h4>Equivalent Options<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>The following arguments are equivalent to &#8211;org-id:</p>
+<ul class="simple">
+<li>&#8211;organization-id</li>
+<li>&#8211;orgid</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h4>Constraints and Usage Notes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>If omitted, the organization ID is taken from the user&#8217;s stored state information.</p>
+</div>
+</div>
+<div class="section" id="verify">
+<h3>&#8211;verify<a class="headerlink" href="#verify" title="Permalink to this headline">¶</a></h3>
+<p>&#8211;verify is described under <a class="reference internal" href="general.html#generalverify"><span>general command arguments</span></a>.</p>
+</div>
+<div class="section" id="useremail">
+<span id="loginuseremail"></span><h3>&lt;userEmail&gt;<a class="headerlink" href="#useremail" title="Permalink to this headline">¶</a></h3>
+<p>Required. Indicates an email address for the user trying to log in.</p>
+<div class="section" id="id3">
+<h4>Equivalent Options<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>This argument does not have a corresponding flag. It is determined by position within the command.</p>
+</div>
+<div class="section" id="id4">
+<h4>Constraints and Usage Notes<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>The email address must be the last argument supplied with the command.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+
+
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul>
+    <li >
+        <a href="../index.html" >Welcome</a>
+    </li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="http://datawire.github.io/quark/0.4">Datawire Connect Documentation focused on Quark</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Datawire Connect Cloud Tools Command Line Interface Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="about.html">About this Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="syntax.html">Command Line Syntax</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="topLevel.html">Top Level Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general.html">General Command Arguments</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="commands.html">Commands</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="createOrg.html">create-org</a></li>
+<li class="toctree-l4"><a class="reference internal" href="inviteUser.html">invite-user</a></li>
+<li class="toctree-l4"><a class="reference internal" href="acceptInvitation.html">accept-invitation</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="">login</a></li>
+<li class="toctree-l4"><a class="reference internal" href="logout.html">logout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="status.html">status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="createService.html">create-service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="serviceToken.html">service-token</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flows.html">Usage Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html">More Information</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Datawire Connect Cloud Tools Command Line Interface Guide</a><ul>
+  <li><a href="syntax.html">Command Line Syntax</a><ul>
+  <li><a href="commands.html">Commands</a><ul>
+      <li>Previous: <a href="acceptInvitation.html" title="previous chapter">accept-invitation</a></li>
+      <li>Next: <a href="logout.html" title="next chapter">logout</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+    <h3>Next Topic</h3>
+    <ul>
+        <li><a href="logout.html">logout</a></li>
+    </ul>
+
+
+
+    <h3>Previous Topic</h3>
+    <ul>
+        <li><a href="acceptInvitation.html">accept-invitation</a></li>
+    </ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a
+            href="logout.html"
+            title="logout"
+            >
+              
+              next
+              &rarr;
+          </a></li>
+        <li class="right" >
+          <a
+            href="acceptInvitation.html"
+            title="accept-invitation"
+            >
+              &larr;
+              previous
+              
+          </a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Datawire Connect 0.4.14 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Datawire Connect Cloud Tools Command Line Interface Guide</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="syntax.html" >Command Line Syntax</a> &raquo;</li>
+          <li class="nav-item nav-item-3"><a href="commands.html" >Commands</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="footer">
+      &copy;2015, 2016 Datawire.
+      
+      |
+      <a href="https://github.com/datawire/quark"
+          rel="nofollow">GitHub Repository</a>
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-57322503-5', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+
+    <script src="../_static/vendor/zc/ZeroClipboard.js" ></script>
+    <script src="../_static/js/main.js" ></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57322503-4', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
