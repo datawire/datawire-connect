@@ -1,0 +1,38 @@
+{
+	"basketball": {
+		"title": "Basketball",
+		"blurb": "Lots of fun on a rainy day!",
+		"desc": "Official size basketball. Shipped pre-inflated.",
+		"price": 19.99,
+		"warnings": [
+			"Not edible."
+		]
+	},
+	"football": {
+		"title": "Football",
+		"blurb": "Pointy and leathery.",
+		"desc": "Can be used for playing rubgy.",
+		"price": 19.99,
+		"warnings": [
+			"Should not be used to play basketball."
+		]
+	},
+	"camera": {
+		"title": "Camera",
+		"blurb": "Full-frame DSLR with f/2.8 kit lens.",
+		"desc": "Capture amazing photos of your sporting equipment!",
+		"price": 99.99,
+		"warnings": [
+			"Definitely not waterproof."
+		]
+	},
+	"briefcase": {
+		"title": "Briefcase",
+		"blurb": "Like the football, also pointy and leathery.",
+		"desc": "Can hold documents, smartphones, and perhaps other briefcases.",
+		"price": 49.99,
+		"warnings": [
+			"May cause British accents to appear."
+		]
+	}
+}
