@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block title %}Welcome to the Market!{% endblock %}
+{% block body %}
+<h1>Welcome to the Datawire Market!</h1>
+
+<div class="products">
+    <div class="cl">&nbsp;</div>
+    <ul>
+    {% for thingID in allThingIDs %}
+      <li>
+      <img src="{{ url_for('static', filename="%s.png" % thingID) }}" alt="" />
+        <div class="product-info">
+          <h2>{{ Things[thingID]['title'] }}</h2>
+          <div class="product-desc">
+          <form action="", method="POST">
+          <input type="hidden" name={{thingID}} value={{thingID}}/>
+          {% if thingID not in cartItems %}
+          <input type="submit" name="addCart" value="Add to Cart" />
+          {% else %}
+          <input type="submit" name="removeCart" value="Remove from Cart"/>
+          {% endif %}
+          </form>
+            <div class="product-price">
+              <p> ${{ Things[thingID]['price']}} </p>
+            </div>
+            {% if 'rating' in Things[thingID] %}
+              <div class="product-rating">
+              <p> <span style="float:right;">rating: {{Things[thingID]['rating']}}/5</span></p>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </li>
+  	{% endfor %}
+    </ul>
+    <div class="cl">&nbsp;</div>
+</div>
+
+<div class="cart-items" style="text-align:center;">
+  <h3> Your Cart </h3>
+  <br>
+  <p>  {{cartMessage}} </p>
+  <div class="cl">&nbsp;</div>
+    {% if numItems > 0 %}
+    <ul id="cartList">
+    {% for thingID in cartItems %}
+      <li> <img src="{{ url_for('static', filename="%s.png" % thingID) }}" alt="" /><!-- </a> -->
+        <!-- <div class="product-info">
+          <h3>{{ Things[thingID]['title'] }}</h3>
+          <div class="product-desc">
+            <p>{{ Things[thingID]['blurb'] }}</p>
+          </div>
+        </div> -->
+      </li>
+    {% endfor %}
+    </ul>
+    <p> Total: ${{totalCost}} </p>
+    {% else %}
+    <p style="margin: auto;"> Your cart is currently empty. </p>
+    {% endif %}
+
+  <div class="cl">&nbsp;</div>
+  {% if numItems > 0 %}
+  <form action="", method="POST">
+    <input class="checkout-button" type="submit" name="checkout" value="Checkout"/>
+  </form>
+  {% endif %}
+</div>
+
+{% endblock %}

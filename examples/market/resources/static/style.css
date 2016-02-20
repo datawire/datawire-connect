@@ -1,0 +1,31 @@
+body      {font-family: Verdana, Geneva, sans-serif; background: #eee; }
+h1, h3    {font-family: Verdana, Geneva, sans-serif; margin: 0; text-align: center; }
+h3				{font-size: 2em; text-align: center;}
+
+html, body {
+    height: 100%;
+}
+
+.products {opacity: 1; width:70%; float: left; height:100%; }
+.products ul{ list-style-type: none;}
+.products ul li{ position:relative; padding:1px; border:solid 1px #dedede; float:left; width:381px; margin-right:9px; height:400px; overflow: hidden;}
+.products ul li.last{ margin-right:0; }
+.products ul li img{float: left; width:381px; height:320px;}
+
+.products .product-info{ position:absolute; width:153px; top:249px; left:0;}
+.products .product-info h2{ background:#8b7744; color:#fff; padding:6px 10px; font-size: 1.13em; }
+.products .product-info p{ font-size:16px; line-height:10px; text-transform: uppercase; font-weight: bold; color:#000; padding:5px 0 7px 0;}
+.products .product-info .product-desc{ padding:10px; ; width:364px; }
+.products .product-info .product-desc .product-price{width: 80px; float: left;}
+.products .product-info .product-desc .product-rating{margin-left: 80px; float: right;}
+.products .product-info .product-desc  form input {box-shadow: rgb(255, 255, 255) 0px 1px 0px 0px inset; border-radius: 6px; border: 1px solid rgb(220, 220, 220); display: inline-block; cursor: pointer; color: rgb(0, 0, 0); font-family: Arial; font-size: 15px; font-weight: bold; padding: 6px 24px; text-decoration: none; text-shadow: rgb(255, 255, 255) 0px 1px 0px; background: linear-gradient(rgb(237, 237, 237) 5%, rgb(223, 223, 223) 100%) rgb(237, 237, 237);}
+
+.cart-items		{margin-left: 70%;  height:100%; }
+.cart-items p {margin: auto; text-align: center;}
+.cart-items ul {list-style-type: none;}
+.cart-items ul li img{width:190px; height:160px;}
+.cart-items ul li{margin: auto; padding:1px; border:solid 1px #dedede; width:190px; height:160px; overflow: hidden;}
+.cart-items  form input{font-size: 15px; }
+
+.checkout-button {box-shadow: rgb(255, 255, 255) 0px 1px 0px 0px inset; border-radius: 6px; border: 1px solid rgb(220, 220, 220); display: inline-block; cursor: pointer; color: rgb(110, 50, 0); font-family: Arial; font-size: 15px; font-weight: bold; padding: 6px 24px; text-decoration: none; text-shadow: rgb(255, 255, 255) 0px 1px 0px; background: linear-gradient(rgb(237, 237, 237) 5%, rgb(223, 223, 223) 100%) rgb(237, 237, 237);}
+#cartList {padding:0}
