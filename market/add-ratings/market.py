@@ -1,15 +1,30 @@
 import sys
 
+import argparse
 import json
+import logging
 import os
 import time
+
+logging.basicConfig(level=logging.DEBUG)
 
 from flask import Flask, render_template, url_for, request, jsonify
 
 # Import the interface to our ratings service
 from ratings import *
+from datawire_connect.resolver import DiscoveryConsumer as DWCResolver
+from discovery.client import GatewayOptions as DWCOptions
+from datawire.utils.state import DataWireState, DataWireError
 
-# Start by finding the root directory of our script...
+parser = argparse.ArgumentParser(description='The Datawire Market')
+
+parser.add_argument('--local', action='store_true', default=False, dest='local_only',
+                    help="Don't use Datawire Connect")
+
+# Parse arguments first off...
+args = parser.parse_args()
+
+# ...then find the root directory of our script...
 scriptDir = os.path.dirname(os.path.realpath(__file__))
 
 # ...from which we can determine the root of the Market example...
@@ -20,20 +35,26 @@ resourceDir = os.path.join(rootDir, "resources")
 templateDir = os.path.join(resourceDir, "templates")
 staticDir = os.path.join(resourceDir, "static")
 
-# Utility function for setting up paths within the resource directory.
-def resPath(path):
-  """ Return a path to something in the resource directory. """
-  return os.path.join(resourceDir, path)
-
 # OK, load up the set of Things we'll show!
-Things = json.load(open(resPath("things.json"), "r"))
+thingsPath = os.path.join(resourceDir, "things.json")
+Things = json.load(open(thingsPath, "r"))
 
 # Next, set up an empty shopping cart...
 cartItems = []
 
-# ...get the Ratings microservice going...
+# ...set up the Ratings client...
 ratings = RatingsClient("ratings")
-ratings.setResolver(RatingsResolver())
+
+# ...and feed it a resolver. Which one we use depends on whether we want to use
+# Datawire Connect or not.
+
+if args.local_only:
+  ratings.setResolver(RatingsResolver())
+else:
+  options = DWCOptions(DataWireState().currentServiceToken('ratings'))
+  options.gatewayHost = "disco.datawire.io"
+
+  ratings.setResolver(DWCResolver(options))
 
 # ...and get Flask running, using the correct directories.
 app = Flask("Market", template_folder=templateDir, static_folder=staticDir)

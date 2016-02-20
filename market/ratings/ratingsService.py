@@ -2,13 +2,22 @@
 
 import sys
 
+import logging
 import json
 
 import argparse
 from ratings import *
+from datawire_connect.resolver import DiscoveryProvider as DWCProvider
+from discovery.model import Endpoint as DWCEndpoint
+from discovery.client import GatewayOptions as DWCOptions
+from datawire.utils.state import DataWireState, DataWireError
+
+logging.basicConfig(level=logging.DEBUG)
 
 parser = argparse.ArgumentParser(description='Ratings Microservice')
 
+parser.add_argument('--local', action='store_true', default=False, dest='local_only',
+                    help="Don't use Datawire Connect")
 parser.add_argument('--instance', metavar='INSTANCE', type=int,
                     help='Listen on port 8000 + INSTANCE (--instance 1 => listen on port 8001)')
 parser.add_argument('--port', metavar='PORT', type=int,
@@ -66,13 +75,32 @@ ratingsPath = os.path.join(resourceDir, "ratings.json")
 # OK. Load up the ratings data we'll use...
 ratings = json.load(open(ratingsPath, "r"))
 
-# ...and fire up listener(s).
+# ...set up the array to store our Datawire Connect providers in (in case
+# we're using Datawire Connect)...
+providers = []
+
+# ...and fire things up.
 
 for port in ports:
   print("listening on port %d" % port)
 
-  url = "http://127.0.0.1:%d/ratings" % port
+  url = "http://127.0.0.1:%d/" % port
 
   # ...and fire up the ratings service.
   srv = RatingsServer(RatingsService(ratings))
   srv.serveHTTP(url)
+
+  # If we're using Datawire Connect...
+
+  if not args.local_only:
+    # ...then register this listener.
+    endpoint = DWCEndpoint('http', '127.0.0.1', port, url)
+    options = DWCOptions(DataWireState().currentServiceToken('ratings'))
+    options.gatewayHost = "disco.datawire.io";
+
+    provider = DWCProvider(options, "ratings", endpoint)
+    provider.register(15.0)
+
+    providers.append(provider)
+
+print("...serving!")
