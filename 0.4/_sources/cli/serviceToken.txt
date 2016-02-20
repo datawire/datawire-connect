@@ -3,8 +3,7 @@ service-token
 
 The service-token command returns a valid token for the requested service provided the requesting user has access to the service.
 
-.. 
-   
+..    
    JMK: currently only the user who created the service can see it/get a token.
    That may change. See issue #3
 
@@ -79,4 +78,5 @@ The service name must be the last argument supplied with the command.
 
 Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces.
 
-.. JMK: add any length restrictions
+.. 
+   JMK: add any length restrictions

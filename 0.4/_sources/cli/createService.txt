@@ -3,7 +3,8 @@ create-service
 
 The create-service command registers a new service with the {{{discovery_product}}} and generates  a service token for it.
 
-[[JMK add more info about what tokens do/how they are used once available]]
+..    
+   JMK add more info about what tokens do/how they are used once available
 
 Syntax
 ++++++
@@ -78,8 +79,10 @@ The service name must be the last argument supplied with the command.
 
 The service name must be unique within the user's scope. If another service with the supplied name already exists the request will be rejected.
 
-.. JMK: scope is currently the user but should be the org. See issue #3
+.. 
+   JMK: scope is currently the user but should be the org. See issue #3
 
 Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces.
 
-.. JMK: Add any length restrictions
+.. 
+   JMK: Add any length restrictions

@@ -25,8 +25,7 @@ Expected Response
 
 Information about the expected response is coming soon.
 
-.. 
-   
+..   
    JMK: where does a user token come in here?
    we're not returning it excepting in status and don't seem to require its use anywhere
 
@@ -35,7 +34,8 @@ Common Error States
 
 The most likely error state is trying to use status without being logging in first. Since status returns the current user's state in the system, it requires a valid, logged in current user.
 
-.. JMK: the current error message could use improvement. See issue #6
+.. 
+   JMK: the current error message could use improvement. See issue #6
 
 .. _statusArguments:
 
