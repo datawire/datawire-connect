@@ -1,7 +1,6 @@
 package ratings 0.0.1;
 
-use https://raw.githubusercontent.com/datawire/datawire-connect/flynn/feature/discoball/datawire_connect.q;
-//use file:///Users/flynn/datawire/datawire-connect/datawire_connect.q;
+use ../../../datawire_connect.q;
 
 import datawire_connect.resolver;
 import builtin.concurrent;
