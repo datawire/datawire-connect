@@ -5,6 +5,15 @@ all: monolith
 monolith: .always
 	cd monolith && make 
 
+datawire-connect: checkVirtual
+	pip install datawire-cloudtools
+
+checkVirtual:
+	@if [ -z "$$VIRTUAL_ENV" ]; then \
+		echo "Please activate a virtualenv to continue (cf https://virtualenv.readthedocs.org)" >&2 ;\
+		exit 1; \
+	fi
+
 add-ratings: .always
 	cd add-ratings && make
 
