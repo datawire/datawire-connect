@@ -17,7 +17,7 @@ Datawire Connect works with your existing framework and languages. It does not r
 
 * Native support for building resilient microservices in Python, JavaScript,
 and Java (Ruby and Go support coming soon!)
-* Automatic microservice registration with the Datawire Hub discovery service
+* Automatic microservice registration with the Datawire Discovery service
 * Custom serialization support
 * Support for HTTP/S, JSON, XML, Web Sockets...you name it
 * A sophisticated language (Quark) that combines an IDL with a DSL, making it
@@ -27,7 +27,7 @@ very powerful for defining resilient service contracts
 
 Datawire Connect is built on [Quark](https://github.com/datawire/quark), a language designed for expressing the contract between services. Similar to a traditional IDL, Quark lets you define your service's APIs and how data is serialized. In this sense, Quark is similar to technologies such as[gRPC](http://www.grpc.io). Quark further extends the notion of a traditional IDL and lets you express protocol behaviors as part of your service contract. For example, you can also define how clients of that service should behave if the service is running slowly by adding circuit breakers, retry semantics, or backpressure to improve performance. There's no practical limit to the sophistication of the behaviors you could add to your microservices.
 
-Datawire Connect also includes a native interface to service discovery. This interface enables microservices to dynamically discover and route data between each other. The Datawire Hub provides an implementation of the service discovery interface, but support for other service discovery mechanisms such as Zookeeper or Consul is supported in the design.
+Datawire Connect also includes a native interface to service discovery. This interface enables microservices to dynamically discover and route data between each other. Datawire Discovery provides an implementation of the service discovery interface, but support for other service discovery mechanisms such as Zookeeper or Consul is supported in the design.
 
 ![Datawire Connect](static-files/dw-connect.png)
 
@@ -56,7 +56,7 @@ You should see the following:
 
 ```
 Request says 'Hello from Python!'
-Response says u"Responding to 'Hello from Python!' from Datawire Cloud!"
+Response says "Responding to 'Hello from Python!' from Datawire Cloud!"
 ```
 
 #### Running the server locally  
@@ -121,4 +121,4 @@ We have a [roadmap](https://github.com/datawire/datawire-connect/blob/master/ROA
 
 ## Getting Involved
 
-Datawire Connect is open source and community-driven! Please feel free to raise GitHub issues as needed. If you'd like to make an enhancement or fix, please submit a Pull Request with your proposed changes.
+Datawire Connect is open source and community-driven! Please feel free to raise GitHub issues as needed. If you'd like to make an enhancement or fix, please submit a Pull Request with your proposed changes. You can also join our [public Slack channel](https://datawire-quark.herokuapp.com/) for technical support and to interact with our development team.
