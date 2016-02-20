@@ -26,11 +26,11 @@ namespace datawire_connect {
 
     @doc("BaseDiscoResolver has the basic logic to use the Discovery service to resolve names into URLs.")
     class BaseDiscoResolver extends Resolver {
+      static Logger logger = new Logger("DWC");
+
       DiscoClient disco;
 
       List<String> resolve(String serviceName) {
-        Logger logger = new Logger("DWC");
-
         logger.debug("DWC resolving " + serviceName);
 
         List<model.Endpoint> endpoints = self.disco.getRoutes(serviceName);
@@ -88,8 +88,16 @@ namespace datawire_connect {
       }
 
       void onExecute(Runtime runtime) {
-        print("heartbeat! for " + self.provider.disco.endpoint.toString());
-        self.provider.disco.heartbeat();
+        self.provider.disco.logger.info("heartbeat! for " + self.provider.disco.endpoint.toString());
+
+        // XXX BRUTAL HACK HERE XXX
+        // We should be calling self.provider.disco.heartbeat() here, but that doesn't actually
+        // keep our route from expiring right now, so for the moment we'll just re-call 
+        // registerEndpoint.
+
+        // self.provider.disco.heartbeat();       // XXX see above!
+        self.provider.disco.registerEndpoint();
+
         self.reschedule(runtime);
       }
     }
