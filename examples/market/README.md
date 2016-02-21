@@ -74,7 +74,7 @@ All the ratings should still be present as the web application has been coded to
 This example uses a round-robin load balancing strategy for ease of demonstration.
 
 1. Start a single Ratings service in WINDOW 2:
-   * `make startRatings INSTANCE=1`
+   * Run the command: `make startRatings INSTANCE=1`
    * This will launch just one instance of the ratings service.
 2. Refresh the web browser.
 
@@ -86,13 +86,11 @@ In another window (WINDOW 3), start another instance of the Ratings service:
 
 3. Activate your virtualenv
 4. Change to the Market directory
-5. Run this command: `make startRatings INSTANCE=2`
+5. Run the command: `make startRatings INSTANCE=2`
 
-This will start a second Ratings instance running.
+This will start a second Ratings instance running. 
 
-6. Refresh the web browser.
-
-All the ratings should still be present. In the Market's output you should see the ratings requests interleaving between the two instances that are running:
+Now refresh the web browser, and all the ratings should still be present. In the Market's output you should see the ratings requests interleaving between the two instances that are running:
 
 ```
 INFO:quark.client:- ratings using instance 1: http://127.0.0.1:8001
@@ -162,7 +160,7 @@ The ratings.q contract file also contains configuration for request timeouts, fa
 
 #### The Market App
 
-The code to actually call the ratings microservice is in add-ratings/market.py. If you `diff` that file against monolith/market.py, you will see the code that was added to the monolith in order to call the ratings microservice.
+The code to actually call the ratings microservice is in [add-ratings/market.py](https://github.com/datawire/datawire-connect/blob/master/examples/market/add-ratings/market.py). If you `diff` that file against [monolith/market.py](https://github.com/datawire/datawire-connect/blob/master/examples/market/monolith/market.py), you will see the code that was added to the monolith in order to call the ratings microservice.
 
 In a nutshell, calling a service was as simple as this:
 ```Python
