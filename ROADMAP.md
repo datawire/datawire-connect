@@ -22,6 +22,7 @@ The following is a roughly ordered set of priorities for Datawire Connect.
    + timeouts
    + circuit breakers
    + load balancing
+ - Cloud-based discovery service
 
 ### Phase 5 (in progress)
 
