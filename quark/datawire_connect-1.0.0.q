@@ -1,7 +1,7 @@
 // We rely on the Discovery Service.
-use https://raw.githubusercontent.com/datawire/discovery/flynn/feature/discoball/discovery.q;
+use https://raw.githubusercontent.com/datawire/discovery/master/quark/discovery-1.0.0.q;
 
-import discovery;
+import datawire_discovery;
 
 namespace datawire_connect {
   namespace resolver {
