@@ -24,7 +24,7 @@ The following is a roughly ordered set of priorities for Datawire Connect.
    + load balancing
  - Cloud-based discovery service
 
-### Phase 5 (in progress)
+### Phase 4 (in progress)
 
  - Ruby support
  - Exceptions
