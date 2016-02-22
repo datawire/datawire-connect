@@ -16,16 +16,16 @@ The following is a roughly ordered set of priorities for Datawire Connect.
  - RPC support
  - HelloRPC example
 
-### Phase 3 (in progress)
+### Phase 3 (done)
 
  - Resiliency patterns
-   + timeouts (done)
+   + timeouts
    + circuit breakers
    + load balancing
+
+### Phase 5 (in progress)
+
  - Ruby support
-
-### Phase 4 (planning)
-
  - Exceptions
  - Asynchronous RPC
  - Shared request context
