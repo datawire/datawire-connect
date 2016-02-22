@@ -86,11 +86,11 @@ demo shows basic 1-to-1 RPC, and how to implement clients and servers in any of 
 supported languages (Java, JavaScript, Python). There's also a demo that shows how to
 use a custom serialization protocol, communicate with Web Sockets, and more. We've even
 included an example of how to invoke an existing service with Datawire Connect using
-the collaboration tool **Slack** as the wrappable service.
+the collaboration tool Slack as the wrappable service.
 
 ## Documentation 
 
-You can read the Datawire Connect [documentation](http://datawire.github.io/quark/0.4/index.html) related to Quark. In particular, when you've reached the point of writing your own clients and services using Datawire Connect, you'll need our [language reference](http://datawire.github.io/quark/0.4/language-reference/index.html) that covers the Quark language constructs and syntax. You can also read documentation on our [command line cloud tools](http://datawire.github.io/datawire-connect/dev/0.4/cli/index.html).
+You can read the Datawire Connect [documentation](http://datawire.github.io/quark/0.4/index.html) related to Quark. In particular, when you've reached the point of writing your own clients and services using Datawire Connect, you'll need our [language reference](http://datawire.github.io/quark/0.4/language-reference/index.html) that covers the Quark language constructs and syntax. You can also read documentation on our [command line cloud tools](http://datawire.github.io/datawire-connect/0.4/cli/index.html).
 
 ## Supported Platforms
 
