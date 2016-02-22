@@ -17,7 +17,7 @@ import os
 import shlex
 
 __version__ = '0.4.14'
-__doc_version__ = '2'
+__doc_version__ = '3'
 #__branch__ = '0.3.x'
 #__doc_product_version__ = '0.3'
 #__product__ = 'Datawire Connect'
@@ -93,7 +93,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'{{{product}}}'
-copyright = u'2015, 2016 {{{company}}}'
+copyright = u'2016 {{{company}}}'
 author = u'{{{company}}}'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -161,7 +161,7 @@ html_theme_path = ['.']
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'analytics_id': 'UA-57322503-5'
+    'analytics_id': 'UA-57322503-4'
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
