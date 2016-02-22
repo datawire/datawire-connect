@@ -23,7 +23,42 @@ More information about each command argument can be found under :ref:`arguments 
 Expected Response
 +++++++++++++++++
 
-Information about the expected response is coming soon.
+The status response is split into three sections: basic user information, user capabilities, and available services.
+
+The basic user information consists of the user's organization ID and email address. The user capabilities indicates a list of the user's capabilities including their administrator status (at the current time all users are administrators), their ability to use services (available by default), and their status as users (all responses should indicate that the user is, in fact, a user). The list of available services provides a handle to each of the services accessible by the user (at the current time, the services he created) or an indication that no services are available. These service handles can then be used to request service tokens for available services as needed.
+
+The full format for a user is:
+
+.. code-block:: none
+   
+   Logged in as [<orgId>]<emailAddress>:
+   
+   Capabilities:
+   - dw:admin0: Organization administator
+   - dw:reqSvc0: Able to request service tokens
+   - dw:user0: User
+   
+   <serviceList>
+
+where <orgId> is the organization ID of your organization, <emailAddress> is the email address supplied in the request, and <serviceList> is one of the following:
+
+.. code-block:: none
+   
+   No services defined
+
+or 
+
+.. code-block:: none
+   
+   Services defined:
+   - <serviceHandle1>
+   - <serviceHandle2>
+   ...
+   - <serviceHandleN>
+
+where each <serviceHandleK> is the name of a service available to the user. The services are listed alphabetical order.
+
+Users who do not have permission to access services will not have the line about requesting services in their status response.
 
 ..   
    JMK: where does a user token come in here?

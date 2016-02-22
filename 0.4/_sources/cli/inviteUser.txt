@@ -68,7 +68,7 @@ This option is internal and should not be used. In the future, it may be used to
 --no-svc
 &&&&&&&&
 
-Optional. Indicates that the invited user should not be able to create services within the organization
+Optional. Indicates that the invited user should not be able to create or use services within the organization.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%
@@ -81,7 +81,7 @@ The following arguments are equivalent to --no-svc:
 Constraints and Usage Notes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-If this option is specified, the user cannot create services within the organization.
+If this option is specified, the user cannot create or use services within the organization.
 
 .. 
    JMK what can they do? currently users cannot see services they did not create 

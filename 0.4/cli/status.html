@@ -96,7 +96,33 @@
 </div>
 <div class="section" id="expected-response">
 <h2>Expected Response<a class="headerlink" href="#expected-response" title="Permalink to this headline">¶</a></h2>
-<p>Information about the expected response is coming soon.</p>
+<p>The status response is split into three sections: basic user information, user capabilities, and available services.</p>
+<p>The basic user information consists of the user&#8217;s organization ID and email address. The user capabilities indicates a list of the user&#8217;s capabilities including their administrator status (at the current time all users are administrators), their ability to use services (available by default), and their status as users (all responses should indicate that the user is, in fact, a user). The list of available services provides a handle to each of the services accessible by the user (at the current time, the services he created) or an indication that no services are available. These service handles can then be used to request service tokens for available services as needed.</p>
+<p>The full format for a user is:</p>
+<div class="highlight-none"><div class="highlight"><pre>Logged in as [&lt;orgId&gt;]&lt;emailAddress&gt;:
+
+Capabilities:
+- dw:admin0: Organization administator
+- dw:reqSvc0: Able to request service tokens
+- dw:user0: User
+
+&lt;serviceList&gt;
+</pre></div>
+</div>
+<p>where &lt;orgId&gt; is the organization ID of your organization, &lt;emailAddress&gt; is the email address supplied in the request, and &lt;serviceList&gt; is one of the following:</p>
+<div class="highlight-none"><div class="highlight"><pre>No services defined
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-none"><div class="highlight"><pre>Services defined:
+- &lt;serviceHandle1&gt;
+- &lt;serviceHandle2&gt;
+...
+- &lt;serviceHandleN&gt;
+</pre></div>
+</div>
+<p>where each &lt;serviceHandleK&gt; is the name of a service available to the user. The services are listed alphabetical order.</p>
+<p>Users who do not have permission to access services will not have the line about requesting services in their status response.</p>
 </div>
 <div class="section" id="common-error-states">
 <h2>Common Error States<a class="headerlink" href="#common-error-states" title="Permalink to this headline">¶</a></h2>
@@ -222,7 +248,7 @@
     </div>
 
     <div class="footer">
-      &copy;2015, 2016 Datawire.
+      &copy;2016 Datawire.
       
       |
       <a href="https://github.com/datawire/quark"
@@ -238,7 +264,7 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-57322503-5', 'auto');
+      ga('create', 'UA-57322503-4', 'auto');
       ga('send', 'pageview');
     </script>
     
