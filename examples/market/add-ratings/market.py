@@ -13,7 +13,7 @@ from flask import Flask, render_template, url_for, request, jsonify
 # Import the interface to our ratings service
 from ratings import *
 from datawire_connect.resolver import DiscoveryConsumer as DWCResolver
-from discovery.client import GatewayOptions as DWCOptions
+from datawire_discovery.client import GatewayOptions as DWCOptions
 from datawire.utils.state import DataWireState, DataWireError
 
 parser = argparse.ArgumentParser(description='The Datawire Market')
