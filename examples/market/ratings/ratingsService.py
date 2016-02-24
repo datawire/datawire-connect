@@ -8,8 +8,8 @@ import json
 import argparse
 from ratings import *
 from datawire_connect.resolver import DiscoveryProvider as DWCProvider
-from discovery.model import Endpoint as DWCEndpoint
-from discovery.client import GatewayOptions as DWCOptions
+from datawire_discovery.model import Endpoint as DWCEndpoint
+from datawire_discovery.client import GatewayOptions as DWCOptions
 from datawire.utils.state import DataWireState, DataWireError
 
 logging.basicConfig(level=logging.DEBUG)
