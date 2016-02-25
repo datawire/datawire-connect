@@ -45,9 +45,9 @@ Arguments
 
 The following arguments are supported for the create-service command:
 
-* -h
-* --verify
-* <serviceName>
+* :ref:`-h <generalH>`
+* :ref:`--verify <generalVerify>`
+* :ref:`\<serviceName\> <serviceTokenName>`
 
 -h
 &&
