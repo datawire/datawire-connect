@@ -45,11 +45,11 @@ Arguments
 
 The following arguments are supported for the invite-user command:
 
-* -h
-* --non-admin
-* --no-svc
-* --verify
-* <emailAddress>
+* :ref:`-h <generalH>`
+* :ref:`--non-admin <inviteUserNonAdmin>`
+* :ref:`--no-svc <inviteUserNoService>`
+* :ref:`--verify <generalVerify>`
+* :ref:`\<emailAddress\> <inviteUserEmail>`
 
 -h
 &&
