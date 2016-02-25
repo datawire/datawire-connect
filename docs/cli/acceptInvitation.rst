@@ -40,11 +40,11 @@ Arguments
 
 The following arguments are supported for the invite-user command:
 
-* -h
-* --name
-* --password
-* --verify
-* <invitationCode>
+* :ref:`-h <generalH>`
+* :ref:`--name <acceptInvitationName>`
+* :ref:`--password <acceptInvitationPassword>`
+* :ref:`--verify <generalVerify>`
+* :ref:`\<invitationCode\> <acceptInvitationCode>`
 
 -h
 &&
