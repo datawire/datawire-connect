@@ -79,8 +79,8 @@ Arguments
 
 The following arguments are supported for the invite-user command:
 
-* -h
-* --verify
+* :ref:`-h <generalH>`
+* :ref:`--verify <generalVerify>`
 
 -h
 &&
