@@ -39,12 +39,12 @@ Arguments
 
 The following arguments are supported for the create-org command:
 
-* -h
-* --adminpass
-* --verify
-* <organizationName>
-* <userName>
-* <userEmail>
+* :ref:`-h <generalH>`
+* :ref:`--adminpass <createOrgAdminPass>`
+* :ref:`--verify <generalVerify>`
+* :ref:`\<organizationName\> <createOrgOrganizationName>`
+* :ref:`\<userName\> <createOrgUserName>`
+* :ref:`\<userEmail\> <createOrgUserEmail>`
 
 -h
 &&
