@@ -1,42 +1,42 @@
 ![Datawire](static-files/dw-logo.png)
 
-# Datawire Connect
+## Datawire Connect
 [![Build Status](https://travis-ci.org/datawire/quark.svg?branch=master)](https://travis-ci.org/datawire/quark)
 [![Slack](https://datawire-quark.herokuapp.com/badge.svg?dummy)](https://datawire-quark.herokuapp.com)
 
-Datawire Connect is a simple way to build and run resilient microservices.
+Datawire Connect is a simple, powerful way to resiliently connect
+microservices. Datawire Connect natively integrates into your existing
+Java, Python, or NodeJS application (Ruby coming soon), and provides:
 
-Datawire Connect allows you to fully express how microservices should connect to each other over the network. This includes:
+* service registration and discovery
+* dynamic load balancing and routing
+* automatic timeouts
+* integrated circuit breakers
 
-* the interfaces between your services (e.g., expressing your REST or WebSockets API)
-* how these interfaces should behave when they interact (e.g.,
-  expressing your timeout / retry behavior over HTTP)
-* how data is serialized on the wire (e.g., JSON)
-* how clients should discover available services, and balance load across them
+Moreover, Datawire Connect provides these semantics without requiring
+you to modify any of your existing HTTP/REST APIs.
 
-Datawire Connect works with your existing framework and languages. It does not require you to make changes to your existing interfaces, programming languages, or application framework. Datawire Connect has native support for Python, Java, and JavaScript, with Ruby and Go support coming soon.
+## Example
 
-## Features of Datawire Connect
+Suppose you have an existing service *A*, with a REST
+interface. Further suppose you have an existing service, *B*, that
+calls *A*. To maximize the resilience of the overall system, you want
+to minimize the impact of any downtime of *A* on *B*.
 
-* Native support for building resilient microservices in Python, JavaScript,
-and Java (Ruby and Go support coming soon!)
-* Automatic microservice registration with the Datawire Discovery cloud service
-* Custom serialization support
-* Support for HTTP/S, JSON, XML, Web Sockets...you name it
-* A sophisticated language (Quark) that combines an IDL with a DSL, making it
-very powerful for defining resilient service contracts
+Using Datawire Connect, you can code the existing API for *A*
+in Quark, the Interface Definition Language (IDL) used by Datawire
+Connect. Datawire Connect will then compile your Quark file into
+native client libraries that can be used by *B*.
 
-## Overview
+*B* can now use API calls in its native language (e.g., Python). Each
+of these API calls will automatically integrate resilience patterns,
+including circuit breakers, timeouts, and load balancing.
 
-Datawire Connect is built on [Quark](https://github.com/datawire/quark), a language designed for expressing the contract between services. Similar to a traditional IDL, Quark lets you define your service's APIs and how data is serialized. In this sense, Quark is similar to technologies such as [gRPC](http://www.grpc.io). Quark further extends the notion of a traditional IDL and lets you express protocol behaviors as part of your service contract. For example, you can also define how clients of that service should behave if the service is running slowly by adding circuit breakers, retry semantics, or backpressure to improve performance. There's no practical limit to the sophistication of the behaviors you could add to your microservices.
+## Quick Start
 
-Datawire Connect also includes a cloud-based discovery service. This enables your clients and microservices to dynamically and securely discover each other, but without the overhead and cost of running your own discovery services. Datawire Discovery also provides an implementation of that service discovery system that can run locally. Since it is fully pluggable, it can support practically any other service discovery mechanisms based on technologies such as Zookeeper or Consul.
-
-![Datawire Connect](static-files/dw-connect.png)
-
-##Quick Start
-
-We can use Datawire Connect to quickly add resilience to an existing HTTP-based microservice infrastructure. In this tutorial, we'll show how you add some [Hystrix](https://github.com/Netflix/Hystrix)-like resilience semantics (timeouts, load balancing, and circuit breakers) to HTTP-based RPC calls. We will also use the cloud-based Discovery Service.
+Datawire Connect includes sample code that illustrates the aboe
+example. By default, Datawire Connect integrates with the Datawire
+Cloud Discovery service, although this is easily changed.
 
 ### Installation
 
@@ -103,10 +103,64 @@ Datawire Connect has been certified on:
 * Ubuntu 14.04 (Trusty)
 * Fedora 22
 
+## Architecture
+
+Datawire Connect is built on
+[Quark](https://github.com/datawire/quark), a language designed for
+expressing the contract between services. Similar to a traditional
+IDL, Quark lets you define your service's APIs and how data is
+serialized. In this sense, Quark is similar to technologies such as
+[gRPC](http://www.grpc.io). Quark further extends the notion of a
+traditional IDL and lets you express protocol behaviors as part of
+your service contract. For example, you can also define how clients of
+that service should behave if the service is running slowly by adding
+circuit breakers, retry semantics, or backpressure to improve
+performance. There's no practical limit to the sophistication of the
+behaviors you could add to your microservices.
+
+Datawire Connect also integrates with Datawire Cloud Discovery, a
+cloud-based discovery service. This enables your clients and
+microservices to dynamically and securely discover each other, but
+without the overhead and cost of running your own discovery
+services. (If you want to use your local Discovery service, we also
+have open sourced the [Discovery
+service](https://github.com/datawire/discovery)]. It's fully
+plugabble, so it supports strongly consistent data stores such as
+Zookeeper or Consul.)
+
+![Datawire Connect](static-files/dw-connect.png)
+
 ## Roadmap
 
 We have a [roadmap](https://github.com/datawire/datawire-connect/blob/master/ROADMAP.md).
 
+## Alternatives
+
+If you're trying to add resilience to your microservices architecture
+and don't want to use Datawire Connect, there are some other popular
+choices:
+
+* Use HTTP with other resilience libraries, e.g.,
+  [Hystrix](https://github.com/Netflix/Hystrix/) and
+  [Eureka](https://github.com/Netflix/eureka). Datawire Connect takes
+  heavy inspiration from these libraries, which are Java-centric.
+  
+* [gRPC](http://www.grpc.io/). This is not backwards-compatible with
+  your existing REST interfaces, but multiple languages are
+  supported.
+
+* Use an async messaging bus, such as [NATS](http://nats.io) or
+  [RabbitMQ](http://www.rabbitmq.com/). This does require you to
+  switch your interaction model from RPC to async, which may impact
+  your overall system architecture.
+
+
 ## Getting Involved
 
-Datawire Connect is open source and community-driven! Please feel free to raise GitHub issues as needed. If you'd like to make an enhancement or fix, please submit a Pull Request with your proposed changes. You can also join our [public Slack channel](https://datawire-quark.herokuapp.com/) for technical support and to interact with our development team.
+Datawire Connect is open source and community-driven! Please feel free
+to raise GitHub issues as needed. If you'd like to make an enhancement
+or fix, please submit a Pull Request with your proposed changes. You
+can also join our [public Slack
+channel](https://datawire-quark.herokuapp.com/) for technical support
+and to interact with our development team.
+
