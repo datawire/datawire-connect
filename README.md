@@ -1,6 +1,8 @@
 ![Datawire](static-files/dw-logo.png)
 
 # Datawire Connect
+[![Build Status](https://travis-ci.org/datawire/quark.svg?branch=master)](https://travis-ci.org/datawire/quark)
+[![Slack](https://datawire-quark.herokuapp.com/badge.svg?dummy)](https://datawire-quark.herokuapp.com)
 
 Datawire Connect is a simple way to build and run resilient microservices.
 
