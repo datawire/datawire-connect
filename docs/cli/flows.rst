@@ -30,7 +30,7 @@ You should get the following response to your request:
 
 where <orgId> is an identifier assigned by {{{company}}} and <email> is the email address you supplied in the request.
 
-Once this is done, you may either add additional users to your organization or start creating services per the directions below.
+Once this is done, you may either :ref:`add additional users <addUser>` to your organization or :ref:`start creating services <createNewService>` per the directions below.
 
 For example, Eliza runs an online advice application and wants to start using the {{{discovery_product}}} with microservices she's building. She might create an organization using the following command:
 
@@ -82,7 +82,7 @@ You should get a service token in response indicating that the service was succe
    ...created!
    svc_token = '<token>'
 
-At this point you can use the token to access this service in the {{{discovery_product}}}.
+At this point you can :ref:`use the token <useServiceToken>` to access this service in the {{{discovery_product}}}.
 
 For example, Eliza may want to add a service that emits advice to the lovelorn from an underlying database of possible suggestions. She might use the following command to do so:
 
@@ -109,7 +109,7 @@ The ultimate goal of the {{{cli_product}}} command line interface is to generate
 
 If your organization decides that multiple users should be able to generate or retrieve tokens, the original member of an organization may invite one or more additional users and those users may also invite additional users into the organization. Basically, to invite users into an organization, you must be logged in as an existing member of the organization.
 
-if you are not already logged in, do so using the login command as follows:
+If you are not already logged in, do so using the login command as follows:
 
 ``dwc login <email>``
 
@@ -152,7 +152,7 @@ They will be asked to supply their full name and enter their password twice. Ass
    Accepting invitation...   
    Now logged in as [<orgId>]<email>
 
-He can then create services or invite additional users at will.
+He can then :ref:`create services <createNewService>` or invite additional users at will.
 
 For example, Eliza can add her employee Tom Terrific to the Eliza's Automated Advice Avatar organization as follows:
 
@@ -188,10 +188,68 @@ At this point he has the same access and privileges as Eliza.
 Get New Service Tokens
 ----------------------
 
-1. login
-2. request token
+In order to get service tokens for an application, you must be logged in to the organization owning the service and have access to the service.
 
-then use it to access discovery product
+.. 
+   JMK: At the current time you can only see services you created. This should change to seeing services created within your org (see issue #3). Also, there is a bug that prevents people from seeing services created in previous user sessions or generating tokens for them (see issue #28).
+
+If you are not already logged in, do so using the login command as follows:
+
+``dwc login <email>``
+
+substituting your email address for the variable above.
+
+After entering your password at the prompt, you should get the following response indicating a successful login:
+
+.. code-block:: none
+   
+   Now logged in as [<orgId>]<email>
+
+At this point, you can request tokens for any existing service as follows:
+
+``dwc service-token <serviceName>``
+
+substituting your service name for the variable above. If the name has spaces or apostrophes you must surround it with double quotes (").
+
+You should get a valid service token for that service in response:
+
+.. code-block:: none
+   
+   svc_token = '<token>'
+
+You can :ref:`use that token <useServiceToken>` to access this service in the {{{discovery_product}}}.
+
+For example, Eliza wants to generate a new token for one of her services. It's been a while since she's needed to interact with the service and can't remember its exact name. She looks up her available services using the status command as follows:
+
+``dwc status``
+
+and gets the following response:
+
+.. code-block:: none
+   
+   Logged in as [LSLYJQ8228]eliza@bethean.com:
+   
+   Capabilities:
+   - dw:admin0: Organization administator
+   - dw:reqSvc0: Able to request service tokens
+   - dw:user0: User
+   
+   Services defined:
+   - Advice to the annoyingly perfect
+   - Advice to the lovelorn
+   - Advice to the perpetually grumpy
+
+She wants to get a token for Advice to the perpetually grumpy and requests one as follows:
+
+``dwc service-token "Advice to the perpetually grumpy"``
+
+receiving a response like the following:
+
+.. code-block:: none
+   
+   svc_token = '<token>'
+
+She can now use the token with the {{{discovery_product}}}.
 
 .. _useServiceToken:
 
