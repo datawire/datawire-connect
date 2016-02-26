@@ -23,3 +23,7 @@
 {{{company}}};Datawire
 {{{discovery_product}}};Datawire Discovery Service
 {{{support_address}}};support@datawire.io
+{{{token_service}}};datawire-connect
+{{{token_service_file}}};datawire-connect-1.0.0.q
+{{{github_main_repo}}};datawire-connect
+{{{library_subdirectory}}};quark

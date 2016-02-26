@@ -256,6 +256,31 @@ She can now use the token with the {{{discovery_product}}}.
 Access {{{discovery_product}}}
 ------------------------------
 
+You can set up your services written in the {{{quark}}} language to use the {{{discovery_product}}} to handle service availability and load balancing. Passing service token generated through the {{{cli_product}}} CLI from services using {{{language}}} tells the {{{discovery_product}}} that requests are authorized to access the particular service in question. {{{language}}} uses Resolver objects to determine how to connect to services within the {{{discovery_product}}}. 
+
+{{{product}}} includes a library to facilitate these connections. The {{{token_service_file}}} library (found in GitHub under {{{github_main_repo}}}/{{{library_subdirectory}}}) defines a DiscoConsumer resolver object that expects the service token as the argument to its constructor. 
+
+____
+
+relevant code from market example, modified for manual token insertion
+
+ratings = RatingsClient("ratings")
+  options = DWCOptions(<token>)
+  options.gatewayHost = "disco.datawire.io"
+
+  ratings.setResolver(DWCResolver(options))
+
+where RatingsClient("ratings") is a standard RPC Client defined in ratings.q extending Client from builtins with a constructor of service name and additional resolver processing code inside. Client.SetResolver(resolver) also from builtins. DWCResolver(options) 
+
+- stuff from three places: builtins, discovery.q, datawire-connect.q all needed to make resolvers work properly.
+
+- stuff from builtins primarily comes into the equation through the standard RPC Client definition using Client in builtins
+
+- stuff from discovery.q is mainly GatewayOptions which sets token, discovery server location, etc. current gatewayHost default value is wrong and needs to be set, see discovery issue #2.
+_____
+
+In order to use a service token with the {{{discovery_product}}}
+
 1. get token if you do not already have one
 2. set up resolver
 3. plug token in
