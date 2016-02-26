@@ -76,7 +76,7 @@ Constraints and Usage Notes
 
 The service name must be the last argument supplied with the command.
 
-Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces.
+Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces or apostrophes.
 
 .. 
    JMK: add any length restrictions

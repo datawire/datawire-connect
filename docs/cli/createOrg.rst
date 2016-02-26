@@ -97,7 +97,7 @@ Constraints and Usage Notes
 
 The organization name must be the third to last argument supplied with the command.
 
-Any UTF-8 string may be used as the organization name. Quotes must be used around the value if it includes spaces. 
+Any UTF-8 string may be used as the organization name. Quotes must be used around the value if it includes spaces or apostrophes. 
 
 ..    
    JMK: Add any length restrictions. I've successfully used several hundred characters.
@@ -119,7 +119,7 @@ Constraints and Usage Notes
 
 The user's name must be the second to last argument supplied with the command.
 
-Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces.
+Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces or apostrophes.
 
 .. 
    JMK: Add any length restrictions. I've successfully used several hundred characters.

@@ -72,7 +72,7 @@ If used, this option sets the user name in the system.
 
 If omitted, the user is prompted to enter a name interactively after submitting the command.
 
-Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces.
+Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces or apostrophes.
 
 ..    
    JMK: determine any length limits

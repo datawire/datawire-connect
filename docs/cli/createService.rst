@@ -82,7 +82,7 @@ The service name must be unique within the user's scope. If another service with
 .. 
    JMK: scope is currently the user but should be the org. See issue #3
 
-Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces.
+Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces or apostrophes.
 
 .. 
    JMK: Add any length restrictions
