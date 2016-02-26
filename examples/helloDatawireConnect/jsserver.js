@@ -49,7 +49,7 @@ for (var i = ports.length - 1; i >= 0; i--) {
     var url = "http://127.0.0.1:" + port + "/";
     console.log("starting server on " + url);
 
-    server.serveHTTP("http://127.0.0.1:8910/");
+    server.serveHTTP(url);
 
     // OK. Our server is running, so register it with Datawire Connect.
     var endpoint = new DWCEndpoint('http', '127.0.0.1', port, url);
