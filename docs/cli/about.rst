@@ -28,6 +28,13 @@ This document uses the following typographical conventions:
 | .. code-block:: none  | responses to commands                                      |
 |                       |                                                            |
 |    monospace fonts    |                                                            |
+|    without color      |                                                            |
++-----------------------+------------------------------------------------------------+
+| .. code-block:: python| code samples                                               |
+|                       |                                                            |
+|    monospace fonts    |                                                            |
+|    colorized for the  |                                                            |
+|    current language   |                                                            |
 +-----------------------+------------------------------------------------------------+
 | <variable>            | variables in commands, syntax, and responses               |
 |                       | (anything in commands, syntax, or responses not called out |
