@@ -41,11 +41,11 @@ Arguments
 
 The following arguments are supported for the login command:
 
-* -h
-* --password
-* --org-id
-* --verify
-* <userEmail>
+* :ref:`-h <generalH>`
+* :ref:`--password <loginPassword>`
+* :ref:`--org-id <loginOrgId>`
+* :ref:`--verify <generalVerify>`
+* :ref:`\<userEmail\> <loginUserEmail>`
 
 -h
 &&
@@ -70,6 +70,8 @@ Constraints and Usage Notes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 If omitted, the user is prompted to enter a password interactively after submitting the command. 
+
+.. _loginOrgId:
 
 --org-id
 &&&&&&&&

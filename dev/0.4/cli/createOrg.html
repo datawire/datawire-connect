@@ -110,12 +110,12 @@
 <span id="createorgarguments"></span><h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
 <p>The following arguments are supported for the create-org command:</p>
 <ul class="simple">
-<li>-h</li>
-<li>&#8211;adminpass</li>
-<li>&#8211;verify</li>
-<li>&lt;organizationName&gt;</li>
-<li>&lt;userName&gt;</li>
-<li>&lt;userEmail&gt;</li>
+<li><a class="reference internal" href="general.html#generalh"><span>-h</span></a></li>
+<li><a class="reference internal" href="#createorgadminpass"><span>&#8211;adminpass</span></a></li>
+<li><a class="reference internal" href="general.html#generalverify"><span>&#8211;verify</span></a></li>
+<li><a class="reference internal" href="#createorgorganizationname"><span>&lt;organizationName&gt;</span></a></li>
+<li><a class="reference internal" href="#createorgusername"><span>&lt;userName&gt;</span></a></li>
+<li><a class="reference internal" href="#createorguseremail"><span>&lt;userEmail&gt;</span></a></li>
 </ul>
 <div class="section" id="h">
 <h3>-h<a class="headerlink" href="#h" title="Permalink to this headline">¶</a></h3>
@@ -153,8 +153,7 @@
 <div class="section" id="id2">
 <h4>Constraints and Usage Notes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p>The organization name must be the third to last argument supplied with the command.</p>
-<p>Any UTF-8 string may be used as the organization name. Quotes must be used around the value if it includes spaces. The name may be up to XXX characters long.</p>
-<p>[[JMK test this]]</p>
+<p>Any UTF-8 string may be used as the organization name. Quotes must be used around the value if it includes spaces or apostrophes.</p>
 </div>
 </div>
 <div class="section" id="username">
@@ -167,8 +166,7 @@
 <div class="section" id="id4">
 <h4>Constraints and Usage Notes<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
 <p>The user&#8217;s name must be the second to last argument supplied with the command.</p>
-<p>Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces. The name may be up to XXX characters long.</p>
-<p>[[JMK test this]]</p>
+<p>Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces or apostrophes.</p>
 </div>
 </div>
 <div class="section" id="useremail">
@@ -182,7 +180,6 @@
 <h4>Constraints and Usage Notes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
 <p>The email address must be the last argument supplied with the command.</p>
 <p>Any valid email address may be used. The string must have the format <a class="reference external" href="mailto:a&#37;&#52;&#48;b&#46;c">a<span>&#64;</span>b<span>&#46;</span>c</a> or it will be rejected.</p>
-<p>[[JMK test this]]</p>
 <p>Each email address may only be used once in the system. A user may not have multiple accounts or belong to multiple organizations.</p>
 <p>At the current time Datawire does not send emails to the specified address.</p>
 </div>
@@ -292,7 +289,7 @@
     </div>
 
     <div class="footer">
-      &copy;2015, 2016 Datawire.
+      &copy;2016 Datawire.
       
       |
       <a href="https://github.com/datawire/quark"

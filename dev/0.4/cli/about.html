@@ -96,13 +96,45 @@
 <h2>Conventions<a class="headerlink" href="#conventions" title="Permalink to this headline">¶</a></h2>
 <p>The Datawire style limits formatting unless it is essential to conveying intended meaning. To that end, Datawire does not use bold or italics for emphasis or to introduce new terms nor do we format names within text in any way.</p>
 <p>This document uses the following typographical conventions:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">monospace</span> <span class="pre">fonts</span></code> for full commands and command syntax lines</li>
-<li><code class="docutils literal"><span class="pre">monospace</span> <span class="pre">fonts</span></code> with a gray background for responses to commands</li>
-<li>&lt;variable&gt; for variables in commands, command syntax lines, or responses to commands (all other command, syntax, or response content is presented verbatim)</li>
-<li>ellipses (...) to indicate possible content that is not pertinent to the current discussion</li>
-</ul>
-<p>[[JMK put in a table?]]</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Format</th>
+<th class="head">Usage</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">red</span> <span class="pre">monospace</span> <span class="pre">fonts</span></code></td>
+<td>commands and command syntax</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-none"><div class="highlight"><pre>monospace fonts
+without color
+</pre></div>
+</div>
+</td>
+<td>responses to commands</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-python"><div class="highlight"><pre><span class="n">monospace</span> <span class="n">fonts</span>
+<span class="n">colorized</span> <span class="k">for</span> <span class="n">the</span>
+<span class="n">current</span> <span class="n">language</span>
+</pre></div>
+</div>
+</td>
+<td>code samples</td>
+</tr>
+<tr class="row-odd"><td>&lt;variable&gt;</td>
+<td>variables in commands, syntax, and responses
+(anything in commands, syntax, or responses not called out
+as a variable is a literal value excepting ellipses)</td>
+</tr>
+<tr class="row-even"><td>ellipsis (...)</td>
+<td>optional content not pertinent to current discussion</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="known-issues">
 <h2>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h2>
@@ -195,7 +227,7 @@
     </div>
 
     <div class="footer">
-      &copy;2015, 2016 Datawire.
+      &copy;2016 Datawire.
       
       |
       <a href="https://github.com/datawire/quark"

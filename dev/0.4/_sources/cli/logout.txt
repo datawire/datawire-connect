@@ -48,9 +48,9 @@ Arguments
 
 The following arguments are supported for the login command:
 
-* -h
-* --force
-* --verify
+* :ref:`-h <generalH>`
+* :ref:`--force <logoutForce>`
+* :ref:`--verify <generalVerify>`
 
 -h
 &&

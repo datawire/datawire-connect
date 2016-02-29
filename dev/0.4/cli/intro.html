@@ -83,18 +83,9 @@
             
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>The Datawire Connect Cloud Tools command line interface (CLI) provides a mechanism for creating and managing organizations, users, and services in the Datawire Cloud.</p>
-<p>For this purpose, an organization is a group of one or more users who work together to develop one or more microservices using the Datawire Cloud. Organizations are created with a single member who can then invite additional members to participate in the group. Once these new users accept the invitation they, too, can invite other people into the organization. Similarly, any member can remove another member from the organization (including the original member). Users can belong to more than one organization but all of their actions within Datawire Cloud are tied to a specific organization; each organization-user combination is effectively a different role with different permissions within the system.</p>
-<p>[[JMK Remove from group is not yet supported]]</p>
-<p>[[JMK Need to test user behavior in multiple organizations. It could be that from DW perspective a user can only belong to one organization and may have multiple user accounts for different organizations. ETA: Tested. User can only belong to one organization. Only one user per email in the system right now]]</p>
-<p>Those permissions are managed using authentication tokens that contain information about the organization-user combination and grant permission to act upon the organization&#8217;s services in the Datawire Cloud. Tokens expire after ^^^^; at that point a new token can be requested if needed.</p>
-<p>[[JMK They don&#8217;t expire now but should before we ship. Details TBD]]</p>
-<p>Tokens are stored in the file system of the requesting device; they are not explicitly passed as parameters or headers in API calls to the Datawire Cloud. The only way to use a token from multiple devices is to physically copy the file.</p>
-<p>[[JMK will copying the file work? check that]]</p>
-<p>[[JMK need info to cover the topics below</p>
-<p>&#8211; keys vs tokens
-&#8211; user flows/what do people actually do with the tokens/how does this tie into the product as a whole
-]]</p>
+<p>The Datawire Connect Cloud Tools command line interface (CLI) provides a mechanism for creating and managing organizations, users, and services in the Datawire Discovery Service. This allows Datawire Connect to handle load balancing and service discovery via the Datawire Cloud.</p>
+<p>For this purpose, an organization is a group of one or more users who work together to develop one or more microservices using Datawire Connect. Organizations are created with a single member who can then invite additional members to participate in the group. Once these new users accept the invitation they, too, can invite other people into the organization. At the current time, users may only belong to a single organization.</p>
+<p>Any user in an organization can create services for that organization by default. These services are registered and assigned a handle (by the user creating them) which is used by the Datawire Discovery Service to manage instances of the service. Service tokens can be generated via the Datawire Connect Cloud Tools CLI that tell the Datawire Discovery Service that a particular request is allowed to interact with the service and its discovery information. These tokens expire after 14 days; at that point new tokens can be requested and distributed as needed.</p>
 </div>
 
 
@@ -178,7 +169,7 @@
     </div>
 
     <div class="footer">
-      &copy;2015, 2016 Datawire.
+      &copy;2016 Datawire.
       
       |
       <a href="https://github.com/datawire/quark"

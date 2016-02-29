@@ -1,4 +1,4 @@
 More Information
 ================
 
-foo
+Information about next steps and further reading is coming soon.

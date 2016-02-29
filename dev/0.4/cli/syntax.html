@@ -85,8 +85,7 @@
 <h1>Command Line Syntax<a class="headerlink" href="#command-line-syntax" title="Permalink to this headline">¶</a></h1>
 <p>The Datawire Connect Cloud Tools command line interface has the following general syntax:</p>
 <p><code class="docutils literal"><span class="pre">dwc</span> <span class="pre">&lt;top</span> <span class="pre">level</span> <span class="pre">arguments&gt;</span> <span class="pre">&lt;command&gt;</span> <span class="pre">&lt;command</span> <span class="pre">arguments&gt;</span></code></p>
-<p>In general, the arguments are order dependent and must appear in a specific order if specified at all (for optional arguments). In particular, all top level arguments must appear before the command and all arguments modifying a command (whether specific to that command or a general argument available for all commands) must appear after the actual command. Failure to specify an argument in the expected order may result in an undefined argument error.</p>
-<p>[[JMK check the exact error]]</p>
+<p>In general, the arguments are order dependent and must appear in a specific order if specified at all (for optional arguments). In particular, all top level arguments must appear before the command and all arguments modifying a command (whether specific to that command or a general argument available for all commands) must appear after the actual command. Failure to specify an argument in the expected order may result in an  unrecognized argument error.</p>
 <p>Specifics about the available commands and arguments can be found below:</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -205,7 +204,7 @@
     </div>
 
     <div class="footer">
-      &copy;2015, 2016 Datawire.
+      &copy;2016 Datawire.
       
       |
       <a href="https://github.com/datawire/quark"

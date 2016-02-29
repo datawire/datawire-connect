@@ -132,8 +132,6 @@
 <h3>Constraints and Usage Notes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>The -v flag has no meaning if used with -h.</p>
 <p>The CLI supports XXX verbosity levels. By default, most commands that create items (organizations, users, services, tokens, etc.) return a handle to the newly created item.</p>
-<p>[[JMK Need more info. As far as I can tell -v currently does nothing.]]</p>
-<p>[[JMK what happens if I use both -v and -q at the same time?]]</p>
 </div>
 </div>
 <div class="section" id="q">
@@ -153,8 +151,6 @@
 <div class="section" id="id6">
 <h3>Constraints and Usage Notes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>-q suppresses responses from the CLI. This may be useful if you are using the interface programmatically or want to maintain privacy and not display information specific to identifiers and tokens.</p>
-<p>[[JMK check what this actually does. what about something like invite-user where the output is required to move on to the next step of accept-invitation]]</p>
-<p>[[JMK what happens if I use both -v and -q at the same time?]]</p>
 </div>
 </div>
 <div class="section" id="registrar-url">
@@ -175,7 +171,6 @@
 <div class="section" id="id9">
 <h3>Constraints and Usage Notes<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <p>If this argument is omitted, https://identity.datawire.io is used by default.</p>
-<p>[[JMK what happens if you specify both &#8211;registrar-url and &#8211;local?]]</p>
 </div>
 </div>
 <div class="section" id="local">
@@ -191,14 +186,12 @@
 </div>
 <div class="section" id="id12">
 <h3>Constraints and Usage Notes<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
-<p>[[JMK does it listen on a specific port? what happens if no local server is running?]]</p>
-<p>[[JMK what happens if you specify both &#8211;registrar-url and &#8211;local?]]</p>
+<p>Coming Soon</p>
 </div>
 </div>
 <div class="section" id="state">
 <span id="topstate"></span><h2>&#8211;state<a class="headerlink" href="#state" title="Permalink to this headline">¶</a></h2>
 <p>&#8211;state specifies a location for the state file containing information about the current user&#8217;s organizations, identifiers, and services.</p>
-<p>[[JMK currently only one org and just a user ID]]</p>
 <div class="section" id="id13">
 <h3>Syntax<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal"><span class="pre">dwc</span> <span class="pre">...</span> <span class="pre">--state</span> <span class="pre">&lt;path&gt;</span> <span class="pre">...</span></code></p>
@@ -308,7 +301,7 @@
     </div>
 
     <div class="footer">
-      &copy;2015, 2016 Datawire.
+      &copy;2016 Datawire.
       
       |
       <a href="https://github.com/datawire/quark"

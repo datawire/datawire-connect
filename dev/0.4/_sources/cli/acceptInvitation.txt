@@ -8,11 +8,11 @@ Syntax
 
 The basic syntax of the accept-invitation command is:
 
-``{{{cli_command}}} accept-invitation <orgId> <invitationCode> <emailAddress>``
+``{{{cli_command}}} accept-invitation <invitationCode>``
 
 The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``{{{cli_command}}} ... accept-invitation -h --name <name> --password <password> --verify <orgId> <invitationCode> <emailAddress>``
+``{{{cli_command}}} ... accept-invitation -h --name <name> --password <password> --verify <invitationCode>``
 
 More information about each argument can be found under :ref:`arguments <acceptInvitationArguments>`.
 
@@ -40,13 +40,11 @@ Arguments
 
 The following arguments are supported for the invite-user command:
 
-* -h
-* --name
-* --password
-* --verify
-* <orgId>
-* <invitationCode>
-* <emailAddress>
+* :ref:`-h <generalH>`
+* :ref:`--name <acceptInvitationName>`
+* :ref:`--password <acceptInvitationPassword>`
+* :ref:`--verify <generalVerify>`
+* :ref:`\<invitationCode\> <acceptInvitationCode>`
 
 -h
 &&
@@ -74,9 +72,10 @@ If used, this option sets the user name in the system.
 
 If omitted, the user is prompted to enter a name interactively after submitting the command.
 
-Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces. The name may be up to XXX characters long.
+Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces or apostrophes.
 
-[[JMK test this]]
+..    
+   JMK: determine any length limits
 
 .. _acceptInvitationPassword:
 
@@ -106,23 +105,6 @@ There are no restrictions on password value imposed by {{{cli_product}}}. If you
 
 --verify is described under :ref:`general command arguments <generalVerify>`.
 
-.. _acceptInvitationOrgId:
-
-<orgId>
-&&&&&&&
-
-Required. Indicates the {{{company}}} organization ID for the organization the user was invited to join.
-
-Equivalent Options
-%%%%%%%%%%%%%%%%%%
-
-This argument does not have a corresponding flag. It is determined by position within the command.
-
-Constraints and Usage Notes
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-The organization ID must be the third to last argument supplied with the command.
-
 .. _acceptInvitationCode:
 
 <invitationCode>
@@ -138,29 +120,4 @@ This argument does not have a corresponding flag. It is determined by position w
 Constraints and Usage Notes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The invitation code must be the second to last argument supplied with the command.
-
-.. _acceptInvitationEmail:
-
-<emailAddress>
-&&&&&&&&&&&&&&
-
-**Required** Indicates the email address for the invited user.
-
-Equivalent Options
-%%%%%%%%%%%%%%%%%%
-
-This argument does not have a corresponding flag. It is determined by position within the command.
-
-Constraints and Usage Notes
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-The email address must be the last argument supplied with the command.
-
-Any valid email address may be used. The string must have the format a@b.c or it will be rejected.
-
-[[JMK test this]]
-
-Each email address may only be used once in the system. A user may not have multiple accounts or belong to multiple organizations.
-
-At the current time {{{company}}} does not send emails to the specified address. The output of this command should be sent to the new user so they can run the command and add themselves to your organization.
+The invitation code must be the last argument supplied with the command.
