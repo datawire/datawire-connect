@@ -27,3 +27,5 @@
 {{{token_service_file}}};datawire-connect-1.0.0.q
 {{{github_main_repo}}};datawire-connect
 {{{library_subdirectory}}};quark
+{{{discovery_service_file}}};discovery-1.0.0.q
+{{{github_discovery_repo}}};discovery

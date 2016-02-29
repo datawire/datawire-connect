@@ -256,31 +256,59 @@ She can now use the token with the {{{discovery_product}}}.
 Access {{{discovery_product}}}
 ------------------------------
 
-You can set up your services written in the {{{quark}}} language to use the {{{discovery_product}}} to handle service availability and load balancing. Passing service token generated through the {{{cli_product}}} CLI from services using {{{language}}} tells the {{{discovery_product}}} that requests are authorized to access the particular service in question. {{{language}}} uses Resolver objects to determine how to connect to services within the {{{discovery_product}}}. 
+You can set up your services written in the {{{language}}} language to use the {{{discovery_product}}} to handle service availability and load balancing. Passing service token generated through the {{{cli_product}}} CLI from services using {{{language}}} tells the {{{discovery_product}}} that requests are authorized to access the particular service in question. {{{language}}} uses Resolver objects to determine how to connect to services within the {{{discovery_product}}}. 
 
-{{{product}}} includes a library to facilitate these connections. The {{{token_service_file}}} library (found in GitHub under {{{github_main_repo}}}/{{{library_subdirectory}}}) defines a DiscoConsumer resolver object that expects the service token as the argument to its constructor. 
+{{{product}}} includes a library to facilitate these connections. The {{{token_service_file}}} library (found in GitHub under {{{github_main_repo}}}/{{{library_subdirectory}}}) defines a DiscoveryConsumer resolver object that expects the service token as the argument to its constructor. Options for the resolver are defined in the {{{discovery_service_file}}} library (found in GitHub under {{{github_discovery_repo}}}/{{{library_subdirectory}}}.
 
-____
+Your service name as set when creating the service is also required as an argument to the RPC Client constructor. In your {{{language}}} file defining your service, you define this client as follows:
 
-relevant code from market example, modified for manual token insertion
+.. code-block:: javascript
+   
+   class <service>Client extends Client, <serviceInterface> {}
 
-ratings = RatingsClient("ratings")
-  options = DWCOptions(<token>)
-  options.gatewayHost = "disco.datawire.io"
+where <service> is generally the name of your service (by convention; this is not a strict requirement) and <serviceInterface> is the name of the interface defined to define the RPC interaction being used.
 
-  ratings.setResolver(DWCResolver(options))
+To instantiate this client in Python (for example), you would do the following:
 
-where RatingsClient("ratings") is a standard RPC Client defined in ratings.q extending Client from builtins with a constructor of service name and additional resolver processing code inside. Client.SetResolver(resolver) also from builtins. DWCResolver(options) 
+.. code-block:: python
+   :emphasize-lines: 1,5
+   
+   from <myLibrary> import *
+   
+   ...
+   
+   <myClient> = <service>Client("<serviceName>") 
 
-- stuff from three places: builtins, discovery.q, datawire-connect.q all needed to make resolvers work properly.
+where <myClient> is your local handle to the new <service>Client client instance and <serviceName> is the name of the service as defined using the create-service CLI call.
 
-- stuff from builtins primarily comes into the equation through the standard RPC Client definition using Client in builtins
+Then you need to set the resolver used by that client instance to an instance of the DiscoveryConsumer resolver that was also passed <serviceName> at creation. You will also need to set some options using a GatewayOptions object as defined in {{{discovery_service_file}}}. Continuing the Python example above, this could be done as follows:
 
-- stuff from discovery.q is mainly GatewayOptions which sets token, discovery server location, etc. current gatewayHost default value is wrong and needs to be set, see discovery issue #2.
-_____
+.. code-block:: python
+   :emphasize-lines: 2,3,11,12,14
+   
+   from <myLibrary> import *
+   from datawire_connect.resolver import DiscoveryConsumer as <ResolverDefinition>
+   from datawire_discovery.client import GatewayOptions as <OptionsDefinition>
+   
+   ...
+   
+   <myClient> = <service>Client("<serviceName>") 
+   
+   ...
+    
+   <options> = <OptionsDefinition>(<token>)
+   <options>.gatewayHost = "disco.datawire.io"
+   
+   <myClient>.setResolver(<ResolverDefinition>(options))
 
-In order to use a service token with the {{{discovery_product}}}
+where <ResolverDefinition> is a local name for the resolver definition class, <OptionsDefinition> is a local name for the gateway options definition class, <options> is a local handle to the options object being passed to the resolver, and <token> is the service token obtained using the {{{cli_product}}} CLI commands (either create-service or service-token).
 
-1. get token if you do not already have one
-2. set up resolver
-3. plug token in
+At this point, your service should be able to use the {{{discovery_product}}} to handle its service discovery and load balancing. If your service token expires, use the service-token command to retrieve a new one and place the new value into the existing code.
+
+.. 
+   JMK the current gatewayHost default value is wrong and needs to be set as above
+   This should not be necessary in future versions. See discovery issue #2.
+
+
+.. 
+   JMK Are we going to start supporting refresh tokens so you don't need to manually get new tokens? We need a better story around this, or if we have one it needs to be communicated to me
