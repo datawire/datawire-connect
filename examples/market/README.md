@@ -109,31 +109,38 @@ INFO:quark.client:- ratings using instance 2: http://127.0.0.1:8002
 
 Circuit Breaking is a technique in distributed systems where the detection of a faulty service instance causes all requests to that endpoint to fail for a period of time. When this occurs, the circuit is said to be open, and requests to that service instance will not be attempted. When the configured amount of time passes (30 seconds in this example), the circuit closes and requests to that service are attempted again.
 
-* Pause, but do not kill, Ratings service #2:
+* Pause, but do not kill, instance #1 of the Ratings service:
   * In WINDOW 2, hit ^Z. 
 
-At this point the second instance is running but unresponsive.
+At this point, the instance is still running, but it will not respond to requests.
 
 * Refresh the web browser.
 
-All the ratings should still be present (since service instance 1 is still running), but in the Market's output (WINDOW 1) you should see errors about the unresponsive instance.
+All the ratings should still be present -- not only is service instance 2 still running (in WINDOW 3), but the ratings are cached too. In the Market's output (WINDOW 1), though, you should see errors about the unresponsive instance:
 
 ```
-INFO:quark.client:- ratings using instance 2: http://127.0.0.1:8002
-WARNING:quark.client:- OPEN breaker on [ratings at http://127.0.0.1:8002]
+INFO:quark.client:- ratings using instance 1: http://127.0.0.1:8001
+WARNING:quark.client:- OPEN breaker on [ratings at http://127.0.0.1:8001]
 ```
 
 * Before thirty seconds have passed, refresh the web browser again.
 
-This time all requests should go to instance 1, and they should all succeed. By using Datawire Connect, the market app was able to avoid lots of wasted effort trying to reach service instance 2.
+This time all requests should go to instance 2, and they should all succeed. By using Datawire Connect, the market app was able to avoid lots of wasted effort trying to reach service instance 1.
 
-* After thirty seconds, restart instance 2.
-  * In WINDOW 1, run `fg` to restart the paused process.
-
-This will simulate the unresponsive instance recovering. Some time after that instance is resumed, you should see the Market indicating (in WINDOW 1) that it sees that the instance is alive again:
+After thirty seconds, you should see (in WINDOW 1) that the Market is willing to retry instance 1:
 
 ```
-INFO:quark.client:- CLOSE breaker on [ratings at http://127.0.0.1:8002]
+WARNING:quark.client:- RETEST breaker on [ratings at http://127.0.0.1:8001]
+```
+
+* At that point, restart instance 1.
+  * In WINDOW 2, run `fg` to restart the paused process.
+
+This will simulate the unresponsive instance recovering. You should see the Market indicating (in WINDOW 1) that it sees that the instance is alive again:
+
+```
+INFO:quark.client:- ratings using instance 1: http://127.0.0.1:8001
+INFO:quark.client:- CLOSE breaker on [ratings at http://127.0.0.1:8001]
 ```
 
 * Refresh the web browser.
