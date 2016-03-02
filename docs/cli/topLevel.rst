@@ -6,9 +6,9 @@ The {{{cli_product}}} command line interface supports the following top-level ar
 * :ref:`-h <topH>`
 * :ref:`-v <topV>`
 * :ref:`-q <topQ>`
-* :ref:`--registrar-url <topRegistrarUrl>`
-* :ref:`--local <topLocal>`
-* :ref:`--state <topState>`
+* :ref:`{{{dash_dash}}}registrar-url <topRegistrarUrl>`
+* :ref:`{{{dash_dash}}}local <topLocal>`
+* :ref:`{{{dash_dash}}}state <topState>`
 
 These arguments are all optional but must be specified in the order listed above if used.
 
@@ -106,24 +106,24 @@ Constraints and Usage Notes
 
 .. _topRegistrarUrl:
 
---registrar-url
-~~~~~~~~~~~~~~~
+{{{dash_dash}}}registrar-url
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
---registrar-url specifies that the request should be handled by a specific {{{identity_server}}} as indicated by a specific fully qualified domain name or IP address.
+{{{dash_dash}}}registrar-url specifies that the request should be handled by a specific {{{identity_server}}} as indicated by a specific fully qualified domain name or IP address.
 
 Syntax
 ++++++
 
-``{{{cli_command}}} ... --registrar-url <uri> ...``
+``{{{cli_command}}} ... {{{dash_dash}}}registrar-url <uri> ...``
 
 
 Equivalent Options
 ++++++++++++++++++
 
-The following arguments are equivalent to --registrar-url:
+The following arguments are equivalent to {{{dash_dash}}}registrar-url:
 
-* --base-url
-* --baseurl
+* {{{dash_dash}}}base-url
+* {{{dash_dash}}}baseurl
 
 Constraints and Usage Notes
 +++++++++++++++++++++++++++
@@ -132,25 +132,25 @@ If this argument is omitted, {{{identity_default}}} is used by default.
 
 .. ifconfig:: 'draft' in conditions
     
-   [[JMK: what happens if you specify both --registrar-url and --local?]]
+   [[JMK: what happens if you specify both {{{dash_dash}}}registrar-url and {{{dash_dash}}}local?]]
 
 .. _topLocal:
 
---local
-~~~~~~~
+{{{dash_dash}}}local
+~~~~~~~~~~~~~~~~~~~~
 
---local specifies that the request should be handled by a local {{{identity_server}}}.
+{{{dash_dash}}}local specifies that the request should be handled by a local {{{identity_server}}}.
 
 Syntax
 ++++++
 
-``{{{cli_command}}} ... --local ...``
+``{{{cli_command}}} ... {{{dash_dash}}}local ...``
 
 
 Equivalent Options
 ++++++++++++++++++
 
---local is the only way to specify this option.
+{{{dash_dash}}}local is the only way to specify this option.
 
 Constraints and Usage Notes
 +++++++++++++++++++++++++++
@@ -161,14 +161,14 @@ Coming Soon
        
    [[JMK: does it listen on a specific port? what happens if no local server is running?]]
    
-   [[JMK: what happens if you specify both --registrar-url and --local?]]
+   [[JMK: what happens if you specify both {{{dash_dash}}}registrar-url and {{{dash_dash}}}local?]]
 
 .. _topState:
 
---state
-~~~~~~~
+{{{dash_dash}}}state
+~~~~~~~~~~~~~~~~~~~~
 
---state specifies a location for the state file containing information about the current user's organizations, identifiers, and services.
+{{{dash_dash}}}state specifies a location for the state file containing information about the current user's organizations, identifiers, and services.
 
 .. ifconfig:: 'draft' in conditions
     
@@ -177,15 +177,15 @@ Coming Soon
 Syntax
 ++++++
 
-``{{{cli_command}}} ... --state <path> ...``
+``{{{cli_command}}} ... {{{dash_dash}}}state <path> ...``
 
 
 Equivalent Options
 ++++++++++++++++++
 
-The following arguments are equivalent to --state:
+The following arguments are equivalent to {{{dash_dash}}}state:
 
-* --state-path
+* {{{dash_dash}}}state-path
 
 Constraints and Usage Notes
 +++++++++++++++++++++++++++

@@ -29,3 +29,4 @@
 {{{library_subdirectory}}};quark
 {{{discovery_service_file}}};discovery-1.0.0.q
 {{{github_discovery_repo}}};discovery
+{{{dash_dash}}};--

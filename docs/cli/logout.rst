@@ -16,7 +16,7 @@ The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
 or
 
-``{{{cli_command}}} ... logout --force --verify``
+``{{{cli_command}}} ... logout {{{dash_dash}}}force {{{dash_dash}}}verify``
 
 More information about each command argument can be found under :ref:`arguments <logoutArguments>`.
 
@@ -53,8 +53,8 @@ Arguments
 The following arguments are supported for the login command:
 
 * :ref:`-h <generalH>`
-* :ref:`--force <logoutForce>`
-* :ref:`--verify <generalVerify>`
+* :ref:`{{{dash_dash}}}force <logoutForce>`
+* :ref:`{{{dash_dash}}}verify <generalVerify>`
 
 -h
 &&
@@ -63,25 +63,25 @@ The following arguments are supported for the login command:
 
 .. _logoutForce:
 
---force
-&&&&&&&
+{{{dash_dash}}}force
+&&&&&&&&&&&&&&&&&&&&
 
 Optional. Forces a logout without prompting for verification.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%
 
-The following arguments are equivalent to --force:
+The following arguments are equivalent to {{{dash_dash}}}force:
 
-* --yes
+* {{{dash_dash}}}yes
 
 Constraints and Usage Notes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 If omitted, the user is prompted to confirm that they really do want to log out after submitting the command. 
 
---verify
-&&&&&&&&
+{{{dash_dash}}}verify
+&&&&&&&&&&&&&&&&&&&&&
 
---verify is described under :ref:`general command arguments <generalVerify>`.
+{{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
 

@@ -16,7 +16,7 @@ The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
 or
 
-``{{{cli_command}}} ... create-org --adminpass <password> --verify <organizationName> <userName> <userEmail>``
+``{{{cli_command}}} ... create-org {{{dash_dash}}}adminpass <password> {{{dash_dash}}}verify <organizationName> <userName> <userEmail>``
 
 More information about each argument can be found under :ref:`arguments <createOrgArguments>`.
 
@@ -44,8 +44,8 @@ Arguments
 The following arguments are supported for the create-org command:
 
 * :ref:`-h <generalH>`
-* :ref:`--adminpass <createOrgAdminPass>`
-* :ref:`--verify <generalVerify>`
+* :ref:`{{{dash_dash}}}adminpass <createOrgAdminPass>`
+* :ref:`{{{dash_dash}}}verify <generalVerify>`
 * :ref:`\<organizationName\> <createOrgOrganizationName>`
 * :ref:`\<userName\> <createOrgUserName>`
 * :ref:`\<userEmail\> <createOrgUserEmail>`
@@ -57,18 +57,18 @@ The following arguments are supported for the create-org command:
 
 .. _createOrgAdminPass:
 
---adminpass
-&&&&&&&&&&&
+{{{dash_dash}}}adminpass
+&&&&&&&&&&&&&&&&&&&&&&&&
 
 Optional. Allows the user creating a new organization to specify his password directly in the command.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%
 
-The following arguments are equivalent to --adminpass:
+The following arguments are equivalent to {{{dash_dash}}}adminpass:
 
-* --password
-* --pw
+* {{{dash_dash}}}password
+* {{{dash_dash}}}pw
 
 Constraints and Usage Notes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -79,10 +79,10 @@ If omitted, the user is prompted to enter a password interactively after submitt
 
 There are no restrictions on password value imposed by {{{cli_product}}}. If your organization requires specific rules for passwords in third party systems they should be managed on your end.
 
---verify
-&&&&&&&&
+{{{dash_dash}}}verify
+&&&&&&&&&&&&&&&&&&&&&
 
---verify is described under :ref:`general command arguments <generalVerify>`.
+{{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
 
 .. _createOrgOrganizationName:
 

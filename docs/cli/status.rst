@@ -17,7 +17,7 @@ The basic syntax of the accept-invitation command is:
 
 The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``{{{cli_command}}} ... status -h --verify``
+``{{{cli_command}}} ... status -h {{{dash_dash}}}verify``
 
 More information about each command argument can be found under :ref:`arguments <statusArguments>`.
 
@@ -83,15 +83,15 @@ Arguments
 The following arguments are supported for the invite-user command:
 
 * :ref:`-h <generalH>`
-* :ref:`--verify <generalVerify>`
+* :ref:`{{{dash_dash}}}verify <generalVerify>`
 
 -h
 &&
 
 -h is described under :ref:`general command arguments <generalH>`.
 
---verify
-&&&&&&&&
+{{{dash_dash}}}verify
+&&&&&&&&&&&&&&&&&&&&&
 
---verify is described under :ref:`general command arguments <generalVerify>`.
+{{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
 

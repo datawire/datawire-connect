@@ -16,7 +16,7 @@ The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
 or
 
-``{{{cli_command}}} ... login --password <password> --org-id <orgId> --verify <userEmail>``
+``{{{cli_command}}} ... login {{{dash_dash}}}password <password> {{{dash_dash}}}org-id <orgId> {{{dash_dash}}}verify <userEmail>``
 
 More information about each command argument can be found under :ref:`arguments <statusArguments>`.
 
@@ -46,9 +46,9 @@ Arguments
 The following arguments are supported for the login command:
 
 * :ref:`-h <generalH>`
-* :ref:`--password <loginPassword>`
-* :ref:`--org-id <loginOrgId>`
-* :ref:`--verify <generalVerify>`
+* :ref:`{{{dash_dash}}}password <loginPassword>`
+* :ref:`{{{dash_dash}}}org-id <loginOrgId>`
+* :ref:`{{{dash_dash}}}verify <generalVerify>`
 * :ref:`\<userEmail\> <loginUserEmail>`
 
 -h
@@ -58,17 +58,17 @@ The following arguments are supported for the login command:
 
 .. _loginPassword:
 
---password
-&&&&&&&&&&&
+{{{dash_dash}}}password
+&&&&&&&&&&&&&&&&&&&&&&&
 
 Optional. Allows the user to specify his password directly in the command.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%
 
-The following arguments are equivalent to --password:
+The following arguments are equivalent to {{{dash_dash}}}password:
 
-* --pw
+* {{{dash_dash}}}pw
 
 Constraints and Usage Notes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -77,28 +77,28 @@ If omitted, the user is prompted to enter a password interactively after submitt
 
 .. _loginOrgId:
 
---org-id
-&&&&&&&&
+{{{dash_dash}}}org-id
+&&&&&&&&&&&&&&&&&&&&&
 
 Optional. Allows the user to specify his organization ID directly in the command.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%
 
-The following arguments are equivalent to --org-id:
+The following arguments are equivalent to {{{dash_dash}}}org-id:
 
-* --organization-id
-* --orgid
+* {{{dash_dash}}}organization-id
+* {{{dash_dash}}}orgid
 
 Constraints and Usage Notes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 If omitted, the organization ID is taken from the user's stored state information.
 
---verify
-&&&&&&&&
+{{{dash_dash}}}verify
+&&&&&&&&&&&&&&&&&&&&&
 
---verify is described under :ref:`general command arguments <generalVerify>`.
+{{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
 
 .. _loginUserEmail:
 

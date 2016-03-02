@@ -16,7 +16,7 @@ The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
 or
 
-``{{{cli_command}}} ... invite-user --non-admin --no-svc --verify <emailAddress>``
+``{{{cli_command}}} ... invite-user {{{dash_dash}}}non-admin {{{dash_dash}}}no-svc {{{dash_dash}}}verify <emailAddress>``
 
 More information about each argument can be found under :ref:`arguments <inviteUserArguments>`.
 
@@ -51,9 +51,9 @@ Arguments
 The following arguments are supported for the invite-user command:
 
 * :ref:`-h <generalH>`
-* :ref:`--non-admin <inviteUserNonAdmin>`
-* :ref:`--no-svc <inviteUserNoService>`
-* :ref:`--verify <generalVerify>`
+* :ref:`{{{dash_dash}}}non-admin <inviteUserNonAdmin>`
+* :ref:`{{{dash_dash}}}no-svc <inviteUserNoService>`
+* :ref:`{{{dash_dash}}}verify <generalVerify>`
 * :ref:`\<emailAddress\> <inviteUserEmail>`
 
 -h
@@ -63,25 +63,25 @@ The following arguments are supported for the invite-user command:
 
 .. _inviteUserNonAdmin:
 
---non-admin
-&&&&&&&&&&&
+{{{dash_dash}}}non-admin
+&&&&&&&&&&&&&&&&&&&&&&&&
 
 This option is internal and should not be used. In the future, it may be used to create users without administrative privileges, but at this time all users of an organization are expected to be admins.
 
 .. _inviteUserNoService:
 
---no-svc
-&&&&&&&&
+{{{dash_dash}}}no-svc
+&&&&&&&&&&&&&&&&&&&&&
 
 Optional. Indicates that the invited user should not be able to create or use services within the organization.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%
 
-The following arguments are equivalent to --no-svc:
+The following arguments are equivalent to {{{dash_dash}}}no-svc:
 
-* --no-reqsvc
-* --no-request-services
+* {{{dash_dash}}}no-reqsvc
+* {{{dash_dash}}}no-request-services
 
 Constraints and Usage Notes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -94,10 +94,10 @@ If this option is specified, the user cannot create or use services within the o
    let alone get tokens for them, although I think they should be able to see and get 
    tokens for all services within their organization.]]
 
---verify
-&&&&&&&&
+{{{dash_dash}}}verify
+&&&&&&&&&&&&&&&&&&&&&
 
---verify is described under :ref:`general command arguments <generalVerify>`.
+{{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
 
 .. _inviteUserEmail:
 

@@ -20,7 +20,7 @@ The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
 or
 
-``{{{cli_command}}} ... create-service --verify <serviceName>``
+``{{{cli_command}}} ... create-service {{{dash_dash}}}verify <serviceName>``
 
 More information about each command argument can be found under :ref:`arguments <createServiceArguments>`.
 
@@ -52,7 +52,7 @@ Arguments
 The following arguments are supported for the create-service command:
 
 * :ref:`-h <generalH>`
-* :ref:`--verify <generalVerify>`
+* :ref:`{{{dash_dash}}}verify <generalVerify>`
 * :ref:`\<serviceName\> <createServiceName>`
 
 -h
@@ -60,10 +60,10 @@ The following arguments are supported for the create-service command:
 
 -h is described under :ref:`general command arguments <generalH>`.
 
---verify
-&&&&&&&&
+{{{dash_dash}}}verify
+&&&&&&&&&&&&&&&&&&&&&
 
---verify is described under :ref:`general command arguments <generalVerify>`.
+{{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
 
 .. _createServiceName:
 
