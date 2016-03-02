@@ -12,7 +12,11 @@ The basic syntax of the logout command is:
 
 The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``{{{cli_command}}} ... logout -h --force --verify``
+``{{{cli_command}}} ... logout -h``
+
+or
+
+``{{{cli_command}}} ... logout --force --verify``
 
 More information about each command argument can be found under :ref:`arguments <logoutArguments>`.
 

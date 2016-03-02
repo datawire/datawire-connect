@@ -16,6 +16,16 @@ import sys
 import os
 import shlex
 
+def setup(app): 
+        app.add_config_value('conditions', '', True) 
+
+# change draft to prod prior to building docs for public release.
+# for now adding both and commenting out the one that isn't active
+# but changing the value may be easier if this becomes part of the release script
+
+conditions="draft"
+#conditions="prod"
+
 __version__ = '0.4.14'
 __doc_version__ = '3'
 #__branch__ = '0.3.x'
@@ -75,6 +85,7 @@ rst_epilog = "\n.. |doc_version| replace:: %s" % __doc_version__
 # ones.
 extensions = [
     'sphinx.ext.todo',
+    'sphinx.ext.ifconfig',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

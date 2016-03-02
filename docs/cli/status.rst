@@ -3,9 +3,10 @@ status
 
 The status command provides information on the currently logged in user including organization ID, user ID, and the tokens for any services they created.
 
-.. 
-   JMK: depending on resolution of issue #3 may contain additional tokens/service
-   info for other services in the org
+.. ifconfig:: 'draft' in conditions
+    
+   [[JMK: depending on resolution of issue #3 may contain additional tokens/service
+   info for other services in the org]]
 
 Syntax
 ++++++
@@ -60,17 +61,19 @@ where each <serviceHandleK> is the name of a service available to the user. The 
 
 Users who do not have permission to access services will not have the line about requesting services in their status response.
 
-..   
-   JMK: where does a user token come in here?
-   we're not returning it excepting in status and don't seem to require its use anywhere
+.. ifconfig:: 'draft' in conditions
+      
+   [[JMK: where does a user token come in here?
+   we're not returning it excepting in status and don't seem to require its use anywhere]]
 
 Common Error States
 +++++++++++++++++++
 
 The most likely error state is trying to use status without being logging in first. Since status returns the current user's state in the system, it requires a valid, logged in current user.
 
-.. 
-   JMK: the current error message could use improvement. See issue #6
+.. ifconfig:: 'draft' in conditions
+    
+   [[JMK: the current error message could use improvement. See issue #6]]
 
 .. _statusArguments:
 

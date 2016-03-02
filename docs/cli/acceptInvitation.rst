@@ -12,7 +12,11 @@ The basic syntax of the accept-invitation command is:
 
 The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``{{{cli_command}}} ... accept-invitation -h --name <name> --password <password> --verify <invitationCode>``
+``{{{cli_command}}} ... accept-invitation -h``
+
+or
+
+``{{{cli_command}}} ... accept-invitation --name <name> --password <password> --verify <invitationCode>``
 
 More information about each argument can be found under :ref:`arguments <acceptInvitationArguments>`.
 
@@ -74,8 +78,9 @@ If omitted, the user is prompted to enter a name interactively after submitting 
 
 Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces or apostrophes.
 
-..    
-   JMK: determine any length limits
+.. ifconfig:: 'draft' in conditions
+       
+   [[JMK: determine any length limits]]
 
 .. _acceptInvitationPassword:
 
