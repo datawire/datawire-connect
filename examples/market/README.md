@@ -14,6 +14,8 @@ The Market is written for Python 2.7. You should always use `virtualenv` with Py
 
 ### Run The Monolith
 
+In a terminal window (which we'll call WINDOW 1):
+
 1. Create and activate a virtualenv.
 2. `make monolith`. This will set up your virtualenv with all the packages needed to run the monolith Market app, and start the Market running.
 3. Point a web browser to http://localhost:5000.
@@ -24,7 +26,9 @@ The Market is written for Python 2.7. You should always use `virtualenv` with Py
 
 The code for the product ratings microservice has already been written, so it just needs to be launched. However you will need to make sure your Datawire cloud system is active since it is used for service registration and discovery.
 
-1. Create up and activate a virtualenv (it's OK to keep using the same one, if you already have one).
+In terminal WINDOW 1:
+
+1. Create and activate a virtualenv (it's OK to keep using the same one, if you already have one).
 2. ```make datawire-connect```. This will make sure your virtualenv has everything you need for Datawire Connect.
 3. If you haven't already created a Datawire Connect organization, do so now:
    * `dwc create-org "My Test Org" your-name your-email-address`
@@ -36,6 +40,8 @@ The code for the product ratings microservice has already been written, so it ju
 ### Connect the Market App to the Ratings Microservice
 
 Now we will start up a new version of the Market app that is coded to discover and call the ratings service.
+
+Still in terminal WINDOW 1:
 
 1. `make add-ratings`. This will make sure your virtualenv has everything you need to build the ratings service, build it, and start running the new Market app that will try to get ratings for each item whenever the page is loaded.
 2. Point a web browser to http://localhost:5000.
@@ -52,7 +58,7 @@ In another window (WINDOW 2):
  * This will launch three instances of the ratings service in that window.
 4. Refresh the web browser window.
 
-You should now see ratings appear next to each item for sale. If you look in the console output, you can see the market app make 4 individual calls to retrieve the ratings for each item.
+You should now see ratings appear next to each item for sale. If you look in the console output in WINDOW 1, you can see the market app make 4 individual calls to retrieve the ratings for each item.
 
 ## Seeing Resilience in Action
 
@@ -62,10 +68,10 @@ Now that everything is up and running, let's see what happens when we introduce 
 
 We will simulate complete failure of the ratings service by simply stopping it.
 
-1. Use ^C to kill the Ratings services you started in step 4.
+1. Use ^C to kill the Ratings services you started in WINDOW 2.
 2. Refresh the web browser.
 
-All the ratings should still be present as the web application has been coded to cache values that were retrieved recently. However in the Market's console output you should see that all the Ratings services are down:
+All the ratings should still be present as the web application has been coded to cache values that were retrieved recently. However in the Market's console output (WINDOW 1) you should see that all the Ratings services are down:
 
 ```BAD None: all services are down```
 
@@ -78,11 +84,12 @@ This example uses a round-robin load balancing strategy for ease of demonstratio
    * This will launch just one instance of the ratings service.
 2. Refresh the web browser.
 
-All the ratings should still be present with each item. In the Market's output you should see all the ratings requests using the single instance that's running:
+All the ratings should still be present with each item. In the Market's output (WINDOW 1) you should see all the ratings requests using the single instance that's running:
 ```
 INFO:quark.client:- ratings using instance 1: http://127.0.0.1:8001
 ```
-In another window (WINDOW 3), start another instance of the Ratings service:
+
+In yet another window (WINDOW 3), start another instance of the Ratings service:
 
 3. Activate your virtualenv
 4. Change to the Market directory
@@ -90,7 +97,7 @@ In another window (WINDOW 3), start another instance of the Ratings service:
 
 This will start a second Ratings instance running. 
 
-Now refresh the web browser, and all the ratings should still be present. In the Market's output you should see the ratings requests interleaving between the two instances that are running:
+Now refresh the web browser, and all the ratings should still be present. In the Market's output (WINDOW 1), you should see the ratings requests interleaving between the two instances that are running:
 
 ```
 INFO:quark.client:- ratings using instance 1: http://127.0.0.1:8001
@@ -102,29 +109,40 @@ INFO:quark.client:- ratings using instance 2: http://127.0.0.1:8002
 
 Circuit Breaking is a technique in distributed systems where the detection of a faulty service instance causes all requests to that endpoint to fail for a period of time. When this occurs, the circuit is said to be open, and requests to that service instance will not be attempted. When the configured amount of time passes (30 seconds in this example), the circuit closes and requests to that service are attempted again.
 
-* Pause, but do not kill, Ratings service #2:
+* Pause, but do not kill, instance #1 of the Ratings service:
   * In WINDOW 2, hit ^Z. 
 
-At this point the second instance is running but unresponsive.
+At this point, the instance is still running, but it will not respond to requests.
 
 * Refresh the web browser.
 
-All the ratings should still be present (since service instance 1 is still running), but in the Market's output you should see errors about the unresponsive instance.
+All the ratings should still be present -- not only is service instance 2 still running (in WINDOW 3), but the ratings are cached too. In the Market's output (WINDOW 1), though, you should see errors about the unresponsive instance:
+
 ```
-INFO:quark.client:- ratings using instance 2: http://127.0.0.1:8002
-WARNING:quark.client:- OPEN breaker on [ratings at http://127.0.0.1:8002]
+INFO:quark.client:- ratings using instance 1: http://127.0.0.1:8001
+WARNING:quark.client:- OPEN breaker on [ratings at http://127.0.0.1:8001]
 ```
+
 * Before thirty seconds have passed, refresh the web browser again.
 
-This time all requests should go to instance 1, and they should all succeed. By using Datawire Connect, the market app was able to avoid lots of wasted effort trying to reach service instance 2.
+This time all requests should go to instance 2, and they should all succeed. By using Datawire Connect, the market app was able to avoid lots of wasted effort trying to reach service instance 1.
 
-* After thirty seconds, restart instance 2.
-  * In WINDOW 1, run `fg` to restart the paused process.
+After thirty seconds, you should see (in WINDOW 1) that the Market is willing to retry instance 1:
 
-This will simulate the unresponsive instance recovering. Some time after that instance is resumed, you should see the Market indicating that it sees that the instance is alive again:
 ```
-INFO:quark.client:- CLOSE breaker on [ratings at http://127.0.0.1:8002]
+WARNING:quark.client:- RETEST breaker on [ratings at http://127.0.0.1:8001]
 ```
+
+* At that point, restart instance 1.
+  * In WINDOW 2, run `fg` to restart the paused process.
+
+This will simulate the unresponsive instance recovering. You should see the Market indicating (in WINDOW 1) that it sees that the instance is alive again:
+
+```
+INFO:quark.client:- ratings using instance 1: http://127.0.0.1:8001
+INFO:quark.client:- CLOSE breaker on [ratings at http://127.0.0.1:8001]
+```
+
 * Refresh the web browser.
 
 Once again, requests should be interleaved between the two instances, and all should succeed.
@@ -138,6 +156,7 @@ There's a lot of code in this example, but most of it is just regular web applic
 Datawire Connect specifies service contracts in the Quark language. The ratings microservice's contract is within [ratings.q](https://github.com/datawire/datawire-connect/blob/master/examples/market/ratings/ratings.q), and it describes both the API signatures for the service as well as how clients should behave when calling them.
 
 The API signatures are as follows:
+
 ```
 // Data structure that gets passed around
 class Rating extends Future {
@@ -152,6 +171,7 @@ Rating get(String thingID) {
 ```
 
 The ratings.q contract file also contains configuration for request timeouts, failure limits and circuit breaking periods:
+
 ```
    static float timeout = 1.0;      // per-request timeout
    static int failureLimit = 1;     // number of successive request failures before the circuit breaker opens
@@ -163,10 +183,12 @@ The ratings.q contract file also contains configuration for request timeouts, fa
 The code to actually call the ratings microservice is in [add-ratings/market.py](https://github.com/datawire/datawire-connect/blob/master/examples/market/add-ratings/market.py). If you `diff` that file against [monolith/market.py](https://github.com/datawire/datawire-connect/blob/master/examples/market/monolith/market.py), you will see the code that was added to the monolith in order to call the ratings microservice.
 
 In a nutshell, calling a service was as simple as this:
+
 ```Python
 # add-ratings/market.py 
 ratings = RatingsClient("ratings")
 ...
 ratings.get(thingID)
 ```
+
 However there was some extra code used in the example to allow the application to call the ratings API concurrently rather than serially, and to cache responses in the case where no services are available at all. But the basic act of calling a service was as simple as what is shown above.
