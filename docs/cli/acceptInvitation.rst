@@ -78,7 +78,7 @@ If omitted, the user is prompted to enter a name interactively after submitting 
 
 Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces or apostrophes.
 
-.. ifconfig:: 'draft' in conditions
+.. ifconfig:: 'draft' in publish_state
        
    [[JMK: determine any length limits]]
 
@@ -108,7 +108,13 @@ There are no restrictions on password value imposed by {{{cli_product}}}. If you
 {{{dash_dash}}}verify
 &&&&&&&&&&&&&&&&&&&&&
 
-{{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
+.. ifconfig:: 'off' in verify_state
+    
+   This option is internal and should not be used.
+
+.. ifconfig:: 'on' in verify_state
+    
+   {{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
 
 .. _acceptInvitationCode:
 

@@ -72,7 +72,7 @@ The -v flag has no meaning if used with -h.
 
 The -v flag takes precedence over the -q flag if both are specified.
 
-.. ifconfig:: 'draft' in conditions
+.. ifconfig:: 'draft' in publish_state
       
    [[JMK: -v or -vv currently takes precedence over -q but we expected it to be the other way around. See cloud-tools issue #41.]]
 
@@ -110,7 +110,7 @@ Constraints and Usage Notes
 
 The -v flag takes precedence over the -q flag if both are specified.
 
-.. ifconfig:: 'draft' in conditions
+.. ifconfig:: 'draft' in publish_state
       
    [[JMK: -v or -vv currently takes precedence over -q but we expected it to be the other way around. See cloud-tools issue #41.]]
    
@@ -137,7 +137,7 @@ This option is internal and should not be used without explicit direction from {
 
 {{{dash_dash}}}state specifies a location for the state file containing information about the current user's organizations, identifiers, and services.
 
-.. ifconfig:: 'draft' in conditions
+.. ifconfig:: 'draft' in publish_state
     
    [[JMK: currently only one org and just a user ID]]
 

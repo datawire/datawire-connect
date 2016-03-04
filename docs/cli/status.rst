@@ -3,7 +3,7 @@ status
 
 The status command provides information on the currently logged in user including organization ID, user ID, and the tokens for any services they created.
 
-.. ifconfig:: 'draft' in conditions
+.. ifconfig:: 'draft' in publish_state
     
    [[JMK: depending on resolution of issue #3 may contain additional tokens/service
    info for other services in the org]]
@@ -61,7 +61,7 @@ where each <serviceHandleK> is the name of a service available to the user. The 
 
 Users who do not have permission to access services will not have the line about requesting services in their status response.
 
-.. ifconfig:: 'draft' in conditions
+.. ifconfig:: 'draft' in publish_state
       
    [[JMK: where does a user token come in here?
    we're not returning it excepting in status and don't seem to require its use anywhere]]
@@ -71,7 +71,7 @@ Common Error States
 
 The most likely error state is trying to use status without being logging in first. Since status returns the current user's state in the system, it requires a valid, logged in current user.
 
-.. ifconfig:: 'draft' in conditions
+.. ifconfig:: 'draft' in publish_state
     
    [[JMK: the current error message could use improvement. See issue #6]]
 
@@ -93,5 +93,11 @@ The following arguments are supported for the invite-user command:
 {{{dash_dash}}}verify
 &&&&&&&&&&&&&&&&&&&&&
 
-{{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
+.. ifconfig:: 'off' in verify_state
+    
+   This option is internal and should not be used.
+
+.. ifconfig:: 'on' in verify_state
+    
+   {{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
 

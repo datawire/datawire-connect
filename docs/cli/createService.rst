@@ -3,7 +3,7 @@ create-service
 
 The create-service command registers a new service with the {{{discovery_product}}} and generates  a service token for it.
 
-.. ifconfig:: 'draft' in conditions
+.. ifconfig:: 'draft' in publish_state
        
    [[JMK add more info about what tokens do/how they are used once available]]
 
@@ -63,7 +63,13 @@ The following arguments are supported for the create-service command:
 {{{dash_dash}}}verify
 &&&&&&&&&&&&&&&&&&&&&
 
-{{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
+.. ifconfig:: 'off' in verify_state
+    
+   This option is internal and should not be used.
+
+.. ifconfig:: 'on' in verify_state
+    
+   {{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
 
 .. _createServiceName:
 
@@ -84,12 +90,12 @@ The service name must be the last argument supplied with the command.
 
 The service name must be unique within the user's scope. If another service with the supplied name already exists the request will be rejected.
 
-.. ifconfig:: 'draft' in conditions
+.. ifconfig:: 'draft' in publish_state
     
    [[JMK: scope is currently the user but should be the org. See issue #3]]
 
 Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces or apostrophes.
 
-.. ifconfig:: 'draft' in conditions
+.. ifconfig:: 'draft' in publish_state
     
    [[JMK: Add any length restrictions]]

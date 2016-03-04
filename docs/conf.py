@@ -17,14 +17,23 @@ import os
 import shlex
 
 def setup(app): 
-        app.add_config_value('conditions', '', True) 
+        app.add_config_value('publish_state', '', True)
+        app.add_config_value('verify_state', '', True)
+        app.add_config_value('multiple_org_state', '', True)
+        app.add_config_value('remove_member_state', '', True)
 
 # change draft to prod prior to building docs for public release.
 # for now adding both and commenting out the one that isn't active
 # but changing the value may be easier if this becomes part of the release script
 
-conditions="draft"
-#conditions="prod"
+publish_state="draft"
+#publish_state="prod"
+#verify_state="on"
+verify_state="off"
+#remove_member_state="on"
+remove_member_state="off"
+#multiple_org_state="on"
+multiple_org_state="off"
 
 __version__ = '0.4.14'
 __doc_version__ = '3'

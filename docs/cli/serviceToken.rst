@@ -3,7 +3,7 @@ service-token
 
 The service-token command returns a valid token for the requested service provided the requesting user has access to the service.
 
-.. ifconfig:: 'draft' in conditions
+.. ifconfig:: 'draft' in publish_state
        
    [[JMK: currently only the user who created the service can see it/get a token.
    That may change. See issue #3]]
@@ -62,7 +62,13 @@ The following arguments are supported for the create-service command:
 {{{dash_dash}}}verify
 &&&&&&&&&&&&&&&&&&&&&
 
-{{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
+.. ifconfig:: 'off' in verify_state
+    
+   This option is internal and should not be used.
+
+.. ifconfig:: 'on' in verify_state
+    
+   {{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
 
 .. _serviceTokenName:
 
@@ -83,6 +89,6 @@ The service name must be the last argument supplied with the command.
 
 Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces or apostrophes.
 
-.. ifconfig:: 'draft' in conditions
+.. ifconfig:: 'draft' in publish_state
    
    [[JMK: add any length restrictions]]

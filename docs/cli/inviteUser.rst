@@ -39,7 +39,7 @@ Common Error States
 
 The most common error encountered with this call is that the user being invited is already registered with {{{company}}} (possibly under a different organization). In this case, the user should contact {{{company}}} at {{{support_address}}}.
 
-.. ifconfig:: 'draft' in conditions
+.. ifconfig:: 'draft' in publish_state
        
    [[JMK: Are we adding expiration dates? it was mentioned as a TODO previously]]
 
@@ -88,7 +88,7 @@ Constraints and Usage Notes
 
 If this option is specified, the user cannot create or use services within the organization.
 
-.. ifconfig:: 'draft' in conditions
+.. ifconfig:: 'draft' in publish_state
     
    [[JMK what can they do? currently users cannot see services they did not create 
    let alone get tokens for them, although I think they should be able to see and get 
@@ -97,7 +97,13 @@ If this option is specified, the user cannot create or use services within the o
 {{{dash_dash}}}verify
 &&&&&&&&&&&&&&&&&&&&&
 
-{{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
+.. ifconfig:: 'off' in verify_state
+    
+   This option is internal and should not be used.
+
+.. ifconfig:: 'on' in verify_state
+    
+   {{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
 
 .. _inviteUserEmail:
 
