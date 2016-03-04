@@ -29,7 +29,7 @@ Equivalent Options
 
 The following arguments are equivalent to -h:
 
-* --help
+* {{{dash_dash}}}help
 
 Constraints and Usage Notes
 +++++++++++++++++++++++++++
@@ -50,26 +50,38 @@ Syntax
 
 ``{{{cli_command}}} -v ...``
 
+or 
+
+``{{{cli_command}}} -vv ...``
 
 Equivalent Options
 ++++++++++++++++++
 
 The following arguments are equivalent to -v:
 
-* --verbose
+* {{{dash_dash}}}verbose
+
+The following arguments are equivalent to -vv:
+
+* {{{dash_dash}}}verbose {{{dash_dash}}}verbose
 
 Constraints and Usage Notes
 +++++++++++++++++++++++++++
 
 The -v flag has no meaning if used with -h.
 
-The CLI supports XXX verbosity levels. By default, most commands that create items (organizations, users, services, tokens, etc.) return a handle to the newly created item.
+The -v flag takes precedence over the -q flag if both are specified.
 
 .. ifconfig:: 'draft' in conditions
-   
-   [[JMK: Need more info. As far as I can tell -v currently does nothing.]]
-   
-   [[JMK: what happens if I use both -v and -q at the same time?]]
+      
+   [[JMK: -v or -vv currently takes precedence over -q but we expected it to be the other way around. See cloud-tools issue #41.]]
+
+
+The CLI supports three verbosity levels including the default level (no flag specified). By default, most commands that create items (organizations, users, services, tokens, etc.) return a handle to the newly created item. In general, the default level should supply sufficient information for normal usage.
+
+With one additional level of verbosity specified, users are notified that tokens are not being verified and given the FQDN of the {{{identity_server}}} used to service the CLI requests ({{{identity_default}}} by default). Note that token verification is not currently supported by the {{{cli_product}}} CLI so this message will always display in verbose mode.
+
+With a second level of additional verbosity specified, the location of the key that would be used to verify tokens (if such keys were currently supported) is added to the information supplied in the first level of verbosity.
 
 .. _topQ:
 
@@ -89,20 +101,20 @@ Equivalent Options
 
 The following arguments are equivalent to -q:
 
-* --quiet
+* {{{dash_dash}}}quiet
 
 Constraints and Usage Notes
 +++++++++++++++++++++++++++
 
 -q suppresses responses from the CLI. This may be useful if you are using the interface programmatically or want to maintain privacy and not display information specific to identifiers and tokens.
 
+The -v flag takes precedence over the -q flag if both are specified.
+
 .. ifconfig:: 'draft' in conditions
-    
-   [[JMK: check what this actually does.
-   What about something like invite-user where the output is required
-   to move on to the next step of accept-invitation?]]
+      
+   [[JMK: -v or -vv currently takes precedence over -q but we expected it to be the other way around. See cloud-tools issue #41.]]
    
-   [[JMK: what happens if I use both -v and -q at the same time?]]
+   [[JMK: -q is currently a no op. See cloud-tools issue #41.]]
 
 .. _topRegistrarUrl:
 
