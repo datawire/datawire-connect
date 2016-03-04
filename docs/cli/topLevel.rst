@@ -121,59 +121,14 @@ The -v flag takes precedence over the -q flag if both are specified.
 {{{dash_dash}}}registrar-url
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-{{{dash_dash}}}registrar-url specifies that the request should be handled by a specific {{{identity_server}}} as indicated by a specific fully qualified domain name or IP address.
-
-Syntax
-++++++
-
-``{{{cli_command}}} ... {{{dash_dash}}}registrar-url <uri> ...``
-
-
-Equivalent Options
-++++++++++++++++++
-
-The following arguments are equivalent to {{{dash_dash}}}registrar-url:
-
-* {{{dash_dash}}}base-url
-* {{{dash_dash}}}baseurl
-
-Constraints and Usage Notes
-+++++++++++++++++++++++++++
-
-If this argument is omitted, {{{identity_default}}} is used by default.
-
-.. ifconfig:: 'draft' in conditions
-    
-   [[JMK: what happens if you specify both {{{dash_dash}}}registrar-url and {{{dash_dash}}}local?]]
+This option is internal and should not be used without explicit direction from {{{company}}}.
 
 .. _topLocal:
 
 {{{dash_dash}}}local
 ~~~~~~~~~~~~~~~~~~~~
 
-{{{dash_dash}}}local specifies that the request should be handled by a local {{{identity_server}}}.
-
-Syntax
-++++++
-
-``{{{cli_command}}} ... {{{dash_dash}}}local ...``
-
-
-Equivalent Options
-++++++++++++++++++
-
-{{{dash_dash}}}local is the only way to specify this option.
-
-Constraints and Usage Notes
-+++++++++++++++++++++++++++
-
-Coming Soon
-
-.. ifconfig:: 'draft' in conditions
-       
-   [[JMK: does it listen on a specific port? what happens if no local server is running?]]
-   
-   [[JMK: what happens if you specify both {{{dash_dash}}}registrar-url and {{{dash_dash}}}local?]]
+This option is internal and should not be used without explicit direction from {{{company}}}.
 
 .. _topState:
 
