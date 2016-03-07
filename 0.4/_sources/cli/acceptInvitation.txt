@@ -12,7 +12,11 @@ The basic syntax of the accept-invitation command is:
 
 The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``{{{cli_command}}} ... accept-invitation -h --name <name> --password <password> --verify <invitationCode>``
+``{{{cli_command}}} ... accept-invitation -h``
+
+or
+
+``{{{cli_command}}} ... accept-invitation {{{dash_dash}}}name <name> {{{dash_dash}}}password <password> {{{dash_dash}}}verify <invitationCode>``
 
 More information about each argument can be found under :ref:`arguments <acceptInvitationArguments>`.
 
@@ -40,11 +44,11 @@ Arguments
 
 The following arguments are supported for the invite-user command:
 
-* -h
-* --name
-* --password
-* --verify
-* <invitationCode>
+* :ref:`-h <generalH>`
+* :ref:`{{{dash_dash}}}name <acceptInvitationName>`
+* :ref:`{{{dash_dash}}}password <acceptInvitationPassword>`
+* :ref:`{{{dash_dash}}}verify <generalVerify>`
+* :ref:`\<invitationCode\> <acceptInvitationCode>`
 
 -h
 &&
@@ -53,17 +57,17 @@ The following arguments are supported for the invite-user command:
 
 .. _acceptInvitationName:
 
---name
-&&&&&&
+{{{dash_dash}}}name
+&&&&&&&&&&&&&&&&&&&
 
 Optional. Indicates a handle for the user creating the new organization. This handle is an external identifier; the user will be given a userID to identify him within {{{company}}}.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%
 
-The following arguments are equivalent to --name:
+The following arguments are equivalent to {{{dash_dash}}}name:
 
-* --fullname
+* {{{dash_dash}}}fullname
 
 Constraints and Usage Notes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -72,24 +76,25 @@ If used, this option sets the user name in the system.
 
 If omitted, the user is prompted to enter a name interactively after submitting the command.
 
-Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces.
+Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces or apostrophes.
 
-..    
-   JMK: determine any length limits
+.. ifconfig:: 'draft' in publish_state
+       
+   [[JMK: determine any length limits]]
 
 .. _acceptInvitationPassword:
 
---password
-&&&&&&&&&&
+{{{dash_dash}}}password
+&&&&&&&&&&&&&&&&&&&&&&&
 
 Optional. Allows the user to specify his password directly in the command.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%
 
-The following arguments are equivalent to --password:
+The following arguments are equivalent to {{{dash_dash}}}password:
 
-* --pw
+* {{{dash_dash}}}pw
 
 Constraints and Usage Notes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -100,10 +105,16 @@ If omitted, the user is prompted to enter a password interactively after submitt
 
 There are no restrictions on password value imposed by {{{cli_product}}}. If your organization requires specific rules for passwords in third party systems they should be managed on your end.
 
---verify
-&&&&&&&&
+{{{dash_dash}}}verify
+&&&&&&&&&&&&&&&&&&&&&
 
---verify is described under :ref:`general command arguments <generalVerify>`.
+.. ifconfig:: 'off' in verify_state
+    
+   This option is internal and should not be used.
+
+.. ifconfig:: 'on' in verify_state
+    
+   {{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
 
 .. _acceptInvitationCode:
 
