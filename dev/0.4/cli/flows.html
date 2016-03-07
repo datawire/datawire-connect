@@ -85,14 +85,14 @@
 <h1>Usage Flows<a class="headerlink" href="#usage-flows" title="Permalink to this headline">¶</a></h1>
 <p>While the overall flow through the Datawire Connect Cloud Tools Command Line Interface and the Datawire Discovery Service should be the same for most users, it does not have to be a continuous path and different users may enter the flow at different points. This page attempts to pinpoint some of those entry points and the likely actions you&#8217;ll need to take at each.</p>
 <ul class="simple">
-<li><a class="reference internal" href="#createneworg"><span>New to Datawire Connect - create a new organization</span></a></li>
-<li><a class="reference internal" href="#createnewservice"><span>Prototyping - create a new service</span></a></li>
-<li><a class="reference internal" href="#adduser"><span>Expanding Beyond Prototype - add new users</span></a></li>
-<li><a class="reference internal" href="#getservicetoken"><span>Expanding Beyond Prototype - get new service tokens</span></a></li>
-<li><a class="reference internal" href="#useservicetoken"><span>Hooking It Together - access Datawire Discovery Service</span></a></li>
+<li><a class="reference internal" href="#createneworg"><span>New to Datawire Connect - Create a New Organization</span></a></li>
+<li><a class="reference internal" href="#createnewservice"><span>Prototyping - Create a New Service</span></a></li>
+<li><a class="reference internal" href="#adduser"><span>Expanding Beyond Prototype - Add New Users</span></a></li>
+<li><a class="reference internal" href="#getservicetoken"><span>Expanding Beyond Prototype - Get New Service Tokens</span></a></li>
+<li><a class="reference internal" href="#useservicetoken"><span>Hooking It Together - Access Datawire Discovery Service</span></a></li>
 </ul>
-<div class="section" id="create-a-new-organization">
-<span id="createneworg"></span><h2>Create a New Organization<a class="headerlink" href="#create-a-new-organization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="new-to-product-create-a-new-organization">
+<span id="createneworg"></span><h2>New to Datawire Connect - Create a New Organization<a class="headerlink" href="#new-to-product-create-a-new-organization" title="Permalink to this headline">¶</a></h2>
 <p>If you are new to Datawire Connect or have not used Datawire Discovery Service before, the first step is creating an organization in the system. This organization will automatically contain one user - its creator - and more can be added later.</p>
 <p>To create a new organization, use the following command:</p>
 <p><code class="docutils literal"><span class="pre">dwc</span> <span class="pre">create-org</span> <span class="pre">&lt;organizationName&gt;</span> <span class="pre">&lt;name&gt;</span> <span class="pre">&lt;email&gt;</span></code></p>
@@ -116,8 +116,8 @@ Again:
 </div>
 <p>Now that her organization and user exist in the system, Eliza can start creating some associated services. She can also add her employee Tom to the Eliza&#8217;s Automated Advice Avatar organization.</p>
 </div>
-<div class="section" id="create-a-new-service">
-<span id="createnewservice"></span><h2>Create a New Service<a class="headerlink" href="#create-a-new-service" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prototyping-create-a-new-service">
+<span id="createnewservice"></span><h2>Prototyping - Create a New Service<a class="headerlink" href="#prototyping-create-a-new-service" title="Permalink to this headline">¶</a></h2>
 <p>Once you have an account with Datawire, the next step is to create a service in the system. You must be logged in to create services; if you are not already logged in, do so using the login command as follows:</p>
 <p><code class="docutils literal"><span class="pre">dwc</span> <span class="pre">login</span> <span class="pre">&lt;email&gt;</span></code></p>
 <p>substituting your email address for the variable above.</p>
@@ -146,8 +146,8 @@ svc_token = &#39;&lt;token&gt;&#39;
 <p>Of course, &#8220;Advice for the lovelorn&#8221; is a pretty unwieldy name - Eliza will have to use that whole string each time she needs to reference the service. She might have been better off choosing a shorter name like &#8220;Lovelorn&#8221; or &#8220;Emit Lovelorn&#8221; that still clearly identifies what the service does but is easier to use.</p>
 <p>Regardless, now that she has a token for the service she can start using it with the Datawire Discovery Service.</p>
 </div>
-<div class="section" id="add-new-users">
-<span id="adduser"></span><h2>Add New Users<a class="headerlink" href="#add-new-users" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="expanding-beyond-prototype-add-new-users">
+<span id="adduser"></span><h2>Expanding Beyond Prototype - Add New Users<a class="headerlink" href="#expanding-beyond-prototype-add-new-users" title="Permalink to this headline">¶</a></h2>
 <p>The ultimate goal of the Datawire Connect Cloud Tools command line interface is to generate tokens for use with the Datawire Discovery Service. These tokens are used outside of the CLI and not everyone who needs tokens necessarily needs access to the CLI. Each organization should decide on a policy regarding how to generate and distribute tokens including which users need access to the token generation process.</p>
 <p>If your organization decides that multiple users should be able to generate or retrieve tokens, the original member of an organization may invite one or more additional users and those users may also invite additional users into the organization. Basically, to invite users into an organization, you must be logged in as an existing member of the organization.</p>
 <p>If you are not already logged in, do so using the login command as follows:</p>
@@ -168,6 +168,8 @@ dwc accept-invitation &#39;&lt;invitationCode&gt;&#39;
 </div>
 <p>where &lt;invitationCode&gt; is an identifier generated by the Datawire Connect Cloud Tools CLI to verify that the user has the right to join the organization.</p>
 <p>Datawire does not send the invitation for you - at this point you are responsible for sending the new user the command they need to create their account (as returned in the response). It is up to your organization to decide the correct means for doing so; any policies regarding what is or not appropriate to do with an invitation code are entirely up to you. Note that while anyone can use the code to join your organization, the account it creates has the original email address of the intended recipient affiliated with it; logging in after account creation requires knowledge of that address.</p>
+<p>[[JMK: Should I lose the note? It may do more harm than good to give people
+ideas on how to hijack a new account.]]</p>
 <p>One the new user has the invitation code and installs the Datawire Connect Cloud Tools, they can submit the invitation command as follows:</p>
 <p><code class="docutils literal"><span class="pre">dwc</span> <span class="pre">accept-invitation</span> <span class="pre">&lt;invitationCode&gt;</span></code></p>
 <p>They will be asked to supply their full name and enter their password twice. Assuming the passwords agree, the invitation will be processed and a new account created, resulting in the new user being logged in to your organization as follows:</p>
@@ -197,9 +199,13 @@ Now logged in as [LSLYJQ8228]tom@bethean.com
 </div>
 <p>At this point he has the same access and privileges as Eliza.</p>
 </div>
-<div class="section" id="get-new-service-tokens">
-<span id="getservicetoken"></span><h2>Get New Service Tokens<a class="headerlink" href="#get-new-service-tokens" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="expanding-beyond-prototype-get-new-service-tokens">
+<span id="getservicetoken"></span><h2>Expanding Beyond Prototype - Get New Service Tokens<a class="headerlink" href="#expanding-beyond-prototype-get-new-service-tokens" title="Permalink to this headline">¶</a></h2>
 <p>In order to get service tokens for an application, you must be logged in to the organization owning the service and have access to the service.</p>
+<p>[[JMK: At the current time you can only see services you created.
+This should change to seeing services created within your org (see issue #3).
+Also, there is a bug that prevents people from seeing services created in
+previous user sessions or generating tokens for them (see issue #28).]]</p>
 <p>If you are not already logged in, do so using the login command as follows:</p>
 <p><code class="docutils literal"><span class="pre">dwc</span> <span class="pre">login</span> <span class="pre">&lt;email&gt;</span></code></p>
 <p>substituting your email address for the variable above.</p>
@@ -239,43 +245,77 @@ Services defined:
 </div>
 <p>She can now use the token with the Datawire Discovery Service.</p>
 </div>
-<div class="section" id="access-discovery-product">
-<span id="useservicetoken"></span><h2>Access Datawire Discovery Service<a class="headerlink" href="#access-discovery-product" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hooking-it-together-access-discovery-product">
+<span id="useservicetoken"></span><h2>Hooking It Together - Access Datawire Discovery Service<a class="headerlink" href="#hooking-it-together-access-discovery-product" title="Permalink to this headline">¶</a></h2>
 <p>You can set up your services written in the Quark language to use the Datawire Discovery Service to handle service availability and load balancing. Passing service token generated through the Datawire Connect Cloud Tools CLI from services using Quark tells the Datawire Discovery Service that requests are authorized to access the particular service in question. Quark uses Resolver objects to determine how to connect to services within the Datawire Discovery Service.</p>
-<p>Datawire Connect includes a library to facilitate these connections. The datawire-connect-1.0.0.q library (found in GitHub under datawire-connect/quark) defines a DiscoveryConsumer resolver object that expects the service token as the argument to its constructor. Options for the resolver are defined in the discovery-1.0.0.q library (found in GitHub under discovery/quark.</p>
-<p>Your service name as set when creating the service is also required as an argument to the RPC Client constructor. In your Quark file defining your service, you define this client as follows:</p>
+<p>Datawire Connect includes a library to facilitate these connections. The datawire-connect-1.0.0.q library (found in GitHub under datawire-connect/quark) defines a DiscoveryConsumer resolver object that expects the service token as the argument to its constructor. Options for the resolver are defined in the discovery-1.0.0.q library (found in GitHub under discovery/quark).</p>
+<p>Your service name as set when creating the service is also required as an argument to the RPC Client constructor. In your Quark file defining your service library, you define this client as follows:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kr">class</span> <span class="o">&lt;</span><span class="nx">service</span><span class="o">&gt;</span><span class="nx">Client</span> <span class="kr">extends</span> <span class="nx">Client</span><span class="p">,</span> <span class="o">&lt;</span><span class="nx">serviceInterface</span><span class="o">&gt;</span> <span class="p">{}</span>
 </pre></div>
 </div>
 <p>where &lt;service&gt; is generally the name of your service (by convention; this is not a strict requirement) and &lt;serviceInterface&gt; is the name of the interface defined to define the RPC interaction being used.</p>
 <p>To instantiate this client in Python (for example), you would do the following:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="hll"><span class="kn">from</span> <span class="o">&lt;</span><span class="n">myLibrary</span><span class="o">&gt;</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="hll"><span class="kn">import</span> <span class="o">&lt;</span><span class="n">myLibrary</span><span class="o">&gt;</span>
 </span>
 <span class="o">...</span>
 
-<span class="hll"><span class="o">&lt;</span><span class="n">myClient</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">service</span><span class="o">&gt;</span><span class="n">Client</span><span class="p">(</span><span class="s2">&quot;&lt;serviceName&gt;&quot;</span><span class="p">)</span>
+<span class="hll"><span class="o">&lt;</span><span class="n">myClient</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">myLibrary</span><span class="o">.&lt;</span><span class="n">service</span><span class="o">&gt;</span><span class="n">Client</span><span class="p">(</span><span class="s2">&quot;&lt;serviceName&gt;&quot;</span><span class="p">)</span>
 </span></pre></div>
 </div>
-<p>where &lt;myClient&gt; is your local handle to the new &lt;service&gt;Client client instance and &lt;serviceName&gt; is the name of the service as defined using the create-service CLI call.</p>
+<p>where &lt;myLibrary&gt; is the name of the Quark library defining the RPC contract for your service, &lt;myClient&gt; is your local handle to the new &lt;service&gt;Client client instance and &lt;serviceName&gt; is the name of the service as defined using the create-service CLI call.</p>
 <p>Then you need to set the resolver used by that client instance to an instance of the DiscoveryConsumer resolver that was also passed &lt;serviceName&gt; at creation. You will also need to set some options using a GatewayOptions object as defined in discovery-1.0.0.q. Continuing the Python example above, this could be done as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="o">&lt;</span><span class="n">myLibrary</span><span class="o">&gt;</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="hll"><span class="kn">from</span> <span class="nn">datawire_connect.resolver</span> <span class="kn">import</span> <span class="n">DiscoveryConsumer</span> <span class="k">as</span> <span class="o">&lt;</span><span class="n">ResolverDefinition</span><span class="o">&gt;</span>
-</span><span class="hll"><span class="kn">from</span> <span class="nn">datawire_discovery.client</span> <span class="kn">import</span> <span class="n">GatewayOptions</span> <span class="k">as</span> <span class="o">&lt;</span><span class="n">OptionsDefinition</span><span class="o">&gt;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="o">&lt;</span><span class="n">myLibrary</span><span class="o">&gt;</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">datawire_connect.resolver</span> <span class="kn">import</span> <span class="n">DiscoveryConsumer</span>
+</span><span class="hll"><span class="kn">from</span> <span class="nn">datawire_discovery.client</span> <span class="kn">import</span> <span class="n">GatewayOptions</span>
 </span>
 <span class="o">...</span>
 
-<span class="o">&lt;</span><span class="n">myClient</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">service</span><span class="o">&gt;</span><span class="n">Client</span><span class="p">(</span><span class="s2">&quot;&lt;serviceName&gt;&quot;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">myClient</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">myLibrary</span><span class="o">.&lt;</span><span class="n">service</span><span class="o">&gt;</span><span class="n">Client</span><span class="p">(</span><span class="s2">&quot;&lt;serviceName&gt;&quot;</span><span class="p">)</span>
 
 <span class="o">...</span>
 
-<span class="hll"><span class="o">&lt;</span><span class="n">options</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">OptionsDefinition</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">token</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="hll"><span class="o">&lt;</span><span class="n">options</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">GatewayOptions</span><span class="p">(</span><span class="o">&lt;</span><span class="n">token</span><span class="o">&gt;</span><span class="p">)</span>
 </span><span class="hll"><span class="o">&lt;</span><span class="n">options</span><span class="o">&gt;.</span><span class="n">gatewayHost</span> <span class="o">=</span> <span class="s2">&quot;disco.datawire.io&quot;</span>
 </span>
-<span class="hll"><span class="o">&lt;</span><span class="n">myClient</span><span class="o">&gt;.</span><span class="n">setResolver</span><span class="p">(</span><span class="o">&lt;</span><span class="n">ResolverDefinition</span><span class="o">&gt;</span><span class="p">(</span><span class="n">options</span><span class="p">))</span>
+<span class="hll"><span class="o">&lt;</span><span class="n">myClient</span><span class="o">&gt;.</span><span class="n">setResolver</span><span class="p">(</span><span class="n">DiscoveryConsumer</span><span class="p">(</span><span class="n">options</span><span class="p">))</span>
 </span></pre></div>
 </div>
-<p>where &lt;ResolverDefinition&gt; is a local name for the resolver definition class, &lt;OptionsDefinition&gt; is a local name for the gateway options definition class, &lt;options&gt; is a local handle to the options object being passed to the resolver, and &lt;token&gt; is the service token obtained using the Datawire Connect Cloud Tools CLI commands (either create-service or service-token).</p>
+<p>where &lt;options&gt; is a local handle to the options object being passed to the resolver, and &lt;token&gt; is the service token obtained using the Datawire Connect Cloud Tools CLI commands (either create-service or service-token).</p>
 <p>At this point, your service should be able to use the Datawire Discovery Service to handle its service discovery and load balancing. If your service token expires, use the service-token command to retrieve a new one and place the new value into the existing code.</p>
+<p>[[JMK: the current gatewayHost default value is wrong and needs to be set as above
+This should not be necessary in future versions. See discovery issue #2.]]</p>
+<p>[[JMK: Are we going to start supporting refresh tokens so you don&#8217;t need to manually
+get new tokens? We need a better story around this, or if we have one it needs to
+be communicated to me]]</p>
+<p>For example, Eliza might create an advice.q Quark library for all of her services to use containing the following:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">...</span>
+
+<span class="kr">interface</span> <span class="nx">adviceInterface</span> <span class="p">{</span>
+<span class="p">...</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">adviceClient</span> <span class="kr">extends</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">adviceInterface</span> <span class="p">{}</span>
+
+<span class="p">...</span>
+</pre></div>
+</div>
+<p>If she wrote her Advice to the annoyingly perfect service in Python, advicetoperfect.py might include the following code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">advice</span>
+<span class="kn">from</span> <span class="nn">datawire_connect.resolver</span> <span class="kn">import</span> <span class="n">DiscoveryConsumer</span>
+<span class="kn">from</span> <span class="nn">datawire_discovery.client</span> <span class="kn">import</span> <span class="n">GatewayOptions</span>
+
+<span class="o">...</span>
+
+<span class="n">perfectClient</span> <span class="o">=</span> <span class="n">advice</span><span class="o">.</span><span class="n">adviceClient</span><span class="p">(</span><span class="s2">&quot;Advice to the annoyingly perfect&quot;</span><span class="p">)</span>
+
+<span class="o">...</span>
+
+<span class="n">options</span> <span class="o">=</span> <span class="n">GatewayOptions</span><span class="p">(</span><span class="o">&lt;</span><span class="n">token</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">options</span><span class="o">.</span><span class="n">gatewayHost</span> <span class="o">=</span> <span class="s2">&quot;disco.datawire.io&quot;</span>
+
+<span class="n">perfectClient</span><span class="o">.</span><span class="n">setResolver</span><span class="p">(</span><span class="n">DiscoveryConsumer</span><span class="p">(</span><span class="n">options</span><span class="p">))</span>
+</pre></div>
+</div>
 </div>
 </div>
 
