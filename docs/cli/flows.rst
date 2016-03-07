@@ -3,16 +3,16 @@ Usage Flows
 
 While the overall flow through the {{{cli_product}}} Command Line Interface and the {{{discovery_product}}} should be the same for most users, it does not have to be a continuous path and different users may enter the flow at different points. This page attempts to pinpoint some of those entry points and the likely actions you'll need to take at each.
 
-* :ref:`New to {{{product}}} - create a new organization <createNewOrg>`
-* :ref:`Prototyping - create a new service <createNewService>`
-* :ref:`Expanding Beyond Prototype - add new users <addUser>`
-* :ref:`Expanding Beyond Prototype - get new service tokens <getServiceToken>`
-* :ref:`Hooking It Together - access {{{discovery_product}}} <useServiceToken>`
+* :ref:`New to {{{product}}} - Create a New Organization <createNewOrg>`
+* :ref:`Prototyping - Create a New Service <createNewService>`
+* :ref:`Expanding Beyond Prototype - Add New Users <addUser>`
+* :ref:`Expanding Beyond Prototype - Get New Service Tokens <getServiceToken>`
+* :ref:`Hooking It Together - Access {{{discovery_product}}} <useServiceToken>`
 
 .. _createNewOrg:
 
-Create a New Organization
--------------------------
+New to {{{product}}} - Create a New Organization
+------------------------------------------------
 
 If you are new to {{{product}}} or have not used {{{discovery_product}}} before, the first step is creating an organization in the system. This organization will automatically contain one user - its creator - and more can be added later.
 
@@ -53,8 +53,8 @@ Now that her organization and user exist in the system, Eliza can start creating
 
 .. _createNewService:
 
-Create a New Service
---------------------
+Prototyping - Create a New Service
+----------------------------------
 
 Once you have an account with {{{company}}}, the next step is to create a service in the system. You must be logged in to create services; if you are not already logged in, do so using the login command as follows:
 
@@ -102,8 +102,8 @@ Regardless, now that she has a token for the service she can start using it with
 
 .. _addUser:
 
-Add New Users
--------------
+Expanding Beyond Prototype - Add New Users
+------------------------------------------
 
 The ultimate goal of the {{{cli_product}}} command line interface is to generate tokens for use with the {{{discovery_product}}}. These tokens are used outside of the CLI and not everyone who needs tokens necessarily needs access to the CLI. Each organization should decide on a policy regarding how to generate and distribute tokens including which users need access to the token generation process.
 
@@ -187,8 +187,8 @@ At this point he has the same access and privileges as Eliza.
 
 .. _getServiceToken:
 
-Get New Service Tokens
-----------------------
+Expanding Beyond Prototype - Get New Service Tokens
+---------------------------------------------------
 
 In order to get service tokens for an application, you must be logged in to the organization owning the service and have access to the service.
 
@@ -259,14 +259,14 @@ She can now use the token with the {{{discovery_product}}}.
 
 .. _useServiceToken:
 
-Access {{{discovery_product}}}
-------------------------------
+Hooking It Together - Access {{{discovery_product}}}
+----------------------------------------------------
 
 You can set up your services written in the {{{language}}} language to use the {{{discovery_product}}} to handle service availability and load balancing. Passing service token generated through the {{{cli_product}}} CLI from services using {{{language}}} tells the {{{discovery_product}}} that requests are authorized to access the particular service in question. {{{language}}} uses Resolver objects to determine how to connect to services within the {{{discovery_product}}}. 
 
-{{{product}}} includes a library to facilitate these connections. The {{{token_service_file}}} library (found in GitHub under {{{github_main_repo}}}/{{{library_subdirectory}}}) defines a DiscoveryConsumer resolver object that expects the service token as the argument to its constructor. Options for the resolver are defined in the {{{discovery_service_file}}} library (found in GitHub under {{{github_discovery_repo}}}/{{{library_subdirectory}}}.
+{{{product}}} includes a library to facilitate these connections. The {{{token_service_file}}} library (found in GitHub under {{{github_main_repo}}}/{{{library_subdirectory}}}) defines a DiscoveryConsumer resolver object that expects the service token as the argument to its constructor. Options for the resolver are defined in the {{{discovery_service_file}}} library (found in GitHub under {{{github_discovery_repo}}}/{{{library_subdirectory}}}).
 
-Your service name as set when creating the service is also required as an argument to the RPC Client constructor. In your {{{language}}} file defining your service, you define this client as follows:
+Your service name as set when creating the service is also required as an argument to the RPC Client constructor. In your {{{language}}} file defining your service library, you define this client as follows:
 
 .. code-block:: javascript
    
@@ -279,35 +279,35 @@ To instantiate this client in Python (for example), you would do the following:
 .. code-block:: python
    :emphasize-lines: 1,5
    
-   from <myLibrary> import *
+   import <myLibrary>
    
    ...
    
-   <myClient> = <service>Client("<serviceName>") 
+   <myClient> = myLibrary.<service>Client("<serviceName>") 
 
-where <myClient> is your local handle to the new <service>Client client instance and <serviceName> is the name of the service as defined using the create-service CLI call.
+where <myLibrary> is the name of the {{{language}}} library defining the RPC contract for your service, <myClient> is your local handle to the new <service>Client client instance and <serviceName> is the name of the service as defined using the create-service CLI call.
 
 Then you need to set the resolver used by that client instance to an instance of the DiscoveryConsumer resolver that was also passed <serviceName> at creation. You will also need to set some options using a GatewayOptions object as defined in {{{discovery_service_file}}}. Continuing the Python example above, this could be done as follows:
 
 .. code-block:: python
    :emphasize-lines: 2,3,11,12,14
    
-   from <myLibrary> import *
-   from datawire_connect.resolver import DiscoveryConsumer as <ResolverDefinition>
-   from datawire_discovery.client import GatewayOptions as <OptionsDefinition>
+   import <myLibrary>
+   from datawire_connect.resolver import DiscoveryConsumer
+   from datawire_discovery.client import GatewayOptions
    
    ...
    
-   <myClient> = <service>Client("<serviceName>") 
+   <myClient> = myLibrary.<service>Client("<serviceName>") 
    
    ...
     
-   <options> = <OptionsDefinition>(<token>)
+   <options> = GatewayOptions(<token>)
    <options>.gatewayHost = "disco.datawire.io"
    
-   <myClient>.setResolver(<ResolverDefinition>(options))
+   <myClient>.setResolver(DiscoveryConsumer(options))
 
-where <ResolverDefinition> is a local name for the resolver definition class, <OptionsDefinition> is a local name for the gateway options definition class, <options> is a local handle to the options object being passed to the resolver, and <token> is the service token obtained using the {{{cli_product}}} CLI commands (either create-service or service-token).
+where <options> is a local handle to the options object being passed to the resolver, and <token> is the service token obtained using the {{{cli_product}}} CLI commands (either create-service or service-token).
 
 At this point, your service should be able to use the {{{discovery_product}}} to handle its service discovery and load balancing. If your service token expires, use the service-token command to retrieve a new one and place the new value into the existing code.
 
