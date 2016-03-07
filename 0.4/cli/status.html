@@ -86,8 +86,6 @@
   <div class="section" id="status">
 <h1>status<a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h1>
 <p>The status command provides information on the currently logged in user including organization ID, user ID, and the tokens for any services they created.</p>
-<p>[[JMK: depending on resolution of issue #3 may contain additional tokens/service
-info for other services in the org]]</p>
 <div class="section" id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <p>The basic syntax of the accept-invitation command is:</p>
@@ -125,28 +123,25 @@ Capabilities:
 </div>
 <p>where each &lt;serviceHandleK&gt; is the name of a service available to the user. The services are listed alphabetical order.</p>
 <p>Users who do not have permission to access services will not have the line about requesting services in their status response.</p>
-<p>[[JMK: where does a user token come in here?
-we&#8217;re not returning it excepting in status and don&#8217;t seem to require its use anywhere]]</p>
 </div>
 <div class="section" id="common-error-states">
 <h2>Common Error States<a class="headerlink" href="#common-error-states" title="Permalink to this headline">¶</a></h2>
 <p>The most likely error state is trying to use status without being logging in first. Since status returns the current user&#8217;s state in the system, it requires a valid, logged in current user.</p>
-<p>[[JMK: the current error message could use improvement. See issue #6]]</p>
 </div>
 <div class="section" id="arguments">
 <span id="statusarguments"></span><h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
 <p>The following arguments are supported for the invite-user command:</p>
 <ul class="simple">
-<li><a class="reference internal" href="general.html#generalh"><span>-h</span></a></li>
-<li><a class="reference internal" href="general.html#generalverify"><span>--verify</span></a></li>
+<li>-h</li>
+<li>&#8211;verify</li>
 </ul>
 <div class="section" id="h">
 <h3>-h<a class="headerlink" href="#h" title="Permalink to this headline">¶</a></h3>
 <p>-h is described under <a class="reference internal" href="general.html#generalh"><span>general command arguments</span></a>.</p>
 </div>
-<div class="section" id="dash-dash-verify">
-<h3>--verify<a class="headerlink" href="#dash-dash-verify" title="Permalink to this headline">¶</a></h3>
-<p>This option is internal and should not be used.</p>
+<div class="section" id="verify">
+<h3>&#8211;verify<a class="headerlink" href="#verify" title="Permalink to this headline">¶</a></h3>
+<p>&#8211;verify is described under <a class="reference internal" href="general.html#generalverify"><span>general command arguments</span></a>.</p>
 </div>
 </div>
 </div>

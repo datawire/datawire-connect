@@ -86,21 +86,18 @@
   <div class="section" id="create-service">
 <h1>create-service<a class="headerlink" href="#create-service" title="Permalink to this headline">¶</a></h1>
 <p>The create-service command registers a new service with the Datawire Discovery Service and generates  a service token for it.</p>
-<p>[[JMK add more info about what tokens do/how they are used once available]]</p>
 <div class="section" id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <p>The basic syntax of the create-service command is:</p>
 <p><code class="docutils literal"><span class="pre">dwc</span> <span class="pre">create-service</span> <span class="pre">&lt;serviceName&gt;</span></code></p>
 <p>The full syntax (excepting <a class="reference internal" href="topLevel.html"><em>top level arguments</em></a>) is:</p>
-<p><code class="docutils literal"><span class="pre">dwc</span> <span class="pre">...</span> <span class="pre">create-service</span> <span class="pre">-h</span></code></p>
-<p>or</p>
-<p><code class="docutils literal"><span class="pre">dwc</span> <span class="pre">...</span> <span class="pre">create-service</span> <span class="pre">--verify</span> <span class="pre">&lt;serviceName&gt;</span></code></p>
+<p><code class="docutils literal"><span class="pre">dwc</span> <span class="pre">...</span> <span class="pre">create-service</span> <span class="pre">-h</span> <span class="pre">--verify</span> <span class="pre">&lt;serviceName&gt;</span></code></p>
 <p>More information about each command argument can be found under <a class="reference internal" href="#createservicearguments"><span>arguments</span></a>.</p>
 </div>
 <div class="section" id="expected-response">
 <h2>Expected Response<a class="headerlink" href="#expected-response" title="Permalink to this headline">¶</a></h2>
 <p>Successful calls will result in the following response:</p>
-<div class="highlight-none"><div class="highlight"><pre>Creating service &lt;serviceName&gt; in &lt;orgId&gt;...
+<div class="highlight-none"><div class="highlight"><pre>Creating service service1 in &lt;orgId&gt;...
 ...created!
 svc_token = &#39;&lt;serviceToken&gt;&#39;
 </pre></div>
@@ -116,17 +113,17 @@ svc_token = &#39;&lt;serviceToken&gt;&#39;
 <span id="createservicearguments"></span><h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
 <p>The following arguments are supported for the create-service command:</p>
 <ul class="simple">
-<li><a class="reference internal" href="general.html#generalh"><span>-h</span></a></li>
-<li><a class="reference internal" href="general.html#generalverify"><span>--verify</span></a></li>
-<li><a class="reference internal" href="#createservicename"><span>&lt;serviceName&gt;</span></a></li>
+<li>-h</li>
+<li>&#8211;verify</li>
+<li>&lt;serviceName&gt;</li>
 </ul>
 <div class="section" id="h">
 <h3>-h<a class="headerlink" href="#h" title="Permalink to this headline">¶</a></h3>
 <p>-h is described under <a class="reference internal" href="general.html#generalh"><span>general command arguments</span></a>.</p>
 </div>
-<div class="section" id="dash-dash-verify">
-<h3>--verify<a class="headerlink" href="#dash-dash-verify" title="Permalink to this headline">¶</a></h3>
-<p>This option is internal and should not be used.</p>
+<div class="section" id="verify">
+<h3>&#8211;verify<a class="headerlink" href="#verify" title="Permalink to this headline">¶</a></h3>
+<p>&#8211;verify is described under <a class="reference internal" href="general.html#generalverify"><span>general command arguments</span></a>.</p>
 </div>
 <div class="section" id="servicename">
 <span id="createservicename"></span><h3>&lt;serviceName&gt;<a class="headerlink" href="#servicename" title="Permalink to this headline">¶</a></h3>
@@ -139,9 +136,7 @@ svc_token = &#39;&lt;serviceToken&gt;&#39;
 <h4>Constraints and Usage Notes<a class="headerlink" href="#constraints-and-usage-notes" title="Permalink to this headline">¶</a></h4>
 <p>The service name must be the last argument supplied with the command.</p>
 <p>The service name must be unique within the user&#8217;s scope. If another service with the supplied name already exists the request will be rejected.</p>
-<p>[[JMK: scope is currently the user but should be the org. See issue #3]]</p>
-<p>Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces or apostrophes.</p>
-<p>[[JMK: Add any length restrictions]]</p>
+<p>Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces.</p>
 </div>
 </div>
 </div>

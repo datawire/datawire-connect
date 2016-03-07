@@ -12,11 +12,7 @@ The basic syntax of the logout command is:
 
 The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``{{{cli_command}}} ... logout -h``
-
-or
-
-``{{{cli_command}}} ... logout {{{dash_dash}}}force {{{dash_dash}}}verify``
+``{{{cli_command}}} ... logout -h --force --verify``
 
 More information about each command argument can be found under :ref:`arguments <logoutArguments>`.
 
@@ -52,9 +48,9 @@ Arguments
 
 The following arguments are supported for the login command:
 
-* :ref:`-h <generalH>`
-* :ref:`{{{dash_dash}}}force <logoutForce>`
-* :ref:`{{{dash_dash}}}verify <generalVerify>`
+* -h
+* --force
+* --verify
 
 -h
 &&
@@ -63,30 +59,25 @@ The following arguments are supported for the login command:
 
 .. _logoutForce:
 
-{{{dash_dash}}}force
-&&&&&&&&&&&&&&&&&&&&
+--force
+&&&&&&&
 
 Optional. Forces a logout without prompting for verification.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%
 
-The following arguments are equivalent to {{{dash_dash}}}force:
+The following arguments are equivalent to --force:
 
-* {{{dash_dash}}}yes
+* --yes
 
 Constraints and Usage Notes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 If omitted, the user is prompted to confirm that they really do want to log out after submitting the command. 
 
-{{{dash_dash}}}verify
-&&&&&&&&&&&&&&&&&&&&&
+--verify
+&&&&&&&&
 
-.. ifconfig:: 'off' in verify_state
-    
-   This option is internal and should not be used.
+--verify is described under :ref:`general command arguments <generalVerify>`.
 
-.. ifconfig:: 'on' in verify_state
-    
-   {{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
