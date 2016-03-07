@@ -319,3 +319,36 @@ At this point, your service should be able to use the {{{discovery_product}}} to
    [[JMK: Are we going to start supporting refresh tokens so you don't need to manually
    get new tokens? We need a better story around this, or if we have one it needs to 
    be communicated to me]]
+
+For example, Eliza might create an advice.q {{{language}}} library for all of her services to use containing the following:
+
+.. code-block:: javascript
+   
+   ...
+
+   interface adviceInterface {
+   ...
+   }
+
+   class adviceClient extends Client, adviceInterface {}
+
+   ...
+
+If she wrote her Advice to the annoyingly perfect service in Python, advicetoperfect.py might include the following code:
+
+.. code-block:: python
+   
+   import advice
+   from datawire_connect.resolver import DiscoveryConsumer
+   from datawire_discovery.client import GatewayOptions
+   
+   ...
+   
+   perfectClient = advice.adviceClient("Advice to the annoyingly perfect") 
+   
+   ...
+    
+   options = GatewayOptions(<token>)
+   options.gatewayHost = "disco.datawire.io"
+   
+   perfectClient.setResolver(DiscoveryConsumer(options))
