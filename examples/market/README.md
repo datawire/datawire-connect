@@ -190,4 +190,3 @@ You can use this demo as a way to write your own microservice(s). In this exampl
     ```
 
     However there was some extra code used in the example to allow the application to call the ratings API concurrently rather than serially, and to cache responses in the case where no services are available at all. But the basic act of calling a service was as simple as what is shown above.
-v
