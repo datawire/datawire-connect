@@ -147,13 +147,13 @@ INFO:quark.client:- CLOSE breaker on [ratings at http://127.0.0.1:8001]
 
 Once again, requests should be interleaved between the two instances, and all should succeed.
 
-## Source Code of Interest
+## Writing your own microservice
 
-There's a lot of code in this example, but most of it is just regular web application code. Only some of it is relevant to how the market app was able to resiliently call a new microservice, so we're making special note of those snippets below.
+You can use this demo as a way to write your own microservice(s). In this example:
 
-#### The Service Contract
+1. We wrote a standard web application using Python and Flask ([add-ratings/market.py](https://github.com/datawire/datawire-connect/blob/master/examples/market/add-ratings/market.py)) to simulate an existing monolith. If you have an existing monolith, you don't need to write another one :-).
 
-Datawire Connect specifies service contracts in the Quark language. The ratings microservice's contract is within [ratings.q](https://github.com/datawire/datawire-connect/blob/master/examples/market/ratings/ratings.q), and it describes both the API signatures for the service as well as how clients should behave when calling them.
+2. We then defined the service contract in the Quark language for the ratings microservice. The ratings microservice's contract is within [ratings.q](https://github.com/datawire/datawire-connect/blob/master/examples/market/ratings/ratings.q), and it describes both the API signatures for the service as well as how clients should behave when calling them.
 
 The API signatures are as follows:
 
@@ -178,9 +178,7 @@ The ratings.q contract file also contains configuration for request timeouts, fa
    static float retestDelay = 30.0; // how long to wait until closing the circuit breaker and retrying
 ```
 
-#### The Market App
-
-The code to actually call the ratings microservice is in [add-ratings/market.py](https://github.com/datawire/datawire-connect/blob/master/examples/market/add-ratings/market.py). If you `diff` that file against [monolith/market.py](https://github.com/datawire/datawire-connect/blob/master/examples/market/monolith/market.py), you will see the code that was added to the monolith in order to call the ratings microservice.
+3. We then update the monolith to call the ratings microservice. You can see the changes made by running `diff` between [add-ratings/market.py](https://github.com/datawire/datawire-connect/blob/master/examples/market/add-ratings/market.py) and [monolith/market.py](https://github.com/datawire/datawire-connect/blob/master/examples/market/monolith/market.py).
 
 In a nutshell, calling a service was as simple as this:
 
