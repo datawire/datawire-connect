@@ -155,28 +155,28 @@ You can use this demo as a way to write your own microservice(s). In this exampl
 
 2. We then defined the service contract in the Quark language for the ratings microservice. The ratings microservice's contract is within [ratings.q](https://github.com/datawire/datawire-connect/blob/master/examples/market/ratings/ratings.q), and it describes both the API signatures for the service as well as how clients should behave when calling them.
 
-The API signatures are as follows:
+   The API signatures are as follows:
 
-```
-// Data structure that gets passed around
-class Rating extends Future {
-   String thingID;
-   int rating;
-}
+   ```
+   // Data structure that gets passed around
+   class Rating extends Future {
+   	 String thingID;
+	 int rating;
+   }
 
-// API signature
-Rating get(String thingID) {
-   return ?self.rpc("get", [ thingID ]);
-}
-```
+    // API signature
+   Rating get(String thingID) {
+       return ?self.rpc("get", [ thingID ]);
+   }
+    ```
 
-The ratings.q contract file also contains configuration for request timeouts, failure limits and circuit breaking periods:
+    The ratings.q contract file also contains configuration for request timeouts, failure limits and circuit breaking periods:
 
-```
-   static float timeout = 1.0;      // per-request timeout
-   static int failureLimit = 1;     // number of successive request failures before the circuit breaker opens
-   static float retestDelay = 30.0; // how long to wait until closing the circuit breaker and retrying
-```
+   ```
+       static float timeout = 1.0;      // per-request timeout
+       static int failureLimit = 1;     // number of successive request failures before the circuit breaker opens
+       static float retestDelay = 30.0; // how long to wait until closing the circuit breaker and retrying
+   ```
 
 3. We then update the monolith to call the ratings microservice. You can see the changes made by running `diff` between [add-ratings/market.py](https://github.com/datawire/datawire-connect/blob/master/examples/market/add-ratings/market.py) and [monolith/market.py](https://github.com/datawire/datawire-connect/blob/master/examples/market/monolith/market.py).
 
@@ -190,3 +190,4 @@ ratings.get(thingID)
 ```
 
 However there was some extra code used in the example to allow the application to call the ratings API concurrently rather than serially, and to cache responses in the case where no services are available at all. But the basic act of calling a service was as simple as what is shown above.
+v
