@@ -180,14 +180,14 @@ You can use this demo as a way to write your own microservice(s). In this exampl
 
 3. We then update the monolith to call the ratings microservice. You can see the changes made by running `diff` between [add-ratings/market.py](https://github.com/datawire/datawire-connect/blob/master/examples/market/add-ratings/market.py) and [monolith/market.py](https://github.com/datawire/datawire-connect/blob/master/examples/market/monolith/market.py).
 
-In a nutshell, calling a service was as simple as this:
+    In a nutshell, calling a service was as simple as this:
 
-```Python
-# add-ratings/market.py 
-ratings = RatingsClient("ratings")
-...
-ratings.get(thingID)
-```
+    ```Python
+    # add-ratings/market.py 
+    ratings = RatingsClient("ratings")
+    ...
+    ratings.get(thingID)
+    ```
 
-However there was some extra code used in the example to allow the application to call the ratings API concurrently rather than serially, and to cache responses in the case where no services are available at all. But the basic act of calling a service was as simple as what is shown above.
+    However there was some extra code used in the example to allow the application to call the ratings API concurrently rather than serially, and to cache responses in the case where no services are available at all. But the basic act of calling a service was as simple as what is shown above.
 v
