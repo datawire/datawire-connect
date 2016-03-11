@@ -4,18 +4,24 @@ node_modules:
 	mkdir node_modules
 
 npm: node_modules
-	npm install request browserify uglifyjs
+	npm -q install browserify uglifyjs | grep '^[a-zA-Z0-9]'
 
 animated:
 	quark install --javascript animated.q
-	cp ../../../../quark/quarkc/builtin/quark_*runtime.js node_modules/builtin
 	node_modules/.bin/browserify -d -o bquark.js \
+		-x ws \
 		-r builtin \
 		-r discovery_1_0_0 \
 		-r datawire_connect_1_0_0 \
-		-r builtin/quark_browser_runtime.js \
+		-r builtin/quark_node_runtime\
 		-r animated
-	node_modules/.bin/uglifyjs --mangle --compress --stats -o bquark-min.js bquark.js
+	node_modules/.bin/uglifyjs \
+		--mangle --compress --stats -o bquark-min.js bquark.js 2>&1 \
+	   | fgrep -v 'Dropping unused' \
+	   | fgrep -v 'Side effects in initialization of unused variable' \
+	   | fgrep -v 'Dropping unreachable code' \
+	   | fgrep -v 'Declarations in unreachable code' \
+	   | fgrep -v 'Condition always false'
 
 clean:
 	-rm -f bquark.js bquark-min.js
