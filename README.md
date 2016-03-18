@@ -34,7 +34,7 @@ including circuit breakers, timeouts, and load balancing.
 
 ## Quick Start
 
-Datawire Connect includes sample code that illustrates the aboe
+Datawire Connect includes sample code that illustrates the above
 example. By default, Datawire Connect integrates with the Datawire
 Cloud Discovery service, although this is easily changed.
 
