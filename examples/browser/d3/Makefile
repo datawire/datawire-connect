@@ -10,11 +10,12 @@ animated:
 	quark install --javascript animated.q
 	node_modules/.bin/browserify -d -o bquark.js \
 		-x ws \
-		-r builtin \
+		-r quark \
 		-r discovery_1_0_0 \
 		-r datawire_connect_1_0_0 \
-		-r builtin/quark_node_runtime\
-		-r animated
+		-r quark/quark_node_runtime\
+		-r animated \
+		-r token
 	node_modules/.bin/uglifyjs \
 		--mangle --compress --stats -o bquark-min.js bquark.js 2>&1 \
 	   | fgrep -v 'Dropping unused' \
