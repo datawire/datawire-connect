@@ -1,8 +1,8 @@
 // Snare the "Animated" service contract...
 var animated = require("animated").animated;
+var token = require("token").token;
 
-// ...and our token.
-var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOnsiZHc6c2VydmljZTAiOnRydWV9LCJvd25lckVtYWlsIjoiZmx5bm5AZGF0YXdpcmUuaW8iLCJkd1R5cGUiOiJEYXRhV2lyZUNyZWRlbnRpYWwiLCJuYmYiOjE0NTY4OTgxMTAsInN1YiI6ImFuaW1hdGVkIiwiYXVkIjoiQ01SMUZTNjNQOCIsImlzcyI6ImNsb3VkLWh1Yi5kYXRhd2lyZS5pbyIsImp0aSI6Ijc4YTRiNTdmLTJiODEtNDI5Ny05NzRiLTA0YjU5OTRkMWUzOSIsImV4cCI6MTQ1ODEwNzcxMCwiaWF0IjoxNDU2ODk4MTEwLCJlbWFpbCI6bnVsbH0.-csALzn3ozWwBA-oQiJfl5vVqLBJPSgSqIJiI-0JQW8";
+console.log("token: " + token);
 
 // /********
 //  * GLOBALS

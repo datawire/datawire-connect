@@ -6,7 +6,19 @@ node_modules:
 npm: node_modules
 	npm -q install browserify uglifyjs | grep '^[a-zA-Z0-9]'
 
-animated:
+token: node_modules
+	@echo grabbing service token
+	@eval $$(dwc service-token animated | sed -e's/ //g') ;\
+	\
+	if [ -n "$$svc_token" ]; then \
+		echo "module.exports = { token: '$$svc_token' };" > node_modules/token.js ;\
+		exit 0 ;\
+	else \
+		echo "no 'animated' token??" >&2 ;\
+		exit 1 ;\
+	fi
+
+animated: token
 	quark install --javascript animated.q
 	node_modules/.bin/browserify -d -o bquark.js \
 		-x ws \

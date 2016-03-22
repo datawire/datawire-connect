@@ -3,24 +3,22 @@ Browser test
 
 This uses Datawire Connect with cloud discovery to make a bunch of RPC calls from the browser, while also doing a bunch of (not-at-all optimized) animations asynchronously to the RPCs.
 
-The simplest way to try it out is to start by bootstrapping the world in a totally clean directory. Here's the simplest way to do it:
+To try this, you'll need to install Quark and Datawire Cloud Tools (we recommend using virtualenv for this):
 
-        mkdir new_dir
-        cd new_dir
-        
-        virtualenv test
-        . test/bin/activate
-        
-        git clone git@github.com:datawire/quark
-        cd quark
-        git checkout flynn/feature/evilBrowserSupport
-        python setup.py develop
-        cd ..
-        
-        git clone git@github.com:datawire/datawire-connect
-        cd datawire-connect
-        git checkout flynn/feature/evilBrowserSupport
-        cd examples/browser/d3
+        pip install 'datawire-quark>=0.4.16'`
+        pip install datawire-cloudtools
+
+Once the Cloud Tools are installed, you'll need a Datawire Connect organization and service token. If you already have an organization set up, great, you can use that. If not, 
+
+        dwc create-org
+
+will tell you how to create an organization.
+
+Given an organization, you'll create a service token for a service called 'animated':
+
+        dwc create-service animated
+
+Once that's done, you can get everything else set up by simply running make:
         
         make
 

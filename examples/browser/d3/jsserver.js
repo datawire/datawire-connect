@@ -3,15 +3,7 @@
 
 "use strict";
 
-// var args = process.argv.splice(process.execArgv.length + 2);
-
-// if (args.length < 1) {
-//   throw "Usage: node jsserver.js service-token";
-// }
-
-// var token = args[0];
-
-var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOnsiZHc6c2VydmljZTAiOnRydWV9LCJvd25lckVtYWlsIjoiZmx5bm5AZGF0YXdpcmUuaW8iLCJkd1R5cGUiOiJEYXRhV2lyZUNyZWRlbnRpYWwiLCJuYmYiOjE0NTY4OTgxMTAsInN1YiI6ImFuaW1hdGVkIiwiYXVkIjoiQ01SMUZTNjNQOCIsImlzcyI6ImNsb3VkLWh1Yi5kYXRhd2lyZS5pbyIsImp0aSI6Ijc4YTRiNTdmLTJiODEtNDI5Ny05NzRiLTA0YjU5OTRkMWUzOSIsImV4cCI6MTQ1ODEwNzcxMCwiaWF0IjoxNDU2ODk4MTEwLCJlbWFpbCI6bnVsbH0.-csALzn3ozWwBA-oQiJfl5vVqLBJPSgSqIJiI-0JQW8";
+var token = require("token").token;
 
 /******
  * Animated service handler
