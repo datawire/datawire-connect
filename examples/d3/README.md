@@ -32,4 +32,10 @@ Then, in a separate window, start the RPC server that provides the service that 
 
 Finally, open `http://localhost:8000/d3.html` in a web browser.
 
+Also note that there is a stripped-down command-line client in `animCLI.js`. To see it, start the RPC server and then run
+
+        node animCLI.js
+
+The browser and the CLI version can both run simultaneously.
+
 _NOTE WELL_: This has only been tested with Chrome right now.
