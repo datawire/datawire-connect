@@ -1,7 +1,12 @@
 all:
 	quark install hello.q
+	cd python && $(MAKE)
 	cd node && $(MAKE)
 	cd browser && $(MAKE)
+
+python: .ALWAYS
+	quark install --python hello.q
+	cd python && $(MAKE)
 
 node javascript: node_modules .ALWAYS
 	quark install --javascript hello.q
