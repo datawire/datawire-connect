@@ -104,3 +104,7 @@ Run the Node.js client with
 To build just the JavaScript client for a browser, you can use `make browser`.
 
 Run the client by opening `browser/hello.html` in your web browser.
+
+There is no server for the browser. Instead, run the Node.js server:
+
+        node node/jsserver.js
