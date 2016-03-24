@@ -31,13 +31,17 @@ javaclient java-client: .ALWAYS
 
 .ALWAYS:
 
-clean:
+# Nothing to clean at toplevel, yay.
+clean-toplevel:
+
+clean: clean-toplevel
 	cd node && $(MAKE) clean
 	cd browser && $(MAKE) clean
 	cd python && $(MAKE) clean
 	cd java && $(MAKE) clean
 
-clobber: clean
+# clobber relies on subdirectory clobber doing a clean as well.
+clobber: clean-toplevel
 	cd node && $(MAKE) clobber
 	cd browser && $(MAKE) clobber
 	cd python && $(MAKE) clobber
