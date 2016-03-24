@@ -78,7 +78,7 @@ Run the Python client with
 
 ### Java
 
-To build just the Python implementation, you can use `make java`.
+To build just the Java implementation, you can use `make java`.
 
 Run the Java server with
 
