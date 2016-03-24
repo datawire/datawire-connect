@@ -3,6 +3,7 @@
 import sys
 
 import logging
+import time
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -18,15 +19,18 @@ def main():
 
     # ...and feed it a resolver for Datawire Connect.
 
-    options = DWCOptions(DataWireState().currentServiceToken('ratings'))
+    options = DWCOptions(DataWireState().currentServiceToken('hello'))
 
     client.setResolver(DWCResolver(options))
+
+    # Give the resolver a chance to get connected.
+    time.sleep(5);
 
     # OK, make the call!   
     request = hello.Request()
 
     if len(sys.argv) > 1:
-        request.text = str(sys.argv[1])
+        request.text = " ".join(sys.argv[1:])
     else:
         request.text = "Hello from Python!"
 
@@ -41,6 +45,12 @@ def main():
         print "Response failed with %r" % response.getError()
     else:
         print "Response says %r" % response.result
+
+    print("")
+    print("")
+    print("You need to interrupt me to exit at the moment, sadly.")
+    print("The resolver thread isn't marked as a daemon, so it's")
+    print("still lingering around.")
 
 if __name__ == '__main__':
     main()

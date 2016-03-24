@@ -43,7 +43,7 @@ def main():
     server = hello.HelloServer(implementation)
     server.serveHTTP(url)
 
-    endpoint = DWCEndpoint('http', '127.0.0.1', port, url)
+    endpoint = DWCEndpoint('http', '127.0.0.1', 8910, url)
     options = DWCOptions(DataWireState().currentServiceToken('hello'))
 
     provider = DWCProvider(options, "hello", endpoint)
