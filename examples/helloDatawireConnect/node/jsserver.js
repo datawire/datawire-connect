@@ -3,15 +3,8 @@
 
 "use strict";
 
-var args = process.argv.splice(process.execArgv.length + 2);
-
-if (args.length < 1) {
-    throw "Usage: node jsserver.js service-token";
-}
-
-var token = args[0];
-
 var hello = require("hello").hello;
+var token = require('token').token;
 
 var datawire_connect = require('datawire_connect_1_0_0').datawire_connect;
 var DWCProvider = datawire_connect.resolver.DiscoveryProvider;
@@ -20,8 +13,10 @@ var datawire_discovery = require('discovery_1_0_0').datawire_discovery;
 var DWCEndpoint = datawire_discovery.model.Endpoint;
 var DWCOptions = datawire_discovery.client.GatewayOptions;
 
-function HelloImpl() {
-    this.hello = function(request) {
+var HelloImpl = (function () {
+    function HelloImpl() {}
+
+    HelloImpl.prototype.hello = function (request) {
         var response = new hello.Response();
         response.result = "Responding to [" + request.text + "] from JavaScript";
 
@@ -36,7 +31,9 @@ function HelloImpl() {
 
         return response;
     };
-}
+
+    return HelloImpl;
+})();
 
 var implementation = new HelloImpl();
 var server = new hello.HelloServer(implementation);

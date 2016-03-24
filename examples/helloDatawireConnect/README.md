@@ -3,9 +3,9 @@
 This example demonstrates how Quark can implement cross-language RPC
 using Datawire Connect.
 
-## Datawire Connect Setup
+## Setup
 
-- pip install datawire-cloudtools
+- `pip install datawire-cloudtools`
 - create an org (`dwc create-org`)
 - create a service named "hello" (`dwc create-service hello`)
 
@@ -14,29 +14,24 @@ a new organization, it can be named whatever you like. The service,
 however, _must_ be named `hello`, since that's what the example is 
 expecting.
 
-## Hello Service Contract
+## Using Quark to Implement and Use Services
 
-The Hello service contract is expressed in hello.q. The service
-contract includes the service interface (hello.Hello) along with the
-value classes (hello.Request and hello.Response) used to interact with
-the service. The hello.q file also defines the names of the client and
-server stubs (hello.HelloClient, and hello.HelloServer).
+Datawire Connect uses the Quark language to express _service contracts_ in ways
+that allow any of several host languages to easily implement and use services.
+See QuarkAndDatawireConnect.md for (much) more information about using Quark in
+your own projects.
 
-### Writing a client
+## Hello Datawire Connect
 
-The example provides two clients written to use the service
-(pyclient.py, HelloRPCClient.java). Both these clients follow the same
-basic pattern. A client instance can be constructed by passing in to
-the client constructor the runtime integration and the URL of the
-server.
+The Hello Datawire Connect example implements and uses a very simple service:
+the 'hello' service, on receiving a string from the client, echos back the string
+it received, and what runtime the server is using.
 
-### Writing a server
+The example supplies three different implementations:
 
-The server code files (pyserver.py, jsserver.js, HelloRPCServer.java)
-also follow the same basic pattern. A server instance can be
-constructed by passing in to the server constructor the runtime
-integration and the implementation of the contract interface. Then the
-integration can serve the service on the given URL.
+- JavaScript under Node.js, in the `node` directory
+- JavaScript in a browser, in the `browser` directory (client only)
+- Python, in the `python` directory
 
 ## Running this example
 
@@ -53,29 +48,36 @@ All of the directions below assume you are starting from
 *repoBase*/examples/helloRPC where *repoBase* is the location where
 you cloned the repository above.
 
+### Reminder
+
+You _must_ create a Datawire Connect organization and service, as described
+above. The example code will not function unless it can find a service token
+for a service named 'hello'.
+
+### The Easy Way
+
+Use the included Makefile to set up all three client/server pairs at once:
+
+        make
+
+Then follow the directions below to run one server, and try however many
+clients you like.
+
 ### Python
 
-Compile and install the Service Contract in hello.q:
-
-        quark install hello.q --python
+To build just the Python implementation, you can use `make python`.
 
 Run the Python server with
 
-        python pyserver.py
+        python python/pyserver.py
 
 Run the Python client with
 
-        python pyclient.py
+        python python/pyclient.py
 
 ### Java
 
-Compile and install the Service Contract in hello.q:
-
-        quark install hello.q --java
-
-Compile the Java server and client with 
-
-        mvn compile
+To build just the Python implementation, you can use `make java`.
 
 Run the Java server with
 
@@ -85,16 +87,20 @@ Run the Java client with
 
         mvn exec:java -Dexec.mainClass=helloRPC.HelloRPCClient
 
-### JavaScript
+### JavaScript under Node.js
 
-Compile and install the Service Contract in hello.q:
+To build just the Node.js implementation, you can use `make java`.
 
-        quark install hello.q --javascript
+Run the Node.js server with
 
-Run the Javascript server with
+        node node/jsserver.js
 
-        node jsserver.js
+Run the Node.js client with
 
-Run the Javascript client with
+        node node/jsclient.js
 
-        node jsclient.js
+### JavaScript in a browser
+
+To build just the JavaScript client for a browser, you can use `make browser`.
+
+Run the client by opening `browser/hello.html` in your web browser.
