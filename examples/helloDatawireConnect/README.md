@@ -82,11 +82,14 @@ To build just the Java implementation, you can use `make java`.
 
 Run the Java server with
 
-        mvn exec:java -Dexec.mainClass=helloRPC.HelloRPCServer
+        make javaserver
 
 Run the Java client with
 
-        mvn exec:java -Dexec.mainClass=helloRPC.HelloRPCClient
+        make javaclient
+
+(The Makefile uses `mvn exec` under the hood -- for details, look at the
+`Makefile` in the `java` directory.)
 
 ### JavaScript under Node.js
 

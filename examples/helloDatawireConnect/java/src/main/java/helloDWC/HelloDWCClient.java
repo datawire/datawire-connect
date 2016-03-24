@@ -5,19 +5,28 @@ import hello.HelloClient;
 import hello.Request;
 import hello.Response;
 
+import datawire_connect.resolver.DiscoveryConsumer;
+import datawire_discovery.client.GatewayOptions;
+
 public class HelloDWCClient {
-    public static void main(String[] args) {
-        // "http://hello.datawire.io/" is the URL of the simple "Hello" cloud
-        // microservice run by Datawire, Inc. to serve as a simple first test.
-        //
-        //  You can test completely locally, too:
-        //  - comment out the http://hello.datawire.io line
-        //  - uncomment the http://127.0.0.1:8910/hello line
-        //  - fire up the local version of the server by following the instructions
-        //  in the README.md.
-        //
-        // HelloClient client = new HelloClient("http://hello.datawire.io/");
-        HelloClient client = new HelloClient("http://localhost:8910/hello");
+    // What's with the InterruptedException? We use Thread.sleep below, and
+    // Thread.sleep can throw InterruptedException. We don't want to bother 
+    // catching it for this example, since it shouldn't ever happen in our
+    // situation, and if it does, well, there's nothing much we should do 
+    // except rethrow anyway...
+
+    public static void main(String[] args) throws InterruptedException {
+        HelloClient client = new HelloClient("hello");
+
+        GatewayOptions options =
+            new GatewayOptions("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOnsiZHc6c2VydmljZTAiOnRydWV9LCJvd25lckVtYWlsIjoiZmx5bm5AZGF0YXdpcmUuaW8iLCJkd1R5cGUiOiJEYXRhV2lyZUNyZWRlbnRpYWwiLCJuYmYiOjE0NTg3NjI5NDIsInN1YiI6ImhlbGxvIiwiYXVkIjoiQUROUDgwMUFHNCIsImlzcyI6ImNsb3VkLWh1Yi5kYXRhd2lyZS5pbyIsImp0aSI6IjUxZjA0ZGNiLTY1YWQtNDM3NS05OGFhLTcxMWI4OWRlOGU0OCIsImV4cCI6MTQ1OTk3MjU0MiwiaWF0IjoxNDU4NzYyOTQyLCJlbWFpbCI6bnVsbH0.b6WKhD86E45bxSPVdbRQzkEEJQpZ0bQwmi-jRitwtlE");
+
+        DiscoveryConsumer resolver = new DiscoveryConsumer(options);
+
+        client.setResolver(resolver);
+
+        // Give the resolver a chance to get connected....
+        Thread.sleep(5000);
 
         Request request = new Request();
 
@@ -26,14 +35,22 @@ public class HelloDWCClient {
         } else {
             request.text = "Hello from Java!";
         }
+
         System.out.println("Request says: " + request.text);
+
         Response response = client.hello(request);
         response.await(1.0);
-        if (!response.isFinished()) { // Unless we wait indefinitely the response wait can time out so the synchronous caller should still check isFinished()
+
+        // Since we didn't wait indefinitely, we might've gotten a timeout.
+        // Therefore, we need to start by checking response.isFinished().
+
+        if (!response.isFinished()) {
             System.out.println("No response!");
-        } else if (response.getError() != null) {
+        }
+        else if (response.getError() != null) {
             System.out.println("Response failed with: " + response.getError());
-        } else {
+        }
+        else {
             System.out.println("Response says: " + response.result);
         }
     }
