@@ -37,7 +37,8 @@ The example supplies three different implementations:
 
 The clients expect to find the service on http://127.0.0.1:8910/hello
 and each server runs there. Thus you may run a single server at a
-time, as well as any number of clients.
+time, as well as any number of clients. You are encouraged to mix and
+match languages! Any server should work with any client.
 
 To get started, download the example by cloning its git repository as
 follows:
