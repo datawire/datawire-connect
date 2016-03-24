@@ -1,11 +1,11 @@
-package helloRPC;
+package helloDWC;
 
 import quark.concurrent.FutureWait;
 import hello.HelloClient;
 import hello.Request;
 import hello.Response;
 
-public class HelloRPCClient {
+public class HelloDWCClient {
     public static void main(String[] args) {
         // "http://hello.datawire.io/" is the URL of the simple "Hello" cloud
         // microservice run by Datawire, Inc. to serve as a simple first test.

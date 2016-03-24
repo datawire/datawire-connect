@@ -12,10 +12,10 @@ all:
 	mvn compile
 
 runserver:
-	mvn exec:java -Dexec.mainClass=helloRPC.HelloRPCServer
+	mvn exec:java -Dexec.mainClass=helloDWC.HelloDWCServer
 
 runclient:
-	mvn exec:java -Dexec.mainClass=helloRPC.HelloRPCClient
+	mvn exec:java -Dexec.mainClass=helloDWC.HelloDWCClient
 
 clean:
 	mvn clean

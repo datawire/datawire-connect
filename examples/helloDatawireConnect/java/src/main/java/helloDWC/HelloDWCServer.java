@@ -1,8 +1,8 @@
-package helloRPC;
+package helloDWC;
 
 import hello.HelloServer;
 
-public class HelloRPCServer {
+public class HelloDWCServer {
 
     public static void main(String[] args) {
         HelloImpl impl = new HelloImpl();

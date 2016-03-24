@@ -1,4 +1,4 @@
-package helloRPC;
+package helloDWC;
 
 import hello.Hello;
 import hello.Request;
