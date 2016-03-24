@@ -35,7 +35,7 @@ The example supplies three different implementations:
 
 ## Running this example
 
-The clients expect to find the service on http://127.0.0.1:8910/hello
+The clients expect to find the service on http://127.0.0.1:8910/
 and each server runs there. Thus you may run a single server at a
 time, as well as any number of clients. You are encouraged to mix and
 match languages! Any server should work with any client.
