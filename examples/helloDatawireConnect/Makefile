@@ -1,4 +1,4 @@
-all:
+all: node_modules
 	quark install hello.q
 	cd python && $(MAKE)
 	cd node && $(MAKE)
