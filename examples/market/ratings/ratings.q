@@ -8,7 +8,7 @@ import builtin.concurrent;
 namespace ratings {
   // Rating is the data structure we'll be passing around between the microservice
   // and its client. It extends Future because the RPC can take awhile, and we don't
-  // to block in the process.
+  // want to block in the process.
 
   class Rating extends Future {
     String thingID;  // We include the thingID with its rating just to make it a
