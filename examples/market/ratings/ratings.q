@@ -3,7 +3,7 @@ package ratings 0.0.1;
 use ../../../quark/datawire_connect-1.0.0.q;
 
 import datawire_connect.resolver;
-import builtin.concurrent;
+import quark.concurrent;
 
 namespace ratings {
   // Rating is the data structure we'll be passing around between the microservice
@@ -20,7 +20,7 @@ namespace ratings {
   class RatingsResolver extends Resolver {
     List<String> resolve(String serviceName) {
       return [ "http://127.0.0.1:8001/" + serviceName,
-               "http://127.0.0.1:8002/" + serviceName, 
+               "http://127.0.0.1:8002/" + serviceName,
                "http://127.0.0.1:8003/" + serviceName ];
     }
   }
@@ -28,14 +28,14 @@ namespace ratings {
   // Ratings is the microservice itself. It has one method so far, just 'get'.
 
   interface Ratings extends Service {
-    // timeout, failureLimit, and retestDelay are the basic tunables for the RPC 
+    // timeout, failureLimit, and retestDelay are the basic tunables for the RPC
     // circuit-breaker/retry functionality.
 
     static float timeout = 1.0;
     static int failureLimit = 1;
     static float retestDelay = 30.0;
 
-    // get: get the rating for a given thingID. Note that this call is 
+    // get: get the rating for a given thingID. Note that this call is
     // _asynchronous_: Rating extends Future.
 
     Rating get(String thingID) {
