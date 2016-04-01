@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+
+<style>
+
+.paths--straight {
+  fill: none;
+  stroke: #777;
+}
+
+.paths--round {
+  /*fill: #ccc;*/
+  stroke: #000;
+  stroke-width: 1.5px;
+  stroke-linejoin: round;
+}
+
+div#arc-div {
+  /*background: #FEE;*/
+  border: 1px solid black;
+  width: 49%;
+  display: inline-block;
+}
+
+div#status-container {
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+div.colorlabel {
+  width: 75px;
+  display: inline-block;
+}
+
+div.colorbar {
+  width: 100px;
+  height: 24px;
+  display: inline-block;
+}
+
+div.status {
+  /*background: #FFF;*/
+  border: 1px solid red;
+}
+
+</style>
+</head>
+<body>
+  <script src="//d3js.org/d3.v3.min.js"></script>
+  <script src="bquark-min.js"></script>
+  <div id="arc-div"></div>
+  <div id="status-container">
+    <div id="dash-div" class='status'><p>Instantaneous Latencies (ms)</p></div>
+    <div id="avg-div" class='status'><p>Average Latencies (ms)</p></div>
+
+    <div id="color-div" class="status">
+      <p>Current Colors</p>
+      <div>
+        <div class="colorlabel" id="label1">&ndash;</div>
+        <div class="colorbar"    id="color1"></div>
+      </div>
+      <div>
+        <div class="colorlabel" id="label2">&ndash;</div>
+        <div class="colorbar"    id="color2"></div>
+      </div>
+      <div>
+        <div class="colorlabel" id="label3">&ndash;</div>
+        <div class="colorbar"    id="color3"></div>
+      </div>
+    </div>
+
+    <button onclick="makeAllCalls();">Start RPC</button>
+    <button onclick="stopAllCalls();">Stop RPC</button>
+  </div>
+
+  <script src="animated.js"></script>
+</body>
+</html>
