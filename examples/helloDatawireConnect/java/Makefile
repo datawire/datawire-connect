@@ -9,16 +9,16 @@ all:
 		echo "You need to 'quark install hello.q' first!" >&2 ;\
 		exit 1 ;\
 	fi
-	mvn compile
+	mvn -q compile
 
 runserver:
-	mvn exec:java -Dexec.mainClass=helloDWC.HelloDWCServer
+	mvn -q exec:java -Dexec.mainClass=helloDWC.HelloDWCServer
 
 runclient:
-	mvn exec:java -Dexec.mainClass=helloDWC.HelloDWCClient
+	mvn -q exec:java -Dexec.mainClass=helloDWC.HelloDWCClient
 
 clean:
-	mvn clean
+	mvn -q clean
 
 clobber: clean
 	-rm -rf '$(MAVENROOT)/hello'
