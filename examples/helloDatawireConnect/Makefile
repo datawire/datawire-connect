@@ -3,6 +3,7 @@ all: node_modules
 	cd python && $(MAKE)
 	cd node && $(MAKE)
 	cd browser && $(MAKE)
+	cd java && $(MAKE)
 
 python: .ALWAYS
 	quark install --python hello.q
