@@ -1,7 +1,3 @@
-# requirements for developing and/or testing quark and the runtime integrations
--e runtime/python-core
--e runtime/python-threaded
--e runtime/twisted
--e .
-pytest
-pexpect
+datawire-quark
+datawire-cloudtools
+nose
