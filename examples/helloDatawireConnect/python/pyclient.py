@@ -8,18 +8,21 @@ import time
 logging.basicConfig(level=logging.DEBUG)
 
 from datawire_connect.resolver import DiscoveryConsumer as DWCResolver
+from datawire_connect.state import DatawireState
 from datawire_discovery.client import GatewayOptions as DWCOptions
 from datawire.utils.state import DataWireState, DataWireError
 
 import hello
 
 def main():
+    dwState = DatawireState.defaultState()
+    token = dwState.getCurrentServiceToken('hello')
+
     # Set up the client...
     client = hello.HelloClient("hello")
 
     # ...and feed it a resolver for Datawire Connect.
-
-    options = DWCOptions(DataWireState().currentServiceToken('hello'))
+    options = DWCOptions(token)
 
     client.setResolver(DWCResolver(options))
 

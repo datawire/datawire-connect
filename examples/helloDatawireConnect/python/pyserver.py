@@ -7,9 +7,9 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 from datawire_connect.resolver import DiscoveryProvider as DWCProvider
+from datawire_connect.state import DatawireState
 from datawire_discovery.model import Endpoint as DWCEndpoint
 from datawire_discovery.client import GatewayOptions as DWCOptions
-from datawire.utils.state import DataWireState, DataWireError
 
 import hello
 
@@ -37,6 +37,9 @@ class HelloImpl (object):
 
 ######## MAINLINE
 def main():
+    dwState = DatawireState.defaultState()
+    token = dwState.getCurrentServiceToken('hello')
+
     url = "http://127.0.0.1:8910/"
 
     implementation = HelloImpl()
@@ -44,7 +47,7 @@ def main():
     server.serveHTTP(url)
 
     endpoint = DWCEndpoint('http', '127.0.0.1', 8910, url)
-    options = DWCOptions(DataWireState().currentServiceToken('hello'))
+    options = DWCOptions(token)
 
     provider = DWCProvider(options, "hello", endpoint)
     provider.register(15.0)

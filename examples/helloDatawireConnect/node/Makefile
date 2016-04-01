@@ -4,21 +4,9 @@ ifeq ($(NPMROOT), )
     $(error Can't find an npm root -- check whether npm is installed)
 endif
 
-all: token
-
-token:
-	@echo grabbing service token
-	@eval $$(dwc service-token hello | sed -e's/ //g') ;\
-	\
-	if [ -n "$$svc_token" ]; then \
-		echo "module.exports = { token: '$$svc_token' };" > '$(NPMROOT)/token.js' ;\
-		exit 0 ;\
-	else \
-		echo "no 'hello' token??" >&2 ;\
-		exit 1 ;\
-	fi
+# There's nothing to do for Node except the NPM check, which is kind of nice.
+all:
 
 clean:
 
 clobber: clean
-	-rm -f '$(NPMROOT)/token.js'

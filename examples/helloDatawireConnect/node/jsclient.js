@@ -16,26 +16,25 @@ if (args.length > 0) {
     text = args[0];
 }
 
-// Next up: load up our service contract and Datawire Connect token...
-var hello = require("hello").hello;
-var token = require("token").token;
-
-// ...then get Datawire Connect itself set up.
 var datawire_connect = require('datawire_connect_1_0_0').datawire_connect;
+var DatawireState = datawire_connect.state.DatawireState;
 var DWCResolver = datawire_connect.resolver.DiscoveryConsumer;
 
 var datawire_discovery = require('discovery_1_0_0').datawire_discovery;
 var DWCOptions = datawire_discovery.client.GatewayOptions;
 
-var options = new DWCOptions(token);
-options.gatewayHost = 'disco.datawire.io';
+// Start by grabbing our service contract and its token...
+var hello = require("hello").hello;
+
+var dwState = DatawireState.defaultState();
+var token = dwState.getCurrentServiceToken("hello");
 
 // Finally, fire up a Hello client...
 var client = new hello.HelloClient("hello");
 
 // ...and tell it that we want to use Datawire Connect to find providers of
 // this service.
-client.setResolver(new DWCResolver(options));
+client.setResolver(new DWCResolver(new DWCOptions(token)));
 
 // Every five seconds, we'll say hello.
 var reqNo = 0;

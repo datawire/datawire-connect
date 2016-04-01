@@ -3,15 +3,19 @@
 
 "use strict";
 
-var hello = require("hello").hello;
-var token = require('token').token;
-
 var datawire_connect = require('datawire_connect_1_0_0').datawire_connect;
+var DatawireState = datawire_connect.state.DatawireState;
 var DWCProvider = datawire_connect.resolver.DiscoveryProvider;
 
 var datawire_discovery = require('discovery_1_0_0').datawire_discovery;
 var DWCEndpoint = datawire_discovery.model.Endpoint;
 var DWCOptions = datawire_discovery.client.GatewayOptions;
+
+// Start by grabbing our service contract and its token.
+var hello = require("hello").hello;
+
+var dwState = DatawireState.defaultState();
+var token = dwState.getCurrentServiceToken("hello");
 
 var HelloImpl = (function () {
     function HelloImpl() {}
@@ -51,7 +55,6 @@ for (var i = ports.length - 1; i >= 0; i--) {
     // OK. Our server is running, so register it with Datawire Connect.
     var endpoint = new DWCEndpoint('http', '127.0.0.1', port, url);
     var options = new DWCOptions(token);
-    options.gatewayHost = "disco.datawire.io";
 
     var provider = new DWCProvider(options, "hello", endpoint);
     provider.register(15.0);
