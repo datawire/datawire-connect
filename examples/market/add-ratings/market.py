@@ -6,7 +6,7 @@ import logging
 import os
 import time
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 from flask import Flask, render_template, url_for, request, jsonify
 

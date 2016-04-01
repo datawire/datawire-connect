@@ -12,7 +12,7 @@ from datawire_discovery.model import Endpoint as DWCEndpoint
 from datawire_discovery.client import GatewayOptions as DWCOptions
 from datawire.utils.state import DataWireState, DataWireError
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.WARN)
 
 parser = argparse.ArgumentParser(description='Ratings Microservice')
 
