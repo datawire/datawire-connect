@@ -12,7 +12,11 @@ The basic syntax of the create-org command is:
 
 The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``{{{cli_command}}} ... create-org -h --adminpass <password> --verify <organizationName> <userName> <userEmail>``
+``{{{cli_command}}} ... create-org -h``
+
+or
+
+``{{{cli_command}}} ... create-org {{{dash_dash}}}adminpass <password> {{{dash_dash}}}verify <organizationName> <userName> <userEmail>``
 
 More information about each argument can be found under :ref:`arguments <createOrgArguments>`.
 
@@ -39,12 +43,12 @@ Arguments
 
 The following arguments are supported for the create-org command:
 
-* -h
-* --adminpass
-* --verify
-* <organizationName>
-* <userName>
-* <userEmail>
+* :ref:`-h <generalH>`
+* :ref:`{{{dash_dash}}}adminpass <createOrgAdminPass>`
+* :ref:`{{{dash_dash}}}verify <generalVerify>`
+* :ref:`\<organizationName\> <createOrgOrganizationName>`
+* :ref:`\<userName\> <createOrgUserName>`
+* :ref:`\<userEmail\> <createOrgUserEmail>`
 
 -h
 &&
@@ -53,18 +57,18 @@ The following arguments are supported for the create-org command:
 
 .. _createOrgAdminPass:
 
---adminpass
-&&&&&&&&&&&
+{{{dash_dash}}}adminpass
+&&&&&&&&&&&&&&&&&&&&&&&&
 
 Optional. Allows the user creating a new organization to specify his password directly in the command.
 
 Equivalent Options
 %%%%%%%%%%%%%%%%%%
 
-The following arguments are equivalent to --adminpass:
+The following arguments are equivalent to {{{dash_dash}}}adminpass:
 
-* --password
-* --pw
+* {{{dash_dash}}}password
+* {{{dash_dash}}}pw
 
 Constraints and Usage Notes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -75,10 +79,17 @@ If omitted, the user is prompted to enter a password interactively after submitt
 
 There are no restrictions on password value imposed by {{{cli_product}}}. If your organization requires specific rules for passwords in third party systems they should be managed on your end.
 
---verify
-&&&&&&&&
+{{{dash_dash}}}verify
+&&&&&&&&&&&&&&&&&&&&&
 
---verify is described under :ref:`general command arguments <generalVerify>`.
+.. ifconfig:: 'off' in verify_state
+    
+   This option is internal and should not be used.
+
+.. ifconfig:: 'on' in verify_state
+    
+   {{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
+
 
 .. _createOrgOrganizationName:
 
@@ -97,10 +108,11 @@ Constraints and Usage Notes
 
 The organization name must be the third to last argument supplied with the command.
 
-Any UTF-8 string may be used as the organization name. Quotes must be used around the value if it includes spaces. 
+Any UTF-8 string may be used as the organization name. Quotes must be used around the value if it includes spaces or apostrophes. 
 
-..    
-   JMK: Add any length restrictions. I've successfully used several hundred characters.
+.. ifconfig:: 'draft' in publish_state
+       
+   [[JMK: Add any length restrictions. I've successfully used several hundred characters.]]
 
 .. _createOrgUserName:
 
@@ -119,10 +131,11 @@ Constraints and Usage Notes
 
 The user's name must be the second to last argument supplied with the command.
 
-Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces.
+Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces or apostrophes.
 
-.. 
-   JMK: Add any length restrictions. I've successfully used several hundred characters.
+.. ifconfig:: 'draft' in publish_state
+    
+   [[JMK: Add any length restrictions. I've successfully used several hundred characters.]]
 
 .. _createOrgUserEmail:
 

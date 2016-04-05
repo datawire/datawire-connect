@@ -3,9 +3,10 @@ service-token
 
 The service-token command returns a valid token for the requested service provided the requesting user has access to the service.
 
-..    
-   JMK: currently only the user who created the service can see it/get a token.
-   That may change. See issue #3
+.. ifconfig:: 'draft' in publish_state
+       
+   [[JMK: currently only the user who created the service can see it/get a token.
+   That may change. See issue #3]]
 
 Syntax
 ++++++
@@ -16,7 +17,11 @@ The basic syntax of the create-service command is:
 
 The full syntax (excepting :doc:`top level arguments<topLevel>`) is:
 
-``{{{cli_command}}} ... service-token -h --verify <serviceName>``
+``{{{cli_command}}} ... service-token -h``
+
+or
+
+``{{{cli_command}}} ... service-token {{{dash_dash}}}verify <serviceName>``
 
 More information about each command argument can be found under :ref:`arguments <serviceTokenArguments>`.
 
@@ -45,19 +50,25 @@ Arguments
 
 The following arguments are supported for the create-service command:
 
-* -h
-* --verify
-* <serviceName>
+* :ref:`-h <generalH>`
+* :ref:`{{{dash_dash}}}verify <generalVerify>`
+* :ref:`\<serviceName\> <serviceTokenName>`
 
 -h
 &&
 
 -h is described under :ref:`general command arguments <generalH>`.
 
---verify
-&&&&&&&&
+{{{dash_dash}}}verify
+&&&&&&&&&&&&&&&&&&&&&
 
---verify is described under :ref:`general command arguments <generalVerify>`.
+.. ifconfig:: 'off' in verify_state
+    
+   This option is internal and should not be used.
+
+.. ifconfig:: 'on' in verify_state
+    
+   {{{dash_dash}}}verify is described under :ref:`general command arguments <generalVerify>`.
 
 .. _serviceTokenName:
 
@@ -76,7 +87,8 @@ Constraints and Usage Notes
 
 The service name must be the last argument supplied with the command.
 
-Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces.
+Any UTF-8 string may be used for the name. Quotes must be used around the value if it includes spaces or apostrophes.
 
-.. 
-   JMK: add any length restrictions
+.. ifconfig:: 'draft' in publish_state
+   
+   [[JMK: add any length restrictions]]

@@ -16,8 +16,27 @@ import sys
 import os
 import shlex
 
+def setup(app): 
+        app.add_config_value('publish_state', '', True)
+        app.add_config_value('verify_state', '', True)
+        app.add_config_value('multiple_org_state', '', True)
+        app.add_config_value('remove_member_state', '', True)
+
+# change draft to prod prior to building docs for public release.
+# for now adding both and commenting out the one that isn't active
+# but changing the value may be easier if this becomes part of the release script
+
+publish_state="draft"
+#publish_state="prod"
+#verify_state="on"
+verify_state="off"
+#remove_member_state="on"
+remove_member_state="off"
+#multiple_org_state="on"
+multiple_org_state="off"
+
 __version__ = '0.4.14'
-__doc_version__ = '2'
+__doc_version__ = '3'
 #__branch__ = '0.3.x'
 #__doc_product_version__ = '0.3'
 #__product__ = 'Datawire Connect'
@@ -75,6 +94,7 @@ rst_epilog = "\n.. |doc_version| replace:: %s" % __doc_version__
 # ones.
 extensions = [
     'sphinx.ext.todo',
+    'sphinx.ext.ifconfig',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -93,7 +113,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'{{{product}}}'
-copyright = u'2015, 2016 {{{company}}}'
+copyright = u'2016 {{{company}}}'
 author = u'{{{company}}}'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -161,7 +181,7 @@ html_theme_path = ['.']
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'analytics_id': 'UA-57322503-5'
+    'analytics_id': 'UA-57322503-4'
 }
 
 # Add any paths that contain custom themes here, relative to this directory.

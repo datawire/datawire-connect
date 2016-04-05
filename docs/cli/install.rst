@@ -21,6 +21,8 @@ Prerequisites
 Installation
 ------------
 
-To install {{{cli_product}}}, run the following command inside of a virtual environment:
+{{{company}}} strongly recommends using a virtual environment when you install the {{{cli_product}}} although it is not strictly necessary to do so.
+
+To install {{{cli_product}}}, run the following command:
 
 ``pip install {{{cli_module}}}``
