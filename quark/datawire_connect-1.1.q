@@ -1,3 +1,5 @@
+package datawire_connect 1.1.0;
+
 // We rely on the Discovery Service.
 use https://raw.githubusercontent.com/datawire/discovery/master/quark/discovery-1.0.0.q;
 
@@ -17,12 +19,12 @@ include io/datawire/quark/_datawire_fs_impl.java;
 namespace _datawire_fs {
   macro String dwfs_userHomeDir()
     $py{__import__('_datawire_fs_impl')._datawire_fs.userHomeDir()}
-    $js{require('datawire_connect_1_0_0/_datawire_fs_impl.js').userHomeDir()}
+    $js{require('datawire_connect/_datawire_fs_impl.js').userHomeDir()}
     $java{io.datawire.quark.runtime._datawire_fs_impl.userHomeDir()};
 
   macro String dwfs_fileContents(String path)
     $py{__import__('_datawire_fs_impl')._datawire_fs.fileContents($path)}
-    $js{require('datawire_connect_1_0_0/_datawire_fs_impl.js').fileContents($path)}
+    $js{require('datawire_connect/_datawire_fs_impl.js').fileContents($path)}
     $java{io.datawire.quark.runtime._datawire_fs_impl.fileContents($path)};
 
   class FS {
