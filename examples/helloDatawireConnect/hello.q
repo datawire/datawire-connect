@@ -1,8 +1,7 @@
 package hello 1.0.0;
 
 // We'll be using Datawire Connect for this...
-// use https://raw.githubusercontent.com/datawire/datawire-connect/flynn/feature/version1.1/quark/datawire_connect-1.1.q;
-use ../../../datawire/datawire-connect/quark/datawire_connect-1.1.q;
+use https://raw.githubusercontent.com/datawire/datawire-connect/flynn/feature/version1.1/quark/datawire_connect-1.1.q;
 
 // ...and we need to worry about concurrency, too.
 import quark.concurrent;
