@@ -54,8 +54,6 @@ def main():
     endpoint = DWCEndpoint('http', '127.0.0.1', 8910, url)
     options = DWCOptions(token)
 
-    print("Gateway host: %s" % options.gatewayHost)
-
     provider = DWCProvider(options, "hello", endpoint)
     provider.register(15.0)
 
