@@ -20,37 +20,46 @@ class HelloImpl (object):
     def hello(self, request):
         """ Say hello! """
 
-        # Uncomment the next line to simulate a long request processing
-        # time and force a request timeout to occur for the client.
-        # import time; time.sleep(5)
-
-        # Once that's done, snare a response object...
+        # Snare a response object...
         res = hello.Response()
 
-        # ...fill it in...
+        # ...and fill it in.
         res.result = "Responding to [%s] from Python" % request.text
 
-        # ...and finish it.
+        # Uncomment the next line to simulate a long request processing
+        # time (which may cause a timeout for the client, of course).
+        # import time; time.sleep(5);
+
+        # Mark our response as finished, so that when our caller gets
+        # it, they know that everything that needs doing is done.
         res.finish(None)
 
         return res
 
 ######## MAINLINE
 def main():
+    # Grab our service token.
     dwState = DatawireState.defaultState()
     token = dwState.getCurrentServiceToken('hello')
 
+    # Start our server running...
     url = "http://127.0.0.1:8910/"
 
     implementation = HelloImpl()
     server = hello.HelloServer(implementation)
+    server.sendCORS(True)
     server.serveHTTP(url)
 
+    # ...and then register it with Datawire Connect.
     endpoint = DWCEndpoint('http', '127.0.0.1', 8910, url)
     options = DWCOptions(token)
 
+    print("Gateway host: %s" % options.gatewayHost)
+
     provider = DWCProvider(options, "hello", endpoint)
     provider.register(15.0)
+
+    logging.info("registered Python server on %s" % url)
 
 if __name__ == '__main__':
     main()

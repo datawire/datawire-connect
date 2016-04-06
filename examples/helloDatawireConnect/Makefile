@@ -32,8 +32,8 @@ javaclient java-client: .ALWAYS
 
 .ALWAYS:
 
-# Nothing to clean at toplevel, yay.
 clean-toplevel:
+	-rm -f hello.qc
 
 clean: clean-toplevel
 	cd node && $(MAKE) clean

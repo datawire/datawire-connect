@@ -19,7 +19,7 @@ token:
 		echo "module.exports = { token: '$$svc_token' };" > '$(NPMROOT)/token.js' ;\
 		exit 0 ;\
 	else \
-		echo "no 'animated' token??" >&2 ;\
+		echo "no 'hello' token??" >&2 ;\
 		exit 1 ;\
 	fi
 
@@ -29,7 +29,7 @@ bhello-min.js: token
 		-r quark \
 		-r quark/quark_node_runtime \
 		-r discovery_1_0_0 \
-		-r datawire_connect_1_0_0 \
+		-r datawire_connect \
 		-r hello \
 		-r token
 	'$(NPMROOT)/.bin/uglifyjs' \

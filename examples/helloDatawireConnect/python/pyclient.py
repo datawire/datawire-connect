@@ -5,7 +5,7 @@ import sys
 import logging
 import time
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 from datawire_connect.resolver import DiscoveryConsumer as DWCResolver
 from datawire_connect.state import DatawireState
@@ -14,16 +14,17 @@ from datawire.utils.state import DataWireState, DataWireError
 
 import hello
 
-def main():
+def main(text):
+    # Grab our service token.
     dwState = DatawireState.defaultState()
     token = dwState.getCurrentServiceToken('hello')
 
     # Set up the client...
     client = hello.HelloClient("hello")
 
-    # ...and feed it a resolver for Datawire Connect.
+    # ...and tell it that we want to use Datawire Connect to find 
+    # providers of this service.
     options = DWCOptions(token)
-
     client.setResolver(DWCResolver(options))
 
     # Give the resolver a chance to get connected.
@@ -31,11 +32,7 @@ def main():
 
     # OK, make the call!   
     request = hello.Request()
-
-    if len(sys.argv) > 1:
-        request.text = " ".join(sys.argv[1:])
-    else:
-        request.text = "Hello from Python!"
+    request.text = text
 
     print "Request says %r" % request.text
 
@@ -56,4 +53,9 @@ def main():
     print("still lingering around.")
 
 if __name__ == '__main__':
-    main()
+    text = "Hello from Python!"
+
+    if len(sys.argv) > 1:
+        text = " ".join(sys.argv[1:])
+
+    main(text)

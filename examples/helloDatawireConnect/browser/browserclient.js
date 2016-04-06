@@ -1,27 +1,24 @@
-// -------- Datawire Connect code here
-// Pull in the 'Hello' service contract...
-var hello = require("hello").hello;
-
-// ...and our service token...
-var token = require("token").token;
-
-// ...and then set up Datawire Connect itself.
-var datawire_connect = require('datawire_connect_1_0_0').datawire_connect;
+var datawire_connect = require('datawire_connect').datawire_connect;
 var DWCResolver = datawire_connect.resolver.DiscoveryConsumer;
 
 var datawire_discovery = require('discovery_1_0_0').datawire_discovery;
 var DWCOptions = datawire_discovery.client.GatewayOptions;
 
-var options = new DWCOptions(token);
-// options.gatewayHost = 'disco.datawire.io';
+var hello = require("hello").hello;
 
-// OK. Fire up our Hello Datawire Connect client...
+// At present, the browser assumes that the token is set in a
+// module.
+var token = require("token").token;
+
+// OK. Set up the client...
 var client = new hello.HelloClient("hello");
 
-// ...and point it to the correct resolver.
+// ...and tell it that we want to use Datawire Connect to find
+// providers of this service.
+var options = new DWCOptions(token);
 client.setResolver(new DWCResolver(options));
 
-// -------- Browser utilities here
+/******** Browser utilities here ********/
 // Here's where we save the button text while calling out.
 var buttonText = '';
 
@@ -42,7 +39,7 @@ function newLine(line, color) {
   return lines.join("\n");
 }
 
-// -------- Browser event handlers here
+/******** Browser event handlers here ********/
 // This function gets bound to the 'Say Hello!' button on the web page
 function sayHello (buttonID, inputID, outputID) {
   // First, grab the input and output elements...
@@ -62,6 +59,7 @@ function sayHello (buttonID, inputID, outputID) {
   button.innerText = 'Stand by...';
   button.disabled = true;
 
+  // Make the call!
   var request = new hello.Request();
   request.text = input;
 
