@@ -1,8 +1,7 @@
 package animated 1.0.0;
 
-use ../../quark/datawire_connect-1.0.0.q;
+use https://raw.githubusercontent.com/datawire/datawire-connect/master/quark/datawire_connect-1.0.0.q;
 
-// import datawire_connect.resolver;
 import quark.concurrent;
 
 namespace animated {
