@@ -2,6 +2,12 @@
 // service from JavaScript. Run with 'node animCLI.js' and it'll make one call
 // every second.
 
+var datawire_connect = require('datawire_connect').datawire_connect;
+var DWCResolver = datawire_connect.resolver.DiscoveryConsumer;
+
+var datawire_discovery = require('discovery_1_0_0').datawire_discovery;
+var DWCOptions = datawire_discovery.client.GatewayOptions;
+
 // Snare the "Animated" service contract...
 var animated = require("animated").animated;
 
@@ -57,12 +63,6 @@ function makeACall (client, octet) {
 }
 
 // Set up Datawire Connect itself.
-var datawire_connect = require('datawire_connect_1_0_0').datawire_connect;
-var DWCResolver = datawire_connect.resolver.DiscoveryConsumer;
-
-var datawire_discovery = require('discovery_1_0_0').datawire_discovery;
-var DWCOptions = datawire_discovery.client.GatewayOptions;
-
 var options = new DWCOptions(token);
 options.gatewayHost = 'disco.datawire.io';
 

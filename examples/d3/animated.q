@@ -1,6 +1,6 @@
 package animated 1.0.0;
 
-use https://raw.githubusercontent.com/datawire/datawire-connect/master/quark/datawire_connect-1.0.0.q;
+use https://raw.githubusercontent.com/datawire/datawire-connect/develop/quark/datawire_connect-1.1.q;
 
 import quark.concurrent;
 

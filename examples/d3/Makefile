@@ -24,7 +24,7 @@ animated: token
 		-x ws \
 		-r quark \
 		-r discovery_1_0_0 \
-		-r datawire_connect_1_0_0 \
+		-r datawire_connect \
 		-r quark/quark_node_runtime\
 		-r animated \
 		-r token
@@ -41,7 +41,8 @@ clean:
 
 clobber: clean
 	-rm -rf node_modules
-
+	-rm -rf *.qc
+	
 webserver:
 	python -m SimpleHTTPServer
 

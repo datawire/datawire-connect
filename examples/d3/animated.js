@@ -1,3 +1,9 @@
+var datawire_connect = require('datawire_connect').datawire_connect;
+var DWCResolver = datawire_connect.resolver.DiscoveryConsumer;
+
+var datawire_discovery = require('discovery_1_0_0').datawire_discovery;
+var DWCOptions = datawire_discovery.client.GatewayOptions;
+
 // Snare the "Animated" service contract...
 var animated = require("animated").animated;
 var token = require("token").token;
@@ -101,12 +107,6 @@ function makeACall (client, octet) {
 /********
  * Datawire Connect setup
  */
-
-var datawire_connect = require('datawire_connect_1_0_0').datawire_connect;
-var DWCResolver = datawire_connect.resolver.DiscoveryConsumer;
-
-var datawire_discovery = require('discovery_1_0_0').datawire_discovery;
-var DWCOptions = datawire_discovery.client.GatewayOptions;
 
 var options = new DWCOptions(token);
 options.gatewayHost = 'disco.datawire.io';

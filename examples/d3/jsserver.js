@@ -3,6 +3,13 @@
 
 "use strict";
 
+var datawire_connect = require('datawire_connect').datawire_connect;
+var DWCProvider = datawire_connect.resolver.DiscoveryProvider;
+
+var datawire_discovery = require('discovery_1_0_0').datawire_discovery;
+var DWCEndpoint = datawire_discovery.model.Endpoint;
+var DWCOptions = datawire_discovery.client.GatewayOptions;
+
 var token = require("token").token;
 
 /******
@@ -61,13 +68,6 @@ var AnimatedImpl = (function () {
 /********
  * Datawire Connect stuff
  */
-
-var datawire_connect = require('datawire_connect_1_0_0').datawire_connect;
-var DWCProvider = datawire_connect.resolver.DiscoveryProvider;
-
-var datawire_discovery = require('discovery_1_0_0').datawire_discovery;
-var DWCEndpoint = datawire_discovery.model.Endpoint;
-var DWCOptions = datawire_discovery.client.GatewayOptions;
 
 var ports = [ 8910, 8911, 8912 ];
 
