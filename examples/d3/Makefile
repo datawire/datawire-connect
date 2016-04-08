@@ -4,7 +4,7 @@ node_modules:
 	mkdir node_modules
 
 npm: node_modules
-	npm -q install browserify uglifyjs | grep '^[a-zA-Z0-9]'
+	npm -q install browserify uglifyjs
 
 token: node_modules
 	@echo grabbing service token
@@ -42,10 +42,9 @@ clean:
 clobber: clean
 	-rm -rf node_modules
 	-rm -rf *.qc
-	
+
 webserver:
 	python -m SimpleHTTPServer
 
 rpcserver:
 	node jsserver.js
-

@@ -9,7 +9,7 @@ all: browser
 browser: npm bhello-min.js
 
 npm:
-	npm -q install browserify uglifyjs | grep '^[a-zA-Z0-9]'
+	npm -q install browserify uglifyjs
 
 token:
 	@echo grabbing service token
