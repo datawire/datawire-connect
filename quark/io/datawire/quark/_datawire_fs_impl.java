@@ -1,6 +1,6 @@
 package io.datawire.quark.runtime;
 
-import io.datawire.quark.runtime.Runtime;
+import quark.Runtime;
 import quark.concurrent.Context;
 
 import java.io.File;
