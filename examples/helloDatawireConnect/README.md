@@ -5,6 +5,7 @@ using Datawire Connect.
 
 ## Setup
 
+- `pip install datawire-quark`
 - `pip install datawire-cloudtools`
 - create an org (`dwc create-org`)
 - create a service named "hello" (`dwc create-service hello`)
@@ -43,7 +44,7 @@ match languages! Any server should work with any client.
 To get started, download the example by cloning its git repository as
 follows:
 
-        git clone https://github.com/datawire/quark.git
+        git clone https://github.com/datawire/datawire-connect.git
 
 All of the directions below assume you are starting from
 *repoBase*/examples/helloRPC where *repoBase* is the location where
