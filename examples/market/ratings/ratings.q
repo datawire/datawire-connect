@@ -1,6 +1,6 @@
 package ratings 0.0.1;
 
-use ../../../quark/datawire_connect-1.0.0.q;
+use ../../../quark/datawire_connect-1.1.q;
 
 import datawire_connect.resolver;
 import quark.concurrent;
