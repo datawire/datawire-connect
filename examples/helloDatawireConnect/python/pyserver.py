@@ -14,7 +14,7 @@ from datawire_discovery.client import GatewayOptions as DWCOptions
 import hello
 
 ######## SERVICE IMPLEMENTATION
-class HelloImpl (object):
+class HelloImpl (hello.Hello):
     """ The implementation of the Hello service itself. """
 
     def hello(self, request):
