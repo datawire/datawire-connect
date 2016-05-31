@@ -1,31 +1,36 @@
 VERSION=$(shell cat VERSION)
 
-TESTGOLDFILE=$(shell echo /tmp/CloudTools-GOLD.$$PPID)
-
-all: init quark test
+all: examples
 
 .ALWAYS:
 
-init:
-	@if [ -z "$$VIRTUAL_ENV" ]; then echo "You must be in a venv for this"; false; fi
-	pip install -r requirements.txt
+checkEnv:
+	@which dwc >/dev/null 2>&1 || { \
+		echo "Could not find dwc -- is it installed?" >&2 ;\
+		echo "" >&2 ;\
+		cat README-DWC.txt >&2 ;\
+		exit 1 ;\
+	}
+	@which quark >/dev/null 2>&1 || { \
+		echo "Could not find quark -- is it installed?" >&2 ;\
+		echo "" >&2 ;\
+		cat README-QUARK.txt >&2 ;\
+		exit 1 ;\
+	}
 
-quark: .ALWAYS
-	quark install quark/datawire_connect-1.0.0.q
+install-dwc: .ALWAYS
+	curl -# -L https://raw.githubusercontent.com/datawire/datawire-cli/master/install.sh | bash -s -- -qq -t venv
 
-test: quark node_modules run-local-tests
-	-rm -f $(TESTGOLDFILE)
+install-quark: .ALWAYS
+	curl -# -L https://raw.githubusercontent.com/datawire/quark/master/install.sh | bash -s -- -qq
 
-run-local-tests:
-	nosetests test
-	python test/testDWState.py > $(TESTGOLDFILE)
-	node test/testDWState.js $(TESTGOLDFILE)
-	(cd test && mvn -q test -DGoldPath=$(TESTGOLDFILE))
+examples: checkEnv .ALWAYS
+	( cd examples && $(MAKE) )
 
 clean:
 	-find . -iname '*.pyc' -print0 | xargs -0 rm -f
-	-rm -rf test/target
+	-find . -iname '*.qc' -print0 | xargs -0 rm -f
 	
 clobber: clean
 	# Empty node_modules, but don't delete it (it has a .gitignore)
-	-rm -rf node_modules/*
+	# -rm -rf node_modules/*
