@@ -1,3 +1,6 @@
+all:
+	@echo "You should be running 'make node' from one directory up."
+
 NPMROOT=$(shell npm root)
 
 ifeq ($(NPMROOT), )
@@ -5,7 +8,7 @@ ifeq ($(NPMROOT), )
 endif
 
 # There's nothing to do for Node except the NPM check, which is kind of nice.
-all:
+example:
 
 clean:
 

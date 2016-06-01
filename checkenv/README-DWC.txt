@@ -1,7 +1,7 @@
 Datawire Connect relies on the datawire-cli package.
 
 We strongly recommend that you use a virtualenv when working on Datawire Connect --
-if you're doing that, you can run
+if you're doing that, you can go to the main Datawire Connect directory and run
 
 make install-dwc
 

@@ -1,10 +1,13 @@
+all:
+	@echo "You should be running 'make browser' from one directory up."
+
 NPMROOT=$(shell npm root)
 
 ifeq ($(NPMROOT), )
     $(error Can't find an npm root -- check whether npm is installed)
 endif
 
-all: browser
+example: browser
 
 browser: npm bhello-min.js
 

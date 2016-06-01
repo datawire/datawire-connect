@@ -1,3 +1,5 @@
+CHECK=sh ../../checkenv/check.sh
+
 all: monolith
 
 .always:
@@ -6,7 +8,10 @@ monolith: .always
 	cd monolith && make 
 
 datawire-connect: checkVirtual
-	pip install datawire-cloudtools
+	$(CHECK) dwc
+
+install-dwc: .ALWAYS
+	curl -# -L https://raw.githubusercontent.com/datawire/datawire-cli/master/install.sh | bash -s -- -qq -t venv
 
 checkVirtual:
 	@if [ -z "$$VIRTUAL_ENV" ]; then \
@@ -35,3 +40,7 @@ startRatings:
 	if [ -n "$$COUNT"    ]; then carg="--count $$COUNT";       fi ;\
 	\
 	python ratings/ratingsService.py $$iarg $$parg $$carg
+
+clean:
+
+clobber:

@@ -1,4 +1,9 @@
-all: npm animated
+CHECK=sh ../../checkenv/check.sh
+
+all: checkEnv npm animated
+
+checkEnv:
+	$(CHECK) quark npm animated-token
 
 node_modules:
 	mkdir node_modules
