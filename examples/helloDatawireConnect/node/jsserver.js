@@ -3,6 +3,8 @@
 
 "use strict";
 
+var util = require('util');
+
 var datawire_connect = require('datawire_connect').datawire_connect;
 var DatawireState = datawire_connect.state.DatawireState;
 var DWCProvider = datawire_connect.resolver.DiscoveryProvider;
@@ -17,6 +19,8 @@ var hello = require("hello").hello;
 /******** SERVICE IMPLEMENTATION ********/
 var HelloImpl = (function () {
     function HelloImpl() {}
+
+    util.inherits(HelloImpl, hello.Hello);
 
     HelloImpl.prototype.hello = function (request) {
         // Say hello!
