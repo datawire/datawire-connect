@@ -3,6 +3,8 @@
 
 "use strict";
 
+var util = require('util');
+
 var datawire_connect = require('datawire_connect').datawire_connect;
 var DWCProvider = datawire_connect.resolver.DiscoveryProvider;
 
@@ -22,6 +24,8 @@ var AnimatedImpl = (function () {
   function AnimatedImpl(instance) {
     this.instance = instance;
   }
+
+  util.inherits(AnimatedImpl, animated.Animated);
 
   AnimatedImpl.prototype.animated = function(request) {
     // The request has a color value and an octet to work with.
