@@ -29,7 +29,7 @@ The code for the product ratings microservice has already been written, so it ju
 In terminal WINDOW 1:
 
 1. Create and activate a virtualenv (it's OK to keep using the same one, if you already have one).
-2. ```make datawire-connect```. This will make sure your virtualenv has everything you need for Datawire Connect.
+2. If you haven't already installed the Datawire Connect CLI, ```make install-dwc```. This will make sure your virtualenv has everything you need for Datawire Connect.
 3. If you haven't already created a Datawire Connect organization, do so now:
    * `dwc create-org "My Test Org" your-name your-email-address`
        * _You should supply your own name, email address and organization._
