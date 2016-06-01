@@ -8,9 +8,9 @@ import json
 import argparse
 from ratings import *
 from datawire_connect.resolver import DiscoveryProvider as DWCProvider
+from datawire_connect.state import DatawireState
 from datawire_discovery.model import Endpoint as DWCEndpoint
 from datawire_discovery.client import GatewayOptions as DWCOptions
-from datawire.utils.state import DataWireState, DataWireError
 
 logging.basicConfig(level=logging.WARN)
 
@@ -26,7 +26,7 @@ parser.add_argument('--count', metavar='COUNT', type=int,
                     help='Listen on COUNT ports starting with 8001 (--count 2 => 8001, 8002)')
 
 ######## RATINGS MICROSERVICE
-class RatingsService (object):
+class RatingsService (Ratings):
   """ The Ratings microservice itself. """
   def __init__(self, ratings):
     self.ratings = ratings
@@ -95,8 +95,13 @@ for port in ports:
   if not args.local_only:
     # ...then register this listener.
     endpoint = DWCEndpoint('http', '127.0.0.1', port, url)
-    options = DWCOptions(DataWireState().currentServiceToken('ratings'))
-    options.gatewayHost = "disco.datawire.io";
+
+    # Grab our service token.
+    dwState = DatawireState.defaultState()
+    token = dwState.getCurrentServiceToken('ratings')
+
+    options = DWCOptions(token)
+#    options.gatewayHost = "disco.datawire.io";
 
     provider = DWCProvider(options, "ratings", endpoint)
     provider.register(15.0)

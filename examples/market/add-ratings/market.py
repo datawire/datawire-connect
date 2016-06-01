@@ -13,8 +13,8 @@ from flask import Flask, render_template, url_for, request, jsonify
 # Import the interface to our ratings service
 from ratings import *
 from datawire_connect.resolver import DiscoveryConsumer as DWCResolver
+from datawire_connect.state import DatawireState
 from datawire_discovery.client import GatewayOptions as DWCOptions
-from datawire.utils.state import DataWireState, DataWireError
 
 parser = argparse.ArgumentParser(description='The Datawire Market')
 
@@ -51,8 +51,12 @@ ratings = RatingsClient("ratings")
 if args.local_only:
   ratings.setResolver(RatingsResolver())
 else:
-  options = DWCOptions(DataWireState().currentServiceToken('ratings'))
-  options.gatewayHost = "disco.datawire.io"
+  # Grab our service token.
+  dwState = DatawireState.defaultState()
+  token = dwState.getCurrentServiceToken('ratings')
+
+  options = DWCOptions(token)
+#  options.gatewayHost = "disco.datawire.io"
 
   ratings.setResolver(DWCResolver(options))
 
