@@ -1,36 +1,69 @@
-all: node_modules
-	quark install hello.q
-	cd python && $(MAKE)
-	cd node && $(MAKE)
-	cd browser && $(MAKE)
-	cd java && $(MAKE)
+CHECK=sh ../../checkenv/check.sh
 
-python: .ALWAYS
-	quark install --python hello.q
-	cd python && $(MAKE)
+all: \
+	checkEnv node_modules quark-all \
+	python-example node-example browser-example java-example
 
-node javascript: node_modules .ALWAYS
-	quark install --javascript hello.q
-	cd node && $(MAKE)
+.ALWAYS:
 
-browser: node_modules .ALWAYS
-	quark install --javascript hello.q
-	cd browser && $(MAKE)
+checkEnv: python-env node-env java-env
+	$(CHECK) quark dwc hello-token
+
+token: .ALWAYS
+	dwc create-service hello
+
+python-env:
+	$(CHECK) pip
+
+npm-env:
+	$(CHECK) npm
+
+node-env: npm-env
+
+browser-env: npm-env
+
+java-env:
+	$(CHECK) mvn
 
 node_modules:
 	mkdir node_modules
 
+quark-all: node_modules
+	quark install --python --javascript --java hello.q
+
+python-example:
+	cd python && $(MAKE) example
+
+node-example:
+	cd node && $(MAKE) example
+
+browser-example:
+	cd browser && $(MAKE) example
+
+java-example:
+	cd java && $(MAKE) example
+
+python: .ALWAYS
+	quark install --python hello.q
+	$(MAKE) python-example
+
+node javascript: node_modules .ALWAYS
+	quark install --javascript hello.q
+	$(MAKE) node-example
+
+browser: node_modules .ALWAYS
+	quark install --javascript hello.q
+	$(MAKE) browser-example
+
 java: .ALWAYS
 	quark install --java hello.q
-	cd java && $(MAKE)
+	$(MAKE) java-example
 
 javaserver java-server: .ALWAYS
 	cd java && $(MAKE) runserver
 
 javaclient java-client: .ALWAYS
 	cd java && $(MAKE) runclient
-
-.ALWAYS:
 
 clean-toplevel:
 	-rm -f hello.qc

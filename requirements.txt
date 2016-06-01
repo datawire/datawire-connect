@@ -1,3 +1,0 @@
-datawire-quark
-datawire-cloudtools
-nose

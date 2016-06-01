@@ -1,6 +1,13 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*.qc
+
+# Compiled browser files
+bhello.js
+bhello-min.js
+bquark.js
+bquark-min.js
 
 # C extensions
 *.so

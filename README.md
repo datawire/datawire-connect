@@ -41,22 +41,30 @@ Cloud Discovery service, although this is easily changed.
 ### Installation
 
 The following commands will install the Quark compiler, followed
-by the Datawire Cloud command line tools:
-```bash
-$ pip install datawire-quark
-$ pip install datawire-cloudtools
-```
-_Don't have ```pip```? Install it [here](https://pip.pypa.io/en/stable/installing/)._
+by the Datawire Cloud command line interface:
 
-Now you must create an organization in the Datawire Cloud to use the cloud-based
-Discovery service:
+```bash
+$ curl -L https://raw.githubusercontent.com/datawire/quark/master/install.sh | bash -s --
+$ curl -L https://raw.githubusercontent.com/datawire/datawire-cli/master/install.sh | bash -s --
+```
+
+These scripts will tell you where they are installing their respective tools, and
+offer to update your `.bashrc` so that the newly-installed tools are always on your
+PATH. 
+
+Once the tools are installed, you'll need to create an organization in the Datawire
+Cloud to use the cloud-based Discovery service:
+
 ```bash
 $ dwc create-org <your organization> <your desired username> <your email>
 ```
+
 For example, a user Alice working in Acme Corp might run the command as follows:
+
 ```bash
 $ dwc create-org acme-corp alice alice@acme-corp.com
 ```
+
 When the ```create-org``` command finishes, you will have a complete cloud-based
 discovery service available for you to use.
 
@@ -69,17 +77,25 @@ ratings). It shows how easy it is to have the monolith changed to
 discover, locate and resiliently call the new ratings microservice.
 
 To get the example code, simply clone this repository:
+
 ```bash
 $ git clone https://github.com/datawire/datawire-connect.git
 $ cd datawire-connect/examples/market
 ```
+
 Then follow the instructions in the [README](https://github.com/datawire/datawire-connect/blob/master/examples/market/README.md)
 to learn how to run the demo and to see cloud-based service discovery,
 load balancing, timeouts, and circuit breaking in action.
 
 ## Learning More
 
-You can try other examples within the 
+There are several other examples within the [Datawire Connect repository]
+(https://github.com/datawire/datawire-connect/tree/master/examples). In
+particular, the `helloDatawireConnect` example demonstrates using Datawire
+Connect from several different languages, including cases where clients can
+seamlessly use services in other languages.
+
+You can also try the examples within the 
 [Quark repository](https://github.com/datawire/quark/tree/master/examples)
 that showcase its power and flexibility for inter-service communication. 
 

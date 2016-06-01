@@ -1,4 +1,15 @@
-all: npm animated
+CHECK=sh ../../checkenv/check.sh
+
+all: checkEnv npm animated
+
+checkEnv:
+	$(CHECK) quark dwc npm animated-token
+
+install-dwc: .ALWAYS
+	curl -# -L https://raw.githubusercontent.com/datawire/datawire-cli/master/install.sh | bash -s -- -qq -t venv
+
+install-quark: .ALWAYS
+	curl -# -L https://raw.githubusercontent.com/datawire/quark/master/install.sh | bash -s -- -qq
 
 node_modules:
 	mkdir node_modules

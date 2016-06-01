@@ -5,43 +5,12 @@ use https://raw.githubusercontent.com/datawire/discovery/master/quark/discovery-
 
 import datawire_discovery;
 
-include _datawire_fs_impl.py;
-include _datawire_fs_impl.js;
-include io/datawire/quark/_datawire_fs_impl.java;
-
-// WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
-//
-// DO NOT RELY ON THE NAME _datawire_fs TOO MUCH. IT IS ABOUT TO MOVE
-// INTO QUARK ITSELF.
-//
-// WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
-
-namespace _datawire_fs {
-  macro String dwfs_userHomeDir()
-    $py{__import__('_datawire_fs_impl')._datawire_fs.userHomeDir()}
-    $js{require('datawire_connect/_datawire_fs_impl.js').userHomeDir()}
-    $java{io.datawire.quark.runtime._datawire_fs_impl.userHomeDir()};
-
-  macro String dwfs_fileContents(String path)
-    $py{__import__('_datawire_fs_impl')._datawire_fs.fileContents($path)}
-    $js{require('datawire_connect/_datawire_fs_impl.js').fileContents($path)}
-    $java{io.datawire.quark.runtime._datawire_fs_impl.fileContents($path)};
-
-  class FS {
-    static String userHomeDir() {
-      return dwfs_userHomeDir();
-    }
-
-    static String fileContents(String path) {
-      return dwfs_fileContents(path);
-    }        
-  }
-}
-
 namespace datawire_connect {
 
   namespace state {
     class DatawireState {
+      static Logger logger = new Logger("DatawireState");
+
       bool _initialized;
       Runtime runtime;
 
@@ -133,6 +102,8 @@ namespace datawire_connect {
         // If you add anything here, you'll need to revist the "Do switchToOrg by hand"
         // comment above.
 
+        logger.info("switching to org " + orgID);
+
         if (!self._initialized) {
           self.runtime.fail("DatawireState: call load() before attempting any operations");
         }
@@ -204,11 +175,32 @@ namespace datawire_connect {
       }
 
       String stateContents(String path) {
-        return _datawire_fs.FS.fileContents(path);
+        logger.info("loading state " + path);
+
+        quark.os.FileContents stateContents = quark.os.readFileAsString(path);
+
+        // There's _zero_ reason this should actually take even this long.
+        stateContents.await(5.0);
+
+        if (!stateContents.isFinished()) {
+          self.runtime.fail("loading state failed: no response");
+        }
+        else {
+          if (stateContents.getError() != null) {
+            self.runtime.fail("loading state failed: " + stateContents.getError());
+          }
+          else {
+            logger.debug("loading state succeeded!");
+          }
+        }
+
+        return stateContents.value;
       }
 
       String defaultStatePath() {
-        return _datawire_fs.FS.userHomeDir() + "/.datawire/datawire.json";
+        String home = quark.os.getUserHomeDir();
+
+        return home + "/.datawire/datawire.json";
       }
 
       String defaultStateContents() {

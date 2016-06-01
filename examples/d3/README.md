@@ -5,8 +5,7 @@ This uses Datawire Connect with cloud discovery to make a bunch of RPC calls fro
 
 To try this, you'll need to install Quark and Datawire Cloud Tools (we recommend using virtualenv for this):
 
-        pip install 'datawire-quark>=0.4.16'`
-        pip install datawire-cloudtools
+        make install-quark install-dwc
 
 Once the Cloud Tools are installed, you'll need a Datawire Connect organization and service token. If you already have an organization set up, great, you can use that. If not, 
 
