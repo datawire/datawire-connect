@@ -1,6 +1,9 @@
+quark 0.7.6;
+
 package animated 1.0.0;
 
-use https://raw.githubusercontent.com/datawire/datawire-connect/develop/quark/datawire_connect-1.1.q;
+// We'll be using our local Datawire Connect contract for this...
+use ../../quark/datawire_connect-1.1.q;
 
 import quark.concurrent;
 

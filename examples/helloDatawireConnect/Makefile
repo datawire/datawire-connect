@@ -6,6 +6,12 @@ all: \
 
 .ALWAYS:
 
+install-dwc: .ALWAYS
+	curl -# -L https://raw.githubusercontent.com/datawire/datawire-cli/master/install.sh | bash -s -- -qq -t venv
+
+install-quark: .ALWAYS
+	curl -# -L https://raw.githubusercontent.com/datawire/quark/master/install.sh | bash -s -- -qq
+
 checkEnv: python-env node-env java-env
 	$(CHECK) quark dwc hello-token
 

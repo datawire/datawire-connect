@@ -5,7 +5,13 @@ using Datawire Connect.
 
 ## Setup
 
-- `pip install datawire-cloudtools`
+- If you haven't already, use
+
+        make install-quark
+        make install-dwc
+
+  to install Quark and the Datawire Cloud tools.
+
 - create an org (`dwc create-org`)
 - create a service named "hello" (`dwc create-service hello`)
 
