@@ -13,6 +13,9 @@ datawire-connect: checkVirtual
 install-dwc: .ALWAYS
 	curl -# -L https://raw.githubusercontent.com/datawire/datawire-cli/master/install.sh | bash -s -- -qq -t venv
 
+install-quark: .ALWAYS
+	curl -# -L https://raw.githubusercontent.com/datawire/quark/master/install.sh | bash -s -- -qq
+
 checkVirtual:
 	@if [ -z "$$VIRTUAL_ENV" ]; then \
 		echo "Please activate a virtualenv to continue (cf https://virtualenv.readthedocs.org)" >&2 ;\

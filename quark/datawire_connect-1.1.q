@@ -1,3 +1,5 @@
+quark 0.7.6;
+
 package datawire_connect 1.1.0;
 
 // We rely on the Discovery Service.

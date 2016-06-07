@@ -29,7 +29,7 @@ The code for the product ratings microservice has already been written, so it ju
 In terminal WINDOW 1:
 
 1. Create and activate a virtualenv (it's OK to keep using the same one, if you already have one).
-2. If you haven't already installed the Datawire Connect CLI, ```make install-dwc```. This will make sure your virtualenv has everything you need for Datawire Connect.
+2. If you haven't already installed the Datawire Connect CLI, `make install-dwc`. This will make sure your virtualenv has everything you need for Datawire Connect.
 3. If you haven't already created a Datawire Connect organization, do so now:
    * `dwc create-org "My Test Org" your-name your-email-address`
        * _You should supply your own name, email address and organization._
@@ -43,6 +43,7 @@ Now we will start up a new version of the Market app that is coded to discover a
 
 Still in terminal WINDOW 1:
 
+1. If you haven't already installed Quark, `make install-quark`. This will make sure you have the Quark language compiler installed.
 1. `make add-ratings`. This will make sure your virtualenv has everything you need to build the ratings service, build it, and start running the new Market app that will try to get ratings for each item whenever the page is loaded.
 2. Point a web browser to http://localhost:5000.
 

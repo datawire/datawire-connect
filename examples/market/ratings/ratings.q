@@ -1,5 +1,8 @@
+quark 0.7.6;
+
 package ratings 0.0.1;
 
+// We'll be using our local Datawire Connect contract for this...
 use ../../../quark/datawire_connect-1.1.q;
 
 import datawire_connect.resolver;
