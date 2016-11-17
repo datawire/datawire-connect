@@ -6,12 +6,11 @@
 
 
 
-### Note: Datawire Connect has been replaced by the Datawire [Microservices
-    Development Kit](https://github.com/datawire/mdk).
+## Note: Datawire Connect has been replaced by the Datawire [Microservices Development Kit](https://github.com/datawire/mdk).
 
 
-Datawire Connect
-----------------
+### Datawire Connect
+
 
 Datawire Connect is a simple, powerful way to resiliently connect
 microservices. Datawire Connect natively integrates into your existing
